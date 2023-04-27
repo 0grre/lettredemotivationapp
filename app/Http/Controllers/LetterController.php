@@ -21,7 +21,7 @@ class LetterController extends Controller
     public function store(Request $request)
     {
         $result = Http::withHeaders([
-            'Authorization' => 'Bearer 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',
+            'Authorization' => 'Bearer ' . env('OPENAI_API_KEY'),
             'Content-Type' => 'application/json',
         ])->post("https://api.openai.com/v1/chat/completions", [
             'model' => 'gpt-3.5-turbo',
