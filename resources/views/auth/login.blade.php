@@ -12,9 +12,10 @@
                             </h2>
                             <div class="py-3">
                             <span class="w-full inline-flex relative mt-3 z-0">
-                                  <button class="font-medium text-sm bg-white border border-slate-300 focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:z-10 hover:bg-slate-50 inline-flex items-center justify-center px-4 py-3 relative rounded-xl text-slate-700 w-full"
+                                  <a href="{{ route('auth.google') }}"
+                                      class="font-medium text-sm bg-white border border-slate-300 focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:z-10 hover:bg-slate-50 inline-flex items-center justify-center px-4 py-3 relative rounded-xl text-slate-700 w-full"
                                       type="button">
-                                      <a href="{{ route('auth.google') }}">Register with</a>
+                                      Connexion avec
                                       <span class="ml-3">
                                           <svg fill="none" height="24" viewBox="0 0 32 32" width="24"
                                                xmlns="http://www.w3.org/2000/svg">
@@ -30,7 +31,7 @@
                                               </path>
                                         </svg>
                                       </span>
-                                  </button>
+                                  </a>
                             </span>
                                 <div class="py-3 relative">
                                     <div class="flex items-center absolute inset-0"

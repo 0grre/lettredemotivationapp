@@ -13,8 +13,8 @@
                                 Sign up to AstroSaaS
                             </h2>
                             <div class="py-3">
-              <span class="w-full inline-flex relative mt-3 z-0"
-              ><button
+              <span class="w-full inline-flex relative mt-3 z-0">
+                  <a href="{{ route('auth.google') }}"
                       class="w-full focus:outline-none border py-3 bg-white border-slate-300 focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 focus:z-10 font-medium hover:bg-slate-50 inline-flex items-center justify-center px-4 relative rounded-xl text-slate-700 text-sm"
                       type="button"
                   ><span>Sign up with</span>
@@ -36,7 +36,7 @@
                               fill="#EB4335"></path>
                     </svg>
                   </span>
-                </button>
+                  </a>
               </span>
                                 <div class="py-3 relative">
                                     <div

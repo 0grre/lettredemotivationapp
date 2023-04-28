@@ -17,23 +17,22 @@
                             {{ __('Dashboard') }}
                         </x-nav-link>
                     </div>
-                    <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                        <x-nav-link :href="route('letter.edit')" :active="request()->routeIs('letter.edit')">
-                            {{ __('Lettre') }}
-                        </x-nav-link>
-                    </div>
-                @else
-                    <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                        <x-nav-link href="/#pricing">
-                            {{ __('Pricing') }}
-                        </x-nav-link>
-                    </div>
-                    <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                        <x-nav-link href="/faq">
-                            {{ __('Faq') }}
-                        </x-nav-link>
-                    </div>
                 @endauth
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <x-nav-link :href="route('letter.edit')" :active="request()->routeIs('letter.edit')">
+                        {{ __('Do it !') }}
+                    </x-nav-link>
+                </div>
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <x-nav-link href="/#pricing">
+                        {{ __('Tarifs') }}
+                    </x-nav-link>
+                </div>
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <x-nav-link :href="route('faq')">
+                        {{ __('FAQ') }}
+                    </x-nav-link>
+                </div>
             </div>
 
             <!-- Settings Dropdown -->
