@@ -17,15 +17,23 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-    Route::get('/', function () {
-        return view('home.welcome');
-    });
+Route::get('/', function () {
+    return view('home.welcome');
+});
 
-    Route::get('/faq', [PageController::class, 'faq'])->name('faq');
+Route::get('/faq', [PageController::class, 'faq'])->name('faq');
 
-    Route::get('/letter-generator', [LetterController::class, 'edit'])->name('letter.edit');
-    Route::post('/letter-generator', [LetterController::class, 'store'])->name('letter.generate');
+Route::get('letters/create-step-one', [LetterController::class, 'createStepOne'])->name('letters.create.step.one');
+Route::post('letters/create-step-one', [LetterController::class, 'postCreateStepOne'])->name('letters.create.step.one.post');
 
+Route::get('letters/create-step-two', [LetterController::class, 'createStepTwo'])->name('letters.create.step.two');
+Route::post('letters/create-step-two', [LetterController::class, 'postCreateStepTwo'])->name('letters.create.step.two.post');
+
+Route::get('letters/create-step-three', [LetterController::class, 'createStepThree'])->name('letters.create.step.three');
+Route::post('letters/create-step-three', [LetterController::class, 'postCreateStepThree'])->name('letters.create.step.three.post');
+
+Route::get('letters/create-step-four', [LetterController::class, 'createStepFour'])->name('letters.create.step.four');
+Route::post('letters/create-step-four', [LetterController::class, 'postCreateStepFour'])->name('letters.create.step.four.post');
 
 Route::middleware(['auth', 'verified'])->group(function () {
 

@@ -9,13 +9,13 @@
         </p>
     </header>
 
-    <form method="post" action="{{ route('letter.generate') }}" class="mt-6 space-y-6">
+    <form method="post" action="{{ route('letters.create.step.two.post') }}" class="mt-6 space-y-6">
         @csrf
         @method('post')
 
         <div>
-            <x-input-label for="activity-sector" :value="__('Quel est le secteur d\'activité du poste ?')"/>
-            <x-text-input id="activity-sector" name="job" type="text" placeholder="Quel est le secteur d'activité du poste ?" class="mt-1 block w-full"/>
+            <x-input-label for="sector" :value="__('Quel est le secteur d\'activité du poste ?')"/>
+            <x-text-input id="sector" name="sector" type="text" placeholder="Quel est le secteur d'activité du poste ?" class="mt-1 block w-full"/>
         </div>
 
         <div>

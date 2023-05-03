@@ -9,7 +9,7 @@
         </p>
     </header>
 
-    <form method="post" action="{{ route('letter.generate') }}" class="mt-6 space-y-6">
+    <form method="post" action="{{ route('letters.create.step.three.post') }}" class="mt-6 space-y-6">
         @csrf
         @method('post')
         <div>
@@ -18,8 +18,8 @@
         </div>
 
         <div>
-            <x-input-label for="company-city" :value="__('(optionnel) tu peux ajouter la ville de la société')"/>
-            <x-text-input id="company-city" name="company-city" type="text" placeholder="(Optionnel) tu peux ajouter la ville de la société" class="mt-1 block w-full"/>
+            <x-input-label for="localization" :value="__('(optionnel) tu peux ajouter la ville de la société')"/>
+            <x-text-input id="localization" name="localization" type="text" placeholder="(Optionnel) tu peux ajouter la ville de la société" class="mt-1 block w-full"/>
         </div>
 
         <div class="flex items-center gap-4">

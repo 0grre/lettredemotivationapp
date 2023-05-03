@@ -9,7 +9,7 @@
         </p>
     </header>
 
-    <form method="post" action="{{ route('letter.generate') }}" class="mt-6 space-y-6">
+    <form method="post" action="{{ route('letters.create.step.one.post') }}" class="mt-6 space-y-6">
         @csrf
         @method('post')
 

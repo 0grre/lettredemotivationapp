@@ -19,7 +19,7 @@
                     </div>
                 @endauth
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link :href="route('letter.edit')" :active="request()->routeIs('letter.edit')">
+                    <x-nav-link :href="route('letters.create.step.one')" :active="request()->routeIs('letter.edit')">
                         {{ __('Do it !') }}
                     </x-nav-link>
                 </div>

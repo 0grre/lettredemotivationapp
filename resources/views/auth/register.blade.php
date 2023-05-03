@@ -1,9 +1,9 @@
 <x-guest-layout>
     <section>
         <div
-            class="flex relative justify-center lg:px-0 max-h-full md:px-12 overflow-hidden">
+            class="flex justify-center min-h-full lg:px-0 md:px-12">
             <div
-                class="bg-white px-4 relative flex flex-1 flex-col h-screen lg:py-24 md:flex-none md:px-28 py-10 sm:justify-center xl:py-36 z-10">
+                class="bg-white px-4 relative flex flex-1 flex-col lg:py-24 md:flex-none md:px-28 py-10 sm:justify-center xl:py-24 z-10">
                 <div
                     class="w-full lg:h-full max-w-md md:max-w-sm md:px-0 md:w-96 mx-auto sm:px-4">
                     <div class="flex flex-col">
@@ -135,10 +135,6 @@
                                         class="text-accent-500 hover:text-accent-400 ml-3"
                                         href="{{ route('login') }}">Sign in</a
                                     >
-                                </p>
-                                <p class="font-medium text-xs leading-tight text-slate-500">
-                                    This site is protected by reCAPTCHA and the Google Privacy
-                                    Policy and Terms of Service apply.
                                 </p>
                             </div>
                         </div>

@@ -7,15 +7,12 @@
                     <div class="sm:mb-8 sm:flex sm:justify-center">
                         <div
                             class="relative rounded-full py-1 px-3 text-sm leading-6 text-gray-600 ring-1 ring-gray-900/10 hover:ring-gray-900/20">
-                            <a
-                                href="https://lexingtonthemes.com/free-templates/"
-                                class="font-semibold text-indigo-600"
-                            ><span class="absolute inset-0" aria-hidden="true"></span>
+                            <a href="https://lexingtonthemes.com/free-templates/"
+                                class="font-semibold text-indigo-600">
+                                <span class="absolute inset-0" aria-hidden="true"></span>
                                 <span class="block lg:inline">
-                More free & Premium templates <span aria-hidden="true"
-                                    >&rarr;</span
-                                    >
-              </span>
+                                        More free & Premium templates <span aria-hidden="true">&rarr;</span>
+                                </span>
                             </a>
                         </div>
                     </div>
@@ -32,12 +29,12 @@
                 <div class="flex justify-center gap-3 mt-10 flex-col sm:flex-row">
                     <a
                         class="items-center justify-center font-medium rounded-xl focus-visible:outline-black focus:outline-none inline-flex duration-200 text-black lg:w-auto px-6 py-3 text-center text-black/80 w-full border"
-                        href="https://github.com/michael-andreuzza/astrosaas">
+                        href="{{ route('register') }}">
                         S'inscrire
                     </a
                     >
                     <a class="items-center justify-center font-medium rounded-xl focus-visible:outline-black focus:outline-none inline-flex bg-black border-2 border-black duration-200 focus-visible:ring-black hover:bg-transparent hover:border-black hover:text-black lg:w-auto px-6 py-3 text-center text-white w-full"
-                       href="{{route('letter.edit')}}">
+                       href="{{route('letters.create.step.one')}}">
                         Commencer &nbsp; &rarr;
                     </a>
                 </div>
