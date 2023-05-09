@@ -22,6 +22,9 @@ Route::get('/', function () {
 });
 
 Route::get('/faq', [PageController::class, 'faq'])->name('faq');
+Route::get('/terms', [PageController::class, 'terms'])->name('terms');
+Route::get('/privacy', [PageController::class, 'privacy'])->name('privacy');
+
 
 Route::get('letters/create-step-one', [LetterController::class, 'createStepOne'])->name('letters.create.step.one');
 Route::post('letters/create-step-one', [LetterController::class, 'postCreateStepOne'])->name('letters.create.step.one.post');
@@ -34,6 +37,8 @@ Route::post('letters/create-step-three', [LetterController::class, 'postCreateSt
 
 Route::get('letters/create-step-four', [LetterController::class, 'createStepFour'])->name('letters.create.step.four');
 Route::post('letters/create-step-four', [LetterController::class, 'postCreateStepFour'])->name('letters.create.step.four.post');
+
+
 
 Route::middleware(['auth', 'verified'])->group(function () {
 

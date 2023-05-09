@@ -19,8 +19,8 @@
         </div>
 
         <div>
-            <x-input-label for="experience" :value="__('Tu as déjà bossé ? Combien de temps ?')"/>
-            <select name="experience" id="experience" class="mt-1 block w-full focus:outline-none border py-3 appearance-none bg-slate-50 border-slate-200 focus:bg-white focus:border-accent-500 focus:ring-accent-500 placeholder-slate-400 px-3 rounded-xl sm:text-sm text-accent-500">
+            <x-input-label for="duration" :value="__('Tu as déjà bossé ? Combien de temps ?')"/>
+            <select name="duration" id="duration" class="mt-1 block w-full focus:outline-none border py-3 appearance-none bg-slate-50 border-slate-200 focus:bg-white focus:border-accent-500 focus:ring-accent-500 placeholder-slate-400 px-3 rounded-xl sm:text-sm text-accent-500">
                 <option disabled selected>On a besoin de connaître tes années d'expériences</option>
                 <option value="0">C'est ma première fois</option>
                 <option value="1">1 an ou moins</option>

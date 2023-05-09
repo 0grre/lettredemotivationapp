@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\Job\UpdateProfilRequest;
+use App\Models\Job;
+use App\Models\User;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Foundation\Application;
 use Illuminate\Http\RedirectResponse;
@@ -16,141 +19,137 @@ class LetterController extends Controller
      */
     public function createStepOne(): View
     {
-        return view('first-letter.base-form',[
+        return view('first-letter.base-form', [
             'user' => "",
             'step' => 'one'
         ]);
     }
 
     /**
-     * @param Request $request
+     * @param UpdateProfilRequest $request
      * @return RedirectResponse
      */
-    public function postCreateStepOne(Request $request): RedirectResponse
+    public function postCreateStepOne(UpdateProfilRequest $request): RedirectResponse
     {
-//        if(empty($request->session()->get('letter'))){
-//            $letter = new Letter();
-//            $letter->fill($validatedData);
-        $profil[] = ["job" => $request->job, "experience" => $request->experience];
-            $request->session()->put('profil', $profil);
-//        }else{
-//            $letter = $request->session()->get('letter');
-//            $letter->fill($validatedData);
-//            $request->session()->put('letter', $letter);
-//        }
+        $request->validated();
+
+        if (empty($request->session()->get('profil'))) {
+            $profil = new Job();
+        } else {
+            $profil = $request->session()->get('profil');
+        }
+        $profil->fill($request->all());
+        $request->session()->put('profil', $profil);
 
         return redirect()->route('letters.create.step.two');
     }
 
     /**
-     * @param Request $request
      * @return View
      */
-    public function createStepTwo(Request $request): View
+    public function createStepTwo(): View
     {
-        $profil = $request->session()->get('profil');
-
-        return view('first-letter.base-form',[
+        return view('first-letter.base-form', [
             'user' => "",
             'step' => 'two'
         ]);
     }
 
     /**
-     * @param Request $request
+     * @param UpdateProfilRequest $request
      * @return RedirectResponse
      */
-    public function postCreateStepTwo(Request $request): RedirectResponse
+    public function postCreateStepTwo(UpdateProfilRequest $request): RedirectResponse
     {
+        $request->validated();
+
         $profil = $request->session()->get('profil');
-
-        $profil[] = ["sector" => $request->sector, "skills" => $request->skills];
-
+        $profil->fill($request->all());
         $request->session()->put('profil', $profil);
 
         return redirect()->route('letters.create.step.three');
     }
 
     /**
-     * @param Request $request
      * @return View
      */
-    public function createStepThree(Request $request): View
+    public function createStepThree(): View
     {
-        $profil = $request->session()->get('profil');
-
-        return view('first-letter.base-form',[
-        'user' => "",
-        'step' => 'three'
-    ]);
+        return view('first-letter.base-form', [
+            'user' => "",
+            'step' => 'three'
+        ]);
     }
 
     /**
-     * @param Request $request
+     * @param UpdateProfilRequest $request
      * @return RedirectResponse
      */
-    public function postCreateStepThree(Request $request): RedirectResponse
+    public function postCreateStepThree(UpdateProfilRequest $request): RedirectResponse
     {
+        $request->validated();
 
         $profil = $request->session()->get('profil');
-        $profil[] = ["company" => $request->company, "localization" => $request->localization];
-
+        $profil->fill($request->all());
         $request->session()->put('profil', $profil);
 
         return redirect()->route('letters.create.step.four');
     }
 
     /**
-     * @param Request $request
      * @return View
      */
-    public function createStepFour(Request $request): View
+    public function createStepFour(): View
     {
-        $profil = $request->session()->get('profil');
-
-        return view('first-letter.base-form',[
+        return view('first-letter.base-form', [
             'user' => "",
             'step' => 'four'
         ]);
     }
 
     /**
-     * @param Request $request
-     * @return RedirectResponse
+     * @param UpdateProfilRequest $request
+     * @return View
      */
-    public function postCreateStepFour(Request $request): RedirectResponse
+    public function postCreateStepFour(UpdateProfilRequest $request): View
     {
+        $request->validated();
+
         $profil = $request->session()->get('profil');
-//        $letter->save();
+        if (empty($request->session()->get('user'))) {
+            $user = new User();
+        } else {
+            $user = $request->session()->get('user');
+        }
+        $user->fill(['name' => $request->firstname . " " . $request->lastname]);
+        $request->session()->put('user', $user);
 
-//        $request->session()->forget('letter');
+//        $request->session()->forget('profil');
 
-        dd($profil);
+        $content = "Génère moi une lettre de motivation de 300 mots maximum à partir des informations suivantes:
+             - Prénom, Nom: " . $user->name .
+            "- Poste: " . $profil->job .
+            "- Secteur d’activité: " . $profil->sector .
+            "- Compétences: " . $profil->skills .
+            "- Entreprise: " . $profil->company .
+            "- Localisation: " . $profil->localization .
+            "- Expérience: " . $profil->duration . " ans";
 
-        return redirect()->route('letters.generate');
-    }
+//        $result = Http::timeout(60)->withHeaders([
+//            'Authorization' => 'Bearer ' . env('OPENAI_API_KEY'),
+//            'Content-Type' => 'application/json',
+//        ])->post("https://api.openai.com/v1/chat/completions", [
+//            'model' => 'gpt-3.5-turbo',
+//            'messages' => [
+//                ['role' => 'user', 'content' => $content],
+//            ],
+//            "temperature" => 1
+//        ]);
 
-
-
-    /**
-     * @param Request $request
-     * @return \Illuminate\Contracts\Foundation\Application|Factory|\Illuminate\Contracts\View\View|Application
-     */
-    public function store(Request $request)
-    {
-        $result = Http::withHeaders([
-            'Authorization' => 'Bearer ' . env('OPENAI_API_KEY'),
-            'Content-Type' => 'application/json',
-        ])->post("https://api.openai.com/v1/chat/completions", [
-            'model' => 'gpt-3.5-turbo',
-            'messages' => [
-                ['role' => 'user', 'content' => $request->prompt],
-            ],
+        return view('letters', [
+//            'text' => json_decode($result->body())->choices[0]->message->content,
+            'text' => "Objet : Candidature pour le poste de développeur web chez Wokine à Lille\n\nMadame, Monsieur,\n\nJe suis actuellement à la recherche d'un poste de développeur web dans le secteur de l'informatique et je suis très intéressé par l'opportunité de travailler chez Wokine à Lille.\n\nJe suis un développeur web expérimenté avec plus de trois ans d'expérience dans le domaine. Je suis passionné par la technologie et je suis toujours à l'affût des tendances et des nouvelles méthodes pour améliorer mes compétences. En tant que force de proposition, je suis convaincu que mes compétences et mes connaissances techniques me permettront de contribuer de manière significative au développement de votre entreprise.\n\nJe suis également réputé pour mon écoute, ma capacité à travailler en équipe et ma volonté de toujours apprendre de nouvelles choses. Je suis convaincu que ces qualités me permettront de m'intégrer rapidement dans votre entreprise et de devenir un membre précieux de votre équipe.\n\nEnfin, je suis courageux et je n'ai pas peur de relever des défis. Je suis convaincu que la création d'un site web innovant et performant nécessite de la créativité, de la persévérance et de la détermination. Je suis donc prêt à travailler dur et à relever tous les défis pour vous aider à atteindre vos objectifs.\n\nJe suis convaincu que mon profil correspond à ce que vous recherchez et je suis impatient de discuter avec vous de la possibilité de rejoindre votre entreprise. Si vous souhaitez en savoir plus sur mes compétences et mes réalisations, n'hésitez pas à me contacter pour convenir d'un entretien.\n\nJe vous remercie par avance pour votre considération et je suis impatient de vous rencontrer bientôt.\n\nCordialement,\n\n[Prénom Nom]",
         ]);
-
-        return view('letter.edit', [
-            'text' => json_decode($result->body())->choices[0]->message->content,
-        ]);
-//        return Redirect::route('dashboard')->with('status', 'profile-updated');
     }
 }
+

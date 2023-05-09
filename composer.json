@@ -6,12 +6,15 @@
     "license": "MIT",
     "require": {
         "php": "^8.1",
+        "blade-ui-kit/blade-icons": "^1.5",
+        "blade-ui-kit/blade-ui-kit": "^0.4.0",
         "guzzlehttp/guzzle": "^7.5",
         "haruncpi/laravel-user-activity": "^1.0",
         "laravel/framework": "^v10.8.0",
         "laravel/sanctum": "^3.2",
         "laravel/socialite": "^5.6",
         "laravel/tinker": "^2.8",
+        "milwad/laravel-validate": "^1.7",
         "openai-php/client": "^0.4.2"
     },
     "require-dev": {
