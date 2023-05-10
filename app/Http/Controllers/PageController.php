@@ -2,11 +2,28 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Models\Conversation;
+use App\Models\User;
+use Illuminate\Http\Client\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\View\View;
 
 class PageController extends Controller
 {
+    /**
+     * @return View
+     */
+    public function dashboard(): View
+    {
+//        if($request->session()->get('letter')){
+//            self::saveSessionLetter($request, Auth::user());
+//        }
+
+        return view('dashboard', [
+            "letters" => Auth::user()->letters
+        ]);
+    }
+
     /**
      * @return View
      */
@@ -29,5 +46,22 @@ class PageController extends Controller
     public function privacy(): View
     {
         return view('privacy');
+    }
+
+    /**
+     * @param Request $request
+     * @param User $user
+     * @return void
+     */
+    private static function saveSessionLetter(Request $request, User $user){
+
+        $letter = $request->session()->get('letter');
+        $user->letters()->save($letter);
+        $conversation = Conversation::create([
+            "user_id" => $user->id,
+            "letter_id" => $letter->id
+        ]);
+        $message = $request->session()->get('message');
+        $conversation->messages()->save($message);
     }
 }

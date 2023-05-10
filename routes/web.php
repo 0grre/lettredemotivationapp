@@ -38,13 +38,15 @@ Route::post('letters/create-step-three', [LetterController::class, 'postCreateSt
 Route::get('letters/create-step-four', [LetterController::class, 'createStepFour'])->name('letters.create.step.four');
 Route::post('letters/create-step-four', [LetterController::class, 'postCreateStepFour'])->name('letters.create.step.four.post');
 
-
+Route::get('letters/created', [LetterController::class, 'letterIsCreated'])->name('letter.is.created');
 
 Route::middleware(['auth', 'verified'])->group(function () {
 
-    Route::get('/dashboard', function () {
-        return view('dashboard');
-    })->name('dashboard');
+    Route::get('/dashboard', [PageController::class, 'dashboard'])->name('dashboard');
+
+    Route::get('/letters', [LetterController::class, 'index']);
+    Route::get('/letters/{letter}', [LetterController::class, 'show']);
+    Route::patch('/letters/{letter}', [LetterController::class, 'update']);
 
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
