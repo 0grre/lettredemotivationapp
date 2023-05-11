@@ -15,10 +15,6 @@ class PageController extends Controller
      */
     public function dashboard(): View
     {
-//        if($request->session()->get('letter')){
-//            self::saveSessionLetter($request, Auth::user());
-//        }
-
         return view('dashboard', [
             "letters" => Auth::user()->letters
         ]);

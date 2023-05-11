@@ -2,7 +2,11 @@
     <section class="bg-white dark:bg-gray-900">
         <div class="container px-6 py-10 mx-auto">
             <h1 class="text-2xl font-semibold text-gray-800 lg:text-3xl dark:text-white">Mes lettres de motivation</h1>
-
+            <a href="{{'letters'}}">
+                <x-primary-button>
+                    Créer une nouvelle lettre
+                </x-primary-button>
+            </a>
             <div class="grid grid-cols-1 gap-8 mt-8 md:mt-16 md:grid-cols-2">
                 @foreach($letters as $letter)
                     <div class="lg:flex">
@@ -11,7 +15,7 @@
                              alt="">
 
                         <div class="flex flex-col justify-between py-6 lg:mx-6">
-                            <a href="{{'letter/' . $letter->id}}"
+                            <a href="{{'letters/' . $letter->id}}"
                                class="text-xl font-semibold text-gray-800 hover:underline dark:text-white ">
                                 {{ $letter->title }}
                             </a>

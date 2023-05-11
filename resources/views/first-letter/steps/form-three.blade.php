@@ -14,12 +14,14 @@
         @method('post')
         <div>
             <x-input-label for="company" :value="__('Dis nous le nom de la boîte que tu veux rejoindre')"/>
-            <x-text-input id="company" name="company" type="text" placeholder="Dis nous le nom de la boîte que tu veux rejoindre" class="mt-1 block w-full"/>
+            <x-text-input required id="company" name="company" type="text" placeholder="Dis nous le nom de la boîte que tu veux rejoindre" class="mt-1 block w-full" autofocus/>
+            <x-error field="company" class="text-sm text-red-600 dark:text-red-400 space-y-1 mt-2" />
         </div>
 
         <div>
-            <x-input-label for="localization" :value="__('(optionnel) tu peux ajouter la ville de la société')"/>
-            <x-text-input id="localization" name="localization" type="text" placeholder="(Optionnel) tu peux ajouter la ville de la société" class="mt-1 block w-full"/>
+            <x-input-label for="localization" :value="__('Tu peux ajouter la ville de la société')"/>
+            <x-text-input required id="localization" name="localization" type="text" placeholder="Tu peux ajouter la ville de la société" class="mt-1 block w-full"/>
+            <x-error field="localization" class="text-sm text-red-600 dark:text-red-400 space-y-1 mt-2" />
         </div>
 
         <div class="flex items-center gap-4">

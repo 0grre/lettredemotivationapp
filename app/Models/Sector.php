@@ -14,5 +14,5 @@ class Sector extends Model
         'libelle_sect_activite',
     ];
 
-    protected $table = 'sect_activite';
+    protected $table = 'sectors';
 }

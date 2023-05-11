@@ -15,22 +15,15 @@
 
         <div>
             <x-input-label for="firstname" :value="__('Ton prénom')"/>
-            <x-text-input id="firstname" name="firstname" type="text" placeholder="Ton prénom" class="mt-1 block w-full"/>
+            <x-text-input required id="firstname" name="firstname" type="text" placeholder="Ton prénom" class="mt-1 block w-full" autofocus/>
+            <x-error field="firstname" class="text-sm text-red-600 dark:text-red-400 space-y-1 mt-2" />
         </div>
 
         <div>
             <x-input-label for="lastname" :value="__('Ton nom de famille')"/>
-            <x-text-input id="lastname" name="lastname" type="text" placeholder="Ton nom de famille" class="mt-1 block w-full"/>
+            <x-text-input required id="lastname" name="lastname" type="text" placeholder="Ton nom de famille" class="mt-1 block w-full"/>
+            <x-error field="lastname" class="text-sm text-red-600 dark:text-red-400 space-y-1 mt-2" />
         </div>
-
-        <div>
-            <x-input-label for="age" :value="__('(Optionnel) tu peux préciser ton age mais ce n\'est pas obligatoire')"/>
-            <x-text-input id="age" name="age" type="text" placeholder="(Optionnel) tu peux préciser ton age mais ce n'est pas obligatoire" class="mt-1 block w-full"/>
-        </div>
-
-        <x-input-label for="address" :value="__('(Optionnel) tu peux ajouter ton adresse postale')"/>
-        <x-text-input id="address" name="address" type="text" placeholder="(Optionnel) tu peux également ajouter ton adresse postale" class="mt-1 block w-full"/>
-
 
         <div class="flex items-center gap-4">
             <x-primary-button>{{ __('Tout est prêt, Let\'s go !') }}</x-primary-button>

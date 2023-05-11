@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
+.notSelectable {
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;

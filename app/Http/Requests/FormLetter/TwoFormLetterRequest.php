@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Requests\Job;
+namespace App\Http\Requests\FormLetter;
 
 use Illuminate\Contracts\Validation\ValidationRule;
 use Illuminate\Foundation\Http\FormRequest;
 
-class UpdateProfilRequest extends FormRequest
+class TwoFormLetterRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -23,12 +23,8 @@ class UpdateProfilRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'job' => 'nullable|string|max:55',
-            'duration' => 'nullable|integer|max:4',
-            'skills' => 'nullable|string',
-            'sector' => 'nullable|string',
-            'company' => 'nullable|string|max:55',
-            'localization' => 'nullable|string|max:55',
+            'skills' => 'string',
+            'sector' => 'string',
         ];
     }
 }

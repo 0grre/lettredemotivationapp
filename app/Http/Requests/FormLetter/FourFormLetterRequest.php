@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Requests\Job;
+namespace App\Http\Requests\FormLetter;
 
 use Illuminate\Contracts\Validation\ValidationRule;
 use Illuminate\Foundation\Http\FormRequest;
 
-class StoreProfilRequest extends FormRequest
+class FourFormLetterRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -23,7 +23,8 @@ class StoreProfilRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'firstname' => 'string|max:50',
+            'lastname' => 'string|max:50',
         ];
     }
 }
