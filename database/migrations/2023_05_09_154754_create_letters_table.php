@@ -13,12 +13,21 @@ return new class extends Migration
     {
         Schema::create('letters', function (Blueprint $table) {
             $table->id();
-            $table->string('title', 50);
+            $table->string('title', 250);
             $table->text('text');
+            $table->string('company', 50);
+            $table->string('Localization', 50);
+            $table->integer('experience');
+            $table->json('skills');
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')
                 ->references('id')
                 ->on('users')
+                ->onDelete('cascade');
+            $table->unsignedBigInteger('appellation_id');
+            $table->foreign('appellation_id')
+                ->references('id')
+                ->on('appellations')
                 ->onDelete('cascade');
             $table->timestamps();
         });

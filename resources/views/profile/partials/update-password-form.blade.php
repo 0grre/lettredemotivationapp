@@ -1,48 +1,39 @@
 <section>
-    <header>
-        <h2 class="text-lg font-medium text-gray-900 dark:text-gray-100">
-            {{ __('Update Password') }}
-        </h2>
-
-        <p class="mt-1 text-sm text-gray-600 dark:text-gray-400">
-            {{ __('Ensure your account is using a long, random password to stay secure.') }}
-        </p>
-    </header>
-
-    <form method="post" action="{{ route('password.update') }}" class="mt-6 space-y-6">
+    <h2 class="mb-4 text-xl font-bold text-gray-900 dark:text-white">Nouveau mot de passe</h2>
+    <form method="post" action="{{ route('password.update') }}">
         @csrf
         @method('put')
-
-        <div>
-            <x-input-label for="current_password" :value="__('Current Password')" />
-            <x-text-input id="current_password" name="current_password" type="password" class="mt-1 block w-full" autocomplete="current-password" />
-            <x-input-error :messages="$errors->updatePassword->get('current_password')" class="mt-2" />
+        <div class="grid gap-4 mb-4 sm:grid-cols-2 sm:gap-6 sm:mb-5">
+            <div class="sm:col-span-2">
+                <label for="current_password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Mot
+                    de passe actuel</label>
+                <input id="current_password" name="current_password" type="password"
+                       class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                       placeholder="Mot de passe actuel" required>
+                <x-error field="current_password" class="mt-2 text-sm text-red-600 dark:text-red-500"/>
+            </div>
+            <div class="sm:col-span-2">
+                <label for="password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Product
+                    Name</label>
+                <input id="password" name="password" type="password"
+                       class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                       placeholder="Nouveau mot de passe" required>
+                <x-error field="password" class="mt-2 text-sm text-red-600 dark:text-red-500"/>
+            </div>
+            <div class="sm:col-span-2">
+                <label for="password_confirmation" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Confirmation
+                    du mot de passe</label>
+                <input id="password_confirmation" name="password_confirmation" type="password"
+                       class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                       placeholder="Confirmation du mot de passe" required>
+                <x-error field="password_confirmation" class="mt-2 text-sm text-red-600 dark:text-red-500"/>
+            </div>
         </div>
-
-        <div>
-            <x-input-label for="password" :value="__('New Password')" />
-            <x-text-input id="password" name="password" type="password" class="mt-1 block w-full" autocomplete="new-password" />
-            <x-input-error :messages="$errors->updatePassword->get('password')" class="mt-2" />
-        </div>
-
-        <div>
-            <x-input-label for="password_confirmation" :value="__('Confirm Password')" />
-            <x-text-input id="password_confirmation" name="password_confirmation" type="password" class="mt-1 block w-full" autocomplete="new-password" />
-            <x-input-error :messages="$errors->updatePassword->get('password_confirmation')" class="mt-2" />
-        </div>
-
-        <div class="flex items-center gap-4">
-            <x-primary-button>{{ __('Save') }}</x-primary-button>
-
-            @if (session('status') === 'password-updated')
-                <p
-                    x-data="{ show: true }"
-                    x-show="show"
-                    x-transition
-                    x-init="setTimeout(() => show = false, 2000)"
-                    class="text-sm text-gray-600 dark:text-gray-400"
-                >{{ __('Saved.') }}</p>
-            @endif
+        <div class="flex items-center space-x-4">
+            <button type="submit"
+                    class="text-white bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">
+                Enregistrer
+            </button>
         </div>
     </form>
 </section>

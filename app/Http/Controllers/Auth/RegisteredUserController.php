@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
-use App\Models\Conversation;
+use App\Models\Letter;
 use App\Models\User;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Auth\Events\Registered;
@@ -45,17 +45,8 @@ class RegisteredUserController extends Controller
         ]);
 
         if ($request->session()->get('letter')) {
-            $letter = $request->session()->get('letter');
-            $user->letters()->save($letter);
-            $conversation = Conversation::create([
-                "user_id" => $user->id,
-                "letter_id" => $letter->id
-            ]);
-            $message = $request->session()->get('message');
-            $conversation->messages()->save($message);
-
-            $request->session()->forget('letter');
-            $request->session()->forget('message');
+            Letter::saveLetter($request, $user);
+            $request->session()->forget('user');
         };
 
         event(new Registered($user));

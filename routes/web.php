@@ -3,6 +3,7 @@
 use App\Http\Controllers\LetterController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\ProfileController;
+use App\Models\Appellation;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,13 +20,18 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('home.welcome');
+})->name('home');
+
+Route::get('search', function() {
+    $query = ''; // <-- Change the query for testing.
+
+    return Appellation::search($query)->get();
 });
+
 
 Route::get('/faq', [PageController::class, 'faq'])->name('faq');
 Route::get('/terms', [PageController::class, 'terms'])->name('terms');
 Route::get('/privacy', [PageController::class, 'privacy'])->name('privacy');
-
-Route::get('/autocomplete-search', [\App\Http\Controllers\SectorController::class, 'autocompleteSearch'])->name('autocomplete-search');
 
 Route::get('/letters/create-step-one', [LetterController::class, 'createStepOne'])->name('letters.create.step.one');
 Route::post('/letters/create-step-one', [LetterController::class, 'postCreateStepOne'])->name('letters.create.step.one.post');
@@ -45,15 +51,25 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
     Route::get('/dashboard', [PageController::class, 'dashboard'])->name('dashboard');
 
-    Route::get('/letters', [LetterController::class, 'index']);
-    Route::get('/letters/{letter}', [LetterController::class, 'show']);
-    Route::get('/letters/download/{letter}', [LetterController::class, 'download']);
+    Route::get('/letters', [LetterController::class, 'index'])->name('letters.index');
+    Route::get('/letters/{letter}', [LetterController::class, 'show'])->name('letters.show');
+    Route::get('/letters/download/{letter}', [LetterController::class, 'download'])->name('letters.download');
+    Route::get('/create/letters', [LetterController::class, 'create'])->name('letters.create');
+    Route::post('/letters', [LetterController::class, 'store'])->name('letters.create.post');
     Route::patch('/letters/{letter}', [LetterController::class, 'update']);
 
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
+});
+
+Route::get('/test', function (){
+    return view('letter.show', [
+
+        'letter' => Auth::user()->letters->last()
+
+    ]);
 });
 
 require __DIR__ . '/auth.php';

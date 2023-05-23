@@ -1,20 +1,22 @@
 <x-guest-layout>
     <!-- Session Status -->
     <x-auth-session-status class="mb-4" :status="session('status')"/>
-    <section>
-        <div class="flex relative justify-center lg:px-0 max-h-full md:px-12 overflow-hidden">
-            <div class="bg-white px-4 relative flex flex-1 flex-col h-screen lg:py-24 md:flex-none md:px-28 py-10 sm:justify-center xl:py-36 z-10">
-                <div class="w-full lg:h-full max-w-md md:max-w-sm md:px-0 md:w-96 mx-auto sm:px-4">
-                    <div class="flex flex-col">
-                        <div>
-                            <h2 class="font-medium leading-tight text-black text-xl font-display">
-                                Log in to AstroSaaS
-                            </h2>
-                            <div class="py-3">
+    <section class="bg-gray-50 dark:bg-gray-900">
+        <div class="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
+            <a href="/" class="flex items-center mb-6 text-2xl font-semibold text-gray-900 dark:text-white">
+                <x-application-logo class="w-8 h-8 mr-2"/>
+                Super Lettre de Motivation
+            </a>
+            <div class="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
+                <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
+                    <h1 class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
+                        Connectez vous avec votre compte
+                    </h1>
+                    <div class="py-3">
                             <span class="w-full inline-flex relative mt-3 z-0">
                                   <a href="{{ route('auth.google') }}"
-                                      class="font-medium text-sm bg-white border border-slate-300 focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:z-10 hover:bg-slate-50 inline-flex items-center justify-center px-4 py-3 relative rounded-xl text-slate-700 w-full"
-                                      type="button">
+                                     class="font-medium text-sm bg-white border border-slate-300 focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:z-10 hover:bg-slate-50 inline-flex items-center justify-center px-4 py-3 relative rounded-xl text-slate-700 w-full"
+                                     type="button">
                                       Connexion avec
                                       <span class="ml-3">
                                           <svg fill="none" height="24" viewBox="0 0 32 32" width="24"
@@ -33,80 +35,43 @@
                                       </span>
                                   </a>
                             </span>
-                                <div class="py-3 relative">
-                                    <div class="flex items-center absolute inset-0"
-                                         aria-hidden="true">
-                                        <div class="w-full border-t border-slate-300"></div>
-                                    </div>
-                                    <div class="flex relative justify-center">
-                                        <span class="text-sm bg-white px-2 text-slate-500">Or continue with</span>
-                                    </div>
-                                </div>
+                        <div class="py-3 relative">
+                            <div class="flex items-center absolute inset-0"
+                                 aria-hidden="true">
+                                <div class="w-full border-t border-slate-300"></div>
+                            </div>
+                            <div class="flex relative justify-center">
+                                <span class="text-sm bg-white px-2 text-slate-500">Ou continuez avec</span>
                             </div>
                         </div>
                     </div>
-                    <form method="POST" action="{{ route('login') }}">
+                    <form class="space-y-4 md:space-y-6" method="POST" action="{{ route('login') }}">
                         @csrf
-                        <input name="hidden" autocomplete="false" style="display:none"/>
-                        <input name="_redirect" type="hidden" value="#"/>
-                        <div
-                            class="space-y-6">
-                            <div>
-                                <x-input-label for="email" :value="__('Email')"/>
-
-                                <x-text-input id="email" class="block mt-1 w-full" type="email" name="email"
-                                              :value="old('email')"
-                                              placeholder="Type here..."
-                                              required
-                                              autofocus autocomplete="username"/>
-                                <x-input-error :messages="$errors->get('email')" class="mt-2"/>
-                            </div>
-                            <div class="col-span-full">
-                                <x-input-label for="password" :value="__('Password')"/>
-
-                                <x-text-input id="password" type="password" name="password"
-                                              placeholder="Type password here..."
-                                              required
-                                              autocomplete="current-password"/>
-
-                                <x-input-error :messages="$errors->get('password')" class="mt-2"/>
-                            </div>
-                            <div class="flex items-center justify-between">
-                                <div class="flex items-center">
-                                    <input
-                                        class="text-accent-500 focus:ring-accent-500 border-accent-500 h-4 rounded w-4"
-                                        type="checkbox"
-                                        id="remember-me"
-                                        name="remember-me"
-                                    />
-                                    <label
-                                        class="font-medium text-sm block leading-tight ml-2 text-black"
-                                        for="remember-me">Remember me</label
-                                    >
-                                </div>
-                                <div class="text-sm">
-                                    <a
-                                        class="font-medium hover:text-accent-500 text-accent-500"
-                                        href="{{ route('password.request') }}">Forgot your password?</a
-                                    >
-                                </div>
-                            </div>
-                            <div class="col-span-full">
-                                <button
-                                    class="items-center justify-center rounded-xl focus-visible:outline-black focus:outline-none inline-flex bg-black border-2 border-black duration-200 focus-visible:ring-black hover:bg-transparent hover:border-black hover:text-black px-6 py-3 text-center text-white w-full"
-                                    type="submit">Submit your request
-                                </button
-                                >
-                            </div>
-                            <div>
-                                <p class="font-medium text-sm leading-tight text-black">
-                                    Not a member? <a
-                                        class="text-accent-500 hover:text-accent-400 ml-3"
-                                        href="{{ route('register') }}">Sign up now</a
-                                    >
-                                </p>
-                            </div>
+                        <div>
+                            <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Ton email</label>
+                            <input autofocus type="email" name="email" id="email" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="name@company.com" required="">
+                            <x-error field="email" class="text-sm text-red-600 dark:text-red-400 space-y-1 mt-2" />
                         </div>
+                        <div>
+                            <label for="password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Ton mot de passe</label>
+                            <input type="password" name="password" id="password" placeholder="••••••••" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required="">
+                            <x-error field="password" class="text-sm text-red-600 dark:text-red-400 space-y-1 mt-2" />
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-start">
+                                <div class="flex items-center h-5">
+                                    <input id="remember" aria-describedby="remember" type="checkbox" class="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-primary-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-primary-600 dark:ring-offset-gray-800"">
+                                </div>
+                                <div class="ml-3 text-sm">
+                                    <label for="remember" class="text-gray-500 dark:text-gray-300">Se souvenir de moi</label>
+                                </div>
+                            </div>
+                            <a href="{{ route('password.request') }}" class="text-sm font-medium text-primary-600 hover:underline dark:text-primary-500">Mot de passe oublié ?</a>
+                        </div>
+                        <button type="submit" class="w-full text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">Connexion</button>
+                        <p class="text-sm font-light text-gray-500 dark:text-gray-400">
+                            Pas encore de compte ? <a href="{{ route('register') }}" class="font-medium text-primary-600 hover:underline dark:text-primary-500">S'enregistrer</a>
+                        </p>
                     </form>
                 </div>
             </div>

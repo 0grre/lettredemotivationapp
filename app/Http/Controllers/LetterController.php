@@ -6,14 +6,17 @@ use App\Http\Requests\FormLetter\FourFormLetterRequest;
 use App\Http\Requests\FormLetter\OneFormLetterRequest;
 use App\Http\Requests\FormLetter\ThreeFormLetterRequest;
 use App\Http\Requests\FormLetter\TwoFormLetterRequest;
-use App\Models\Job;
+use App\Http\Requests\Letter\StoreLetterRequest;
+use App\Models\Appellation;
+use App\Models\Conversation;
 use App\Models\Letter;
 use App\Models\Message;
-use App\Models\Sector;
 use App\Models\User;
 use Dompdf\Dompdf;
+use GuzzleHttp\Client;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\View\View;
 use OpenAI;
 
@@ -25,12 +28,14 @@ class LetterController extends Controller
     {
         $this->client = OpenAI::client(env('OPENAI_API_KEY'));;
     }
+
     /**
      * @return View
      */
     public function createStepOne(): View
     {
         return view('first-letter.base-form', [
+            'appellations' => Appellation::all(),
             'step' => 'one'
         ]);
     }
@@ -43,15 +48,44 @@ class LetterController extends Controller
     {
         $request->validated();
 
-        if (empty($request->session()->get('profil'))) {
-            $profil = new Job();
-        } else {
-            $profil = $request->session()->get('profil');
-        }
-        $profil->fill($request->all());
-        $request->session()->put('profil', $profil);
+        $appellation = Appellation::where('libelle', $request->appellation)->first();
 
-        return redirect()->route('letters.create.step.two');
+        $client = new Client();
+        $headers = [
+            'Content-Type' => 'application/x-www-form-urlencoded',
+        ];
+        $options = [
+            'form_params' => [
+                'grant_type' => 'client_credentials',
+                'client_id' => env('POLE_EMPLOI_CLIENT_ID'),
+                'client_secret' => env('POLE_EMPLOI_CLIENT_SECRET'),
+                'scope' => env('POLE_EMPLOI_SCOPE'),
+            ]];
+        $guzzle_request = new \GuzzleHttp\Psr7\Request('POST', 'https://entreprise.pole-emploi.fr/connexion/oauth2/access_token?realm=/partenaire', $headers);
+        $res = $client->sendAsync($guzzle_request, $options)->wait();
+        $token = json_decode($res->getBody())->access_token;
+
+        $headers = [
+            'Authorization' => 'Bearer ' . $token
+        ];
+        $guzzle_request = new \GuzzleHttp\Psr7\Request('GET', 'https://api.pole-emploi.io/partenaire/rome-metiers/v1/metiers/appellation/' . $appellation->code, $headers);
+        $res = $client->sendAsync($guzzle_request)->wait();
+        $appellation_request = json_decode($res->getBody());
+
+        if (empty($request->session()->get('letter'))) {
+            $letter = new Letter();
+        } else {
+            $letter = $request->session()->get('letter');
+        }
+
+        $letter->fill([
+            "experience" => $request->experience,
+            "skills" => Appellation::getSkills($appellation_request->competencesCles),
+            "appellation_id" => $appellation->id
+        ]);
+        $request->session()->put('letter', $letter);
+
+        return redirect()->route('letters.create.step.three');
     }
 
     /**
@@ -60,7 +94,6 @@ class LetterController extends Controller
     public function createStepTwo(): View
     {
         return view('first-letter.base-form', [
-            'sectors' => Sector::all(),
             'step' => 'two'
         ]);
     }
@@ -98,9 +131,9 @@ class LetterController extends Controller
     {
         $request->validated();
 
-        $profil = $request->session()->get('profil');
-        $profil->fill($request->all());
-        $request->session()->put('profil', $profil);
+        $letter = $request->session()->get('letter');
+        $letter->fill($request->all());
+        $request->session()->put('letter', $letter);
 
         return redirect()->route('letters.create.step.four');
     }
@@ -123,7 +156,7 @@ class LetterController extends Controller
     {
         $request->validated();
 
-        $profil = $request->session()->get('profil');
+        $letter = $request->session()->get('letter');
         if (empty($request->session()->get('user'))) {
             $user = new User();
         } else {
@@ -132,38 +165,14 @@ class LetterController extends Controller
         $user->fill(['name' => $request->firstname . " " . $request->lastname]);
         $request->session()->put('user', $user);
 
-        $content = "Génère moi une lettre de motivation de 300 mots maximum à partir des informations suivantes:
-             - Prénom, Nom: " . $user->name .
-            "- Poste: " . $profil->job .
-            "- Secteur d’activité: " . $profil->sector .
-            "- Compétences: " . $profil->skills .
-            "- Entreprise: " . $profil->company .
-            "- Localisation: " . $profil->localization .
-            "- Expérience: " . $profil->duration . " ans";
-
-        $response = $this->client->chat()->create([
-            'model' => 'gpt-3.5-turbo',
-            'messages' => [
-                ['role' => 'user', 'content' => $content],
-            ],
-        ]);
-
-        $letter = new Letter();
-        $letter->fill([
-            "title" => "Candidature pour le poste de " . $profil->company . " chez " . $profil->company,
-//            "text" => "Objet : Candidature pour le poste de développeur web chez Wokine à Lille\n\nMadame, Monsieur,\n\nJe suis actuellement à la recherche d'un poste de développeur web dans le secteur de l'informatique et je suis très intéressé par l'opportunité de travailler chez Wokine à Lille.\n\nJe suis un développeur web expérimenté avec plus de trois ans d'expérience dans le domaine. Je suis passionné par la technologie et je suis toujours à l'affût des tendances et des nouvelles méthodes pour améliorer mes compétences. En tant que force de proposition, je suis convaincu que mes compétences et mes connaissances techniques me permettront de contribuer de manière significative au développement de votre entreprise.\n\nJe suis également réputé pour mon écoute, ma capacité à travailler en équipe et ma volonté de toujours apprendre de nouvelles choses. Je suis convaincu que ces qualités me permettront de m'intégrer rapidement dans votre entreprise et de devenir un membre précieux de votre équipe.\n\nEnfin, je suis courageux et je n'ai pas peur de relever des défis. Je suis convaincu que la création d'un site web innovant et performant nécessite de la créativité, de la persévérance et de la détermination. Je suis donc prêt à travailler dur et à relever tous les défis pour vous aider à atteindre vos objectifs.\n\nJe suis convaincu que mon profil correspond à ce que vous recherchez et je suis impatient de discuter avec vous de la possibilité de rejoindre votre entreprise. Si vous souhaitez en savoir plus sur mes compétences et mes réalisations, n'hésitez pas à me contacter pour convenir d'un entretien.\n\nJe vous remercie par avance pour votre considération et je suis impatient de vous rencontrer bientôt.\n\nCordialement,\n\n[Prénom Nom]",
-            "text" => $response->choices[0]->message->content,
-        ]);
-        $request->session()->put('letter', $letter);
-
         $message = new Message();
         $message->fill([
             "role" => "user",
-            "content" => $content,
+            "content" => $letter->text,
             "order" => 1
         ]);
         $request->session()->put('message', $message);
-        $request->session()->forget('profil');
+        $request->session()->put('letter', $letter->generate($user));
 
         return redirect()->route('letter.is.created');
     }
@@ -177,10 +186,80 @@ class LetterController extends Controller
         $user = $request->session()->get('user');
         $letter = $request->session()->get('letter');
 
-        return view('letter-is-created', [
+        return view('letter.created', [
             'name' => $user->name,
             'text' => substr($letter->text, 0, -955),
-//            "text" => substr("Objet : Candidature pour le poste de développeur web chez Wokine à Lille\n\nMadame, Monsieur,\n\nJe suis actuellement à la recherche d'un poste de développeur web dans le secteur de l'informatique et je suis très intéressé par l'opportunité de travailler chez Wokine à Lille.\n\nJe suis un développeur web expérimenté avec plus de trois ans d'expérience dans le domaine. Je suis passionné par la technologie et je suis toujours à l'affût des tendances et des nouvelles méthodes pour améliorer mes compétences. En tant que force de proposition, je suis convaincu que mes compétences et mes connaissances techniques me permettront de contribuer de manière significative au développement de votre entreprise.\n\nJe suis également réputé pour mon écoute, ma capacité à travailler en équipe et ma volonté de toujours apprendre de nouvelles choses. Je suis convaincu que ces qualités me permettront de m'intégrer rapidement dans votre entreprise et de devenir un membre précieux de votre équipe.\n\nEnfin, je suis courageux et je n'ai pas peur de relever des défis. Je suis convaincu que la création d'un site web innovant et performant nécessite de la créativité, de la persévérance et de la détermination. Je suis donc prêt à travailler dur et à relever tous les défis pour vous aider à atteindre vos objectifs.\n\nJe suis convaincu que mon profil correspond à ce que vous recherchez et je suis impatient de discuter avec vous de la possibilité de rejoindre votre entreprise. Si vous souhaitez en savoir plus sur mes compétences et mes réalisations, n'hésitez pas à me contacter pour convenir d'un entretien.\n\nJe vous remercie par avance pour votre considération et je suis impatient de vous rencontrer bientôt.\n\nCordialement,\n\n[Prénom Nom]", 0, -955),
+        ]);
+    }
+
+    /**
+     * @return View
+     */
+    public function create(): View
+    {
+        return view('letter.store', [
+            'appellations' => Appellation::all(),
+            'step' => 'one'
+        ]);
+    }
+
+    /**
+     * @param StoreLetterRequest $request
+     * @return View
+     */
+    public function store(StoreLetterRequest $request): View
+    {
+        $request->validated();
+
+        $letter = new Letter();
+        $letter->fill($request->all());
+
+        $user = Auth::user();
+
+        $appellation = Appellation::where('libelle', $request->appellation)->first();
+
+        $client = new Client();
+        $headers = [
+            'Content-Type' => 'application/x-www-form-urlencoded',
+        ];
+        $options = [
+            'form_params' => [
+                'grant_type' => 'client_credentials',
+                'client_id' => env('POLE_EMPLOI_CLIENT_ID'),
+                'client_secret' => env('POLE_EMPLOI_CLIENT_SECRET'),
+                'scope' => env('POLE_EMPLOI_SCOPE'),
+            ]];
+        $guzzle_request = new \GuzzleHttp\Psr7\Request('POST', 'https://entreprise.pole-emploi.fr/connexion/oauth2/access_token?realm=/partenaire', $headers);
+        $res = $client->sendAsync($guzzle_request, $options)->wait();
+        $token = json_decode($res->getBody())->access_token;
+
+        $headers = [
+            'Authorization' => 'Bearer ' . $token
+        ];
+        $guzzle_request = new \GuzzleHttp\Psr7\Request('GET', 'https://api.pole-emploi.io/partenaire/rome-metiers/v1/metiers/appellation/' . $appellation->code, $headers);
+        $res = $client->sendAsync($guzzle_request)->wait();
+        $appellation_request = json_decode($res->getBody());
+
+        $letter->fill([
+            "skills" => Appellation::getSkills($appellation_request->competencesCles),
+            "appellation_id" => $appellation->id
+        ]);
+
+        $new_letter = $letter->generate($user);
+        $request->session()->put('letter', $new_letter);
+
+        $message = new Message();
+        $message->fill([
+            "role" => "user",
+            "content" => $new_letter->text,
+            "order" => 1
+        ]);
+        $request->session()->put('message', $message);
+
+        Letter::saveLetter($request, $user);
+
+        return view('letter.show', [
+            'letter' => $user->letters->last()
         ]);
     }
 
@@ -190,7 +269,7 @@ class LetterController extends Controller
      */
     public function show(Letter $letter): View
     {
-        return view('letter', [
+        return view('letter.show', [
             'letter' => $letter
         ]);
     }

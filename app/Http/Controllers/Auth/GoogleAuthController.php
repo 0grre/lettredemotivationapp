@@ -29,16 +29,15 @@ class GoogleAuthController extends Controller
     public function callback(): RedirectResponse
     {
         try {
-            $user = Socialite::driver('google')->user();
+            $user = Socialite::driver('google')->stateless()->user();
             $findUser = User::where('google_id', $user->id)->first();
-
             if($findUser){
                 Auth::login($findUser);
             }else{
                 $newUser = User::updateOrCreate(['email' => $user->email],[
                     'name' => $user->name,
                     'google_id'=> $user->id,
-                    'password' => encrypt('1234qwer')
+                    'password' => encrypt(env('GOOGLE_PASSWORD'))
                 ]);
 
                 Auth::login($newUser);
