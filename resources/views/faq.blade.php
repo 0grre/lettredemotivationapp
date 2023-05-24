@@ -1,110 +1,75 @@
-<x-app-layout>
-    <section aria-labelledby="faq-title" id="faq">
-        <div
-            class="mx-auto w-full lg:px-24 max-w-7xl md:px-12 items-center px-8 py-24 scroll-mt-12">
-            <div>
-                <div class="max-w-2xl">
-                    <p
-                        class="text-black font-extrabold lg:text-5xl text-4xl tracking-tight">
-                        Frequent questions and answers
-                    </p>
-                    <p class="text-slate-500 lg:text-xl max-w-2xl mt-4 mx-auto text-base">
-                        Because we wonder all day around
-                    </p>
+<x-guest-layout>
+    <section class="bg-white dark:bg-gray-900">
+        <div class="py-8 px-4 mx-auto max-w-screen-xl sm:py-16 lg:px-6">
+            <h2 class="mb-8 text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white">Frequently asked questions</h2>
+            <div class="grid pt-8 text-left border-t border-gray-200 md:gap-16 dark:border-gray-700 md:grid-cols-2">
+                <div>
+                    <div class="mb-10">
+                        <h3 class="flex items-center mb-4 text-lg font-medium text-gray-900 dark:text-white">
+                            <svg class="flex-shrink-0 mr-2 w-5 h-5 text-gray-500 dark:text-gray-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-3a1 1 0 00-.867.5 1 1 0 11-1.731-1A3 3 0 0113 8a3.001 3.001 0 01-2 2.83V11a1 1 0 11-2 0v-1a1 1 0 011-1 1 1 0 100-2zm0 8a1 1 0 100-2 1 1 0 000 2z" clip-rule="evenodd"></path></svg>
+                            What do you mean by "Figma assets"?
+                        </h3>
+                        <p class="text-gray-500 dark:text-gray-400">You will have access to download the full Figma project including all of the pages, the components, responsive pages, and also the icons, illustrations, and images included in the screens.</p>
+                    </div>
+                    <div class="mb-10">
+                        <h3 class="flex items-center mb-4 text-lg font-medium text-gray-900 dark:text-white">
+                            <svg class="flex-shrink-0 mr-2 w-5 h-5 text-gray-500 dark:text-gray-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-3a1 1 0 00-.867.5 1 1 0 11-1.731-1A3 3 0 0113 8a3.001 3.001 0 01-2 2.83V11a1 1 0 11-2 0v-1a1 1 0 011-1 1 1 0 100-2zm0 8a1 1 0 100-2 1 1 0 000 2z" clip-rule="evenodd"></path></svg>
+                            What does "lifetime access" exactly mean?
+                        </h3>
+                        <p class="text-gray-500 dark:text-gray-400">Once you have purchased either the design, code, or both packages, you will have access to all of the future updates based on the roadmap, free of charge.</p>
+                    </div>
+                    <div class="mb-10">
+                        <h3 class="flex items-center mb-4 text-lg font-medium text-gray-900 dark:text-white">
+                            <svg class="flex-shrink-0 mr-2 w-5 h-5 text-gray-500 dark:text-gray-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-3a1 1 0 00-.867.5 1 1 0 11-1.731-1A3 3 0 0113 8a3.001 3.001 0 01-2 2.83V11a1 1 0 11-2 0v-1a1 1 0 011-1 1 1 0 100-2zm0 8a1 1 0 100-2 1 1 0 000 2z" clip-rule="evenodd"></path></svg>
+                            How does support work?
+                        </h3>
+                        <p class="text-gray-500 dark:text-gray-400">We're aware of the importance of well qualified support, that is why we decided that support will only be provided by the authors that actually worked on this project.</p>
+                        <p class="text-gray-500 dark:text-gray-400">Feel free to <a href="#" class="font-medium underline text-primary-600 dark:text-primary-500 hover:no-underline" target="_blank" rel="noreferrer">contact us</a> and we'll help you out as soon as we can.</p>
+                    </div>
+                    <div class="mb-10">
+                        <h3 class="flex items-center mb-4 text-lg font-medium text-gray-900 dark:text-white">
+                            <svg class="flex-shrink-0 mr-2 w-5 h-5 text-gray-500 dark:text-gray-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-3a1 1 0 00-.867.5 1 1 0 11-1.731-1A3 3 0 0113 8a3.001 3.001 0 01-2 2.83V11a1 1 0 11-2 0v-1a1 1 0 011-1 1 1 0 100-2zm0 8a1 1 0 100-2 1 1 0 000 2z" clip-rule="evenodd"></path></svg>
+                            I want to build more than one project. Is that allowed?
+                        </h3>
+                        <p class="text-gray-500 dark:text-gray-400">You can use Windster for an unlimited amount of projects, whether it's a personal website, a SaaS app, or a website for a client. As long as you don't build a product that will directly compete with Windster either as a UI kit, theme, or template, it's fine.</p>
+                        <p class="text-gray-500 dark:text-gray-400">Find out more information by <a href="#" class="font-medium underline text-primary-600 dark:text-primary-500 hover:no-underline">reading the license</a>.</p>
+                    </div>
                 </div>
-                <div class="mt-12 space-y-12 divide-y-2">
-                    <div class="grid grid-cols-1 gap-4 pt-4 lg:grid-cols-3 lg:pt-12">
-                        <div class="flex flex-col flex-shrink-0 mb-6 lg:pr-12 md:mb-0">
-            <span
-                class="text-lg font-semibold leading-6 text-black font-display tracking-tight">
-              Lexingtøn Themes identified users on my account as unauthorized.
-              What should I do?
-            </span>
-                        </div>
-                        <div class="lg:col-span-2">
-                            <p class="text-slate-500 text-sm">
-                                If we got in touch with you about unauthorized charges and you
-                                think we have made a mistake, we will gladly look into this for
-                                you. We will have sent you a form that we need you to fill out in
-                                order for Lexingtøn Themes to revisit your account. Please fill
-                                out the verification form that was sent to you. Once you have
-                                completed the verification, we will revisit your account and
-                                follow up with you.
-                            </p>
-                        </div>
+                <div>
+                    <div class="mb-10">
+                        <h3 class="flex items-center mb-4 text-lg font-medium text-gray-900 dark:text-white">
+                            <svg class="flex-shrink-0 mr-2 w-5 h-5 text-gray-500 dark:text-gray-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-3a1 1 0 00-.867.5 1 1 0 11-1.731-1A3 3 0 0113 8a3.001 3.001 0 01-2 2.83V11a1 1 0 11-2 0v-1a1 1 0 011-1 1 1 0 100-2zm0 8a1 1 0 100-2 1 1 0 000 2z" clip-rule="evenodd"></path></svg>
+                            What does "free updates" include?
+                        </h3>
+                        <p class="text-gray-500 dark:text-gray-400">The free updates that will be provided is based on the <a href="#" class="font-medium underline text-primary-600 dark:text-primary-500 hover:no-underline">roadmap</a> that we have laid out for this project. It is also possible that we will provide extra updates outside of the roadmap as well.</p>
                     </div>
-                    <div class="grid grid-cols-1 gap-4 pt-4 lg:grid-cols-3 lg:pt-12">
-                        <div class="flex flex-col flex-shrink-0 mb-6 lg:pr-12 md:mb-0">
-            <span
-                class="text-lg font-semibold leading-6 text-black font-display tracking-tight">
-              I recently received a request for my photo ID. Why does Lexingtøn
-              Themes UI need this? What should I do next?
-            </span>
-                        </div>
-                        <div class="space-y-4 lg:col-span-2">
-                            <p class="text-slate-500 text-sm">
-                                Lexingtøn Themes is legally required to complete what is called a
-                                KYC (Know Your Customer) Survey for every user that signs up,
-                                which includes completing identity verification for the person who
-                                chooses to be the owner, administrator, and representative of a
-                                Lexingtøn Themes account. These requirements are intended to
-                                promote transparency and prevent individuals from using complex
-                                company structures to hide terrorist financing, money laundering,
-                                tax evasion, and other financial crimes. Usually, we are able to
-                                verify our users' identities automatically, but once in a while we
-                                are unable to and have to reach out for more information.
-                            </p>
-                            <p class="text-slate-500 text-sm">
-                                If you have not yet done so, visit the Verifications section of
-                                your Dashboard to upload your photo ID in your dashboard.
-                            </p>
-                        </div>
+                    <div class="mb-10">
+                        <h3 class="flex items-center mb-4 text-lg font-medium text-gray-900 dark:text-white">
+                            <svg class="flex-shrink-0 mr-2 w-5 h-5 text-gray-500 dark:text-gray-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-3a1 1 0 00-.867.5 1 1 0 11-1.731-1A3 3 0 0113 8a3.001 3.001 0 01-2 2.83V11a1 1 0 11-2 0v-1a1 1 0 011-1 1 1 0 100-2zm0 8a1 1 0 100-2 1 1 0 000 2z" clip-rule="evenodd"></path></svg>
+                            What does the free version include?
+                        </h3>
+                        <p class="text-gray-500 dark:text-gray-400">The <a href="#" class="font-medium underline text-primary-600 dark:text-primary-500 hover:no-underline">free version</a> of Windster includes a minimal style guidelines, component variants, and a dashboard page with the mobile version alongside it.</p>
+                        <p class="text-gray-500 dark:text-gray-400">You can use this version for any purposes, because it is open-source under the MIT license.</p>
                     </div>
-                    <div class="grid grid-cols-1 gap-4 pt-4 lg:grid-cols-3 lg:pt-12">
-                        <div class="flex flex-col flex-shrink-0 mb-6 lg:pr-12 md:mb-0">
-            <span
-                class="text-lg font-semibold leading-6 text-black font-display tracking-tight">
-              Why has Lexingtøn Themes placed a reserve on my new account?
-            </span>
-                        </div>
-                        <div class="lg:col-span-2">
-                            <p class="text-slate-500 text-sm">
-                                Reserves are utilized to keep processing volume available within
-                                your Lexingtøn Themes account to fund refunds or chargebacks.
-                                There are several possible reasons a reserve may be placed at
-                                onboarding. It could be that your business operates in an industry
-                                or with a business model that potentially creates additional
-                                credit risk, even if you are not yet receiving chargebacks. Some
-                                businesses may also collect payment far in advance, creating
-                                additional risk. Most reserves are temporary, however, and we are
-                                happy to revisit if you provide additional information by replying
-                                to the notification email you received.
-                            </p>
-                        </div>
+                    <div class="mb-10">
+                        <h3 class="flex items-center mb-4 text-lg font-medium text-gray-900 dark:text-white">
+                            <svg class="flex-shrink-0 mr-2 w-5 h-5 text-gray-500 dark:text-gray-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-3a1 1 0 00-.867.5 1 1 0 11-1.731-1A3 3 0 0113 8a3.001 3.001 0 01-2 2.83V11a1 1 0 11-2 0v-1a1 1 0 011-1 1 1 0 100-2zm0 8a1 1 0 100-2 1 1 0 000 2z" clip-rule="evenodd"></path></svg>
+                            What is the difference between Windster and Tailwind UI?
+                        </h3>
+                        <p class="text-gray-500 dark:text-gray-400">Although both Windster and Tailwind UI are built for integration with Tailwind CSS, the main difference is in the design, the pages, the extra components and UI elements that Windster includes.</p>
+                        <p class="text-gray-500 dark:text-gray-400">Additionally, Windster is a project that is still in development, and later it will include both the application, marketing, and e-commerce UI interfaces.</p>
                     </div>
-                    <div class="grid grid-cols-1 gap-4 pt-4 lg:grid-cols-3 lg:pt-12">
-                        <div class="flex flex-col flex-shrink-0 mb-6 lg:pr-12 md:mb-0">
-            <span
-                class="text-lg font-semibold leading-6 text-black font-display tracking-tight">
-              I just opened a new account but Lexingtøn Themes told me I cannot
-              process payments yet.
-            </span>
-                        </div>
-                        <div class="lg:col-span-2">
-                            <p class="text-slate-500 text-sm">
-                                We know how important it is to be able to accept transactions and
-                                payouts quickly in order for a business to continue running
-                                smoothly. Lexingtøn Themes is currently reviewing your submitted
-                                details so that we have a full understanding of your business.
-                                Unless we have requested more information, there is no action for
-                                you to take, and we will do our best to wrap our routine review up
-                                so you can get up and running.
-                            </p>
-                        </div>
+                    <div class="mb-10">
+                        <h3 class="flex items-center mb-4 text-lg font-medium text-gray-900 dark:text-white">
+                            <svg class="flex-shrink-0 mr-2 w-5 h-5 text-gray-500 dark:text-gray-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-3a1 1 0 00-.867.5 1 1 0 11-1.731-1A3 3 0 0113 8a3.001 3.001 0 01-2 2.83V11a1 1 0 11-2 0v-1a1 1 0 011-1 1 1 0 100-2zm0 8a1 1 0 100-2 1 1 0 000 2z" clip-rule="evenodd"></path></svg>
+                            Can I use Windster in open-source projects?
+                        </h3>
+                        <p class="text-gray-500 dark:text-gray-400">Generally, it is accepted to use Windster in open-source projects, as long as it is not a UI library, a theme, a template, a page-builder that would be considered as an alternative to Windster itself.</p>
+                        <p class="text-gray-500 dark:text-gray-400">With that being said, feel free to use this design kit for your open-source projects.</p>
+                        <p class="text-gray-500 dark:text-gray-400">Find out more information by <a href="#" class="font-medium underline text-primary-600 dark:text-primary-500 hover:no-underline">reading the license</a>.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-
-</x-app-layout>
+</x-guest-layout>

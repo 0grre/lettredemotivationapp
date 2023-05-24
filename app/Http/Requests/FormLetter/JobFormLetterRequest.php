@@ -5,7 +5,7 @@ namespace App\Http\Requests\FormLetter;
 use Illuminate\Contracts\Validation\ValidationRule;
 use Illuminate\Foundation\Http\FormRequest;
 
-class OneFormLetterRequest extends FormRequest
+class JobFormLetterRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.

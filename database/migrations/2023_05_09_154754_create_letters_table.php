@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('title', 250);
             $table->text('text');
             $table->string('company', 50);
-            $table->string('Localization', 50);
+            $table->string('localization', 50);
             $table->integer('experience');
             $table->json('skills');
             $table->unsignedBigInteger('user_id');

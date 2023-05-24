@@ -10,14 +10,13 @@ use Illuminate\View\View;
 
 class PageController extends Controller
 {
+
     /**
      * @return View
      */
-    public function dashboard(): View
+    public function home(): View
     {
-        return view('dashboard', [
-            "letters" => Auth::user()->letters
-        ]);
+        return view('home.welcome');
     }
 
     /**
@@ -42,6 +41,16 @@ class PageController extends Controller
     public function privacy(): View
     {
         return view('privacy');
+    }
+
+    /**
+     * @return View
+     */
+    public function dashboard(): View
+    {
+        return view('dashboard', [
+            "letters" => Auth::user()->letters
+        ]);
     }
 
     /**

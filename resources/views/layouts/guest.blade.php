@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-navigation/>
-    {{ $slot }}
-{{--    @if(request()->routeIs('home'))--}}
+    <main class="flex flex-col justify-between min-h-screen bg-white dark:bg-gray-900">
+        {{ $slot }}
         <x-footer/>
-{{--    @endif--}}
+    </main>
 </x-app-layout>

@@ -18,35 +18,27 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-Route::get('/', function () {
-    return view('home.welcome');
-})->name('home');
-
-Route::get('search', function() {
-    $query = ''; // <-- Change the query for testing.
-
-    return Appellation::search($query)->get();
-});
-
-
+/** Public */
+Route::get('/', [PageController::class, 'home'])->name('home');
 Route::get('/faq', [PageController::class, 'faq'])->name('faq');
 Route::get('/terms', [PageController::class, 'terms'])->name('terms');
 Route::get('/privacy', [PageController::class, 'privacy'])->name('privacy');
 
-Route::get('/letters/create-step-one', [LetterController::class, 'createStepOne'])->name('letters.create.step.one');
-Route::post('/letters/create-step-one', [LetterController::class, 'postCreateStepOne'])->name('letters.create.step.one.post');
+/** Guest */
+Route::middleware('guest')->group(function () {
+    Route::get('/letters/create-step-one', [LetterController::class, 'createStepJob'])->name('letters.create.step.job');
+    Route::post('/letters/create-step-one', [LetterController::class, 'postCreateStepJob'])->name('letters.create.step.job.post');
 
-Route::get('/letters/create-step-two', [LetterController::class, 'createStepTwo'])->name('letters.create.step.two');
-Route::post('/letters/create-step-two', [LetterController::class, 'postCreateStepTwo'])->name('letters.create.step.two.post');
+    Route::get('/letters/create-step-three', [LetterController::class, 'createStepCompany'])->name('letters.create.step.company');
+    Route::post('letters/create-step-three', [LetterController::class, 'postCreateStepCompany'])->name('letters.create.step.company.post');
 
-Route::get('/letters/create-step-three', [LetterController::class, 'createStepThree'])->name('letters.create.step.three');
-Route::post('letters/create-step-three', [LetterController::class, 'postCreateStepThree'])->name('letters.create.step.three.post');
+    Route::get('/letters/create-step-four', [LetterController::class, 'createStepName'])->name('letters.create.step.name');
+    Route::post('/letters/create-step-four', [LetterController::class, 'postCreateStepName'])->name('letters.create.step.name.post');
 
-Route::get('/letters/create-step-four', [LetterController::class, 'createStepFour'])->name('letters.create.step.four');
-Route::post('/letters/create-step-four', [LetterController::class, 'postCreateStepFour'])->name('letters.create.step.four.post');
+    Route::get('/letters/created', [LetterController::class, 'letterCreated'])->name('letter.created');
+});
 
-Route::get('/letters/created', [LetterController::class, 'letterIsCreated'])->name('letter.is.created');
-
+/** Authenticated */
 Route::middleware(['auth', 'verified'])->group(function () {
 
     Route::get('/dashboard', [PageController::class, 'dashboard'])->name('dashboard');
@@ -64,7 +56,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
 });
 
-Route::get('/test', function (){
+Route::get('/test', function () {
     return view('letter.show', [
 
         'letter' => Auth::user()->letters->last()

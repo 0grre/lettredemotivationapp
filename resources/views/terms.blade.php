@@ -1,4 +1,4 @@
-<x-app-layout>
+<x-guest-layout>
     <section>
         <div
             class="mx-auto w-full lg:px-24 max-w-7xl md:px-12 items-center px-8 py-24">
@@ -173,4 +173,4 @@
             </div>
         </div>
     </section>
-</x-app-layout>
+</x-guest-layout>

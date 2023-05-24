@@ -2,13 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\FormLetter\FourFormLetterRequest;
-use App\Http\Requests\FormLetter\OneFormLetterRequest;
-use App\Http\Requests\FormLetter\ThreeFormLetterRequest;
-use App\Http\Requests\FormLetter\TwoFormLetterRequest;
+use App\Http\Requests\FormLetter\NameFormLetterRequest;
+use App\Http\Requests\FormLetter\JobFormLetterRequest;
+use App\Http\Requests\FormLetter\CompanyFormLetterRequest;
 use App\Http\Requests\Letter\StoreLetterRequest;
 use App\Models\Appellation;
-use App\Models\Conversation;
 use App\Models\Letter;
 use App\Models\Message;
 use App\Models\User;
@@ -32,19 +30,19 @@ class LetterController extends Controller
     /**
      * @return View
      */
-    public function createStepOne(): View
+    public function createStepJob(): View
     {
         return view('first-letter.base-form', [
             'appellations' => Appellation::all(),
-            'step' => 'one'
+            'step' => 'job'
         ]);
     }
 
     /**
-     * @param OneFormLetterRequest $request
+     * @param JobFormLetterRequest $request
      * @return RedirectResponse
      */
-    public function postCreateStepOne(OneFormLetterRequest $request): RedirectResponse
+    public function postCreateStepjob(JobFormLetterRequest $request): RedirectResponse
     {
         $request->validated();
 
@@ -85,49 +83,24 @@ class LetterController extends Controller
         ]);
         $request->session()->put('letter', $letter);
 
-        return redirect()->route('letters.create.step.three');
+        return redirect()->route('letters.create.step.company');
     }
 
     /**
      * @return View
      */
-    public function createStepTwo(): View
+    public function createStepCompany(): View
     {
         return view('first-letter.base-form', [
-            'step' => 'two'
+            'step' => 'company'
         ]);
     }
 
     /**
-     * @param TwoFormLetterRequest $request
+     * @param CompanyFormLetterRequest $request
      * @return RedirectResponse
      */
-    public function postCreateStepTwo(TwoFormLetterRequest $request): RedirectResponse
-    {
-        $request->validated();
-
-        $profil = $request->session()->get('profil');
-        $profil->fill($request->all());
-        $request->session()->put('profil', $profil);
-
-        return redirect()->route('letters.create.step.three');
-    }
-
-    /**
-     * @return View
-     */
-    public function createStepThree(): View
-    {
-        return view('first-letter.base-form', [
-            'step' => 'three'
-        ]);
-    }
-
-    /**
-     * @param ThreeFormLetterRequest $request
-     * @return RedirectResponse
-     */
-    public function postCreateStepThree(ThreeFormLetterRequest $request): RedirectResponse
+    public function postCreateStepCompany(CompanyFormLetterRequest $request): RedirectResponse
     {
         $request->validated();
 
@@ -135,24 +108,24 @@ class LetterController extends Controller
         $letter->fill($request->all());
         $request->session()->put('letter', $letter);
 
-        return redirect()->route('letters.create.step.four');
+        return redirect()->route('letters.create.step.name');
     }
 
     /**
      * @return View
      */
-    public function createStepFour(): View
+    public function createStepName(): View
     {
         return view('first-letter.base-form', [
-            'step' => 'four'
+            'step' => 'name'
         ]);
     }
 
     /**
-     * @param FourFormLetterRequest $request
+     * @param NameFormLetterRequest $request
      * @return RedirectResponse
      */
-    public function postCreateStepFour(FourFormLetterRequest $request): RedirectResponse
+    public function postCreateStepName(NameFormLetterRequest $request): RedirectResponse
     {
         $request->validated();
 
@@ -165,23 +138,25 @@ class LetterController extends Controller
         $user->fill(['name' => $request->firstname . " " . $request->lastname]);
         $request->session()->put('user', $user);
 
+        $new_letter = $letter->generate($user);
+        $request->session()->put('letter', $new_letter);
+
         $message = new Message();
         $message->fill([
             "role" => "user",
-            "content" => $letter->text,
+            "content" => $new_letter->text,
             "order" => 1
         ]);
         $request->session()->put('message', $message);
-        $request->session()->put('letter', $letter->generate($user));
 
-        return redirect()->route('letter.is.created');
+        return redirect()->route('letter.created');
     }
 
     /**
      * @param Request $request
      * @return View
      */
-    public function letterIsCreated(Request $request): View
+    public function letterCreated(Request $request): View
     {
         $user = $request->session()->get('user');
         $letter = $request->session()->get('letter');
@@ -200,6 +175,16 @@ class LetterController extends Controller
         return view('letter.store', [
             'appellations' => Appellation::all(),
             'step' => 'one'
+        ]);
+    }
+
+    /**
+     * @return View
+     */
+    public function index(): View
+    {
+        return view('letter.index', [
+            'letters' => Auth::user()->letters,
         ]);
     }
 

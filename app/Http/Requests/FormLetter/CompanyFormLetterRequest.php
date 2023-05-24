@@ -5,7 +5,7 @@ namespace App\Http\Requests\FormLetter;
 use Illuminate\Contracts\Validation\ValidationRule;
 use Illuminate\Foundation\Http\FormRequest;
 
-class TwoFormLetterRequest extends FormRequest
+class CompanyFormLetterRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -23,8 +23,8 @@ class TwoFormLetterRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'skills' => 'string',
-            'sector' => 'string',
+            'company' => 'string|max:50',
+            'localization' => 'string|max:50',
         ];
     }
 }

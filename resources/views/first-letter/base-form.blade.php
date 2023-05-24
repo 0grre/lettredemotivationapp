@@ -1,18 +1,9 @@
-<x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
-            {{ __('Letter') }}
-        </h2>
-    </x-slot>
-
-    <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 space-y-6">
-            <div class="p-4 sm:p-8 bg-white dark:bg-gray-800 shadow sm:rounded-lg">
-                <div class="max-w-xl">
-                    @include('first-letter.steps.form-' . $step)
-                </div>
+<x-guest-layout>
+    <x-app>
+        <section class="bg-white dark:bg-gray-900">
+            <div class="gap-8 py-8 px-4 mx-auto max-w-screen-xl xl:gap-16 md:grid md:grid-cols-2 sm:py-16 lg:px-6">
+                @include('first-letter.steps.form-' . $step)
             </div>
-        </div>
-    </div>
-
-</x-app-layout>
+        </section>
+    </x-app>
+</x-guest-layout>
