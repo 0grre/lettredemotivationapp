@@ -8,3 +8,10 @@
     -ms-user-select: none;
     user-select: none;
 }
+
+@media all and (prefers-color-scheme: dark) {
+    body {
+        background: black;
+        color: lime;
+    }
+}

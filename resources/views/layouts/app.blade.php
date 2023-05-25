@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}"
-      class="scroll-smooth selection:bg-accent-500 selection:text-white no-touchevents hydrated">
+      class="scroll-smooth">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width"/>
@@ -10,6 +10,13 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>{{ config('app.name', 'Super Lettre de Motivation') }}</title>
+
+    <link rel="icon"
+          href="/storage/logo.png"
+          id="light-scheme-icon">
+    <link rel="icon"
+          href="/storage/_logo.png"
+          id="dark-scheme-icon">
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net">
