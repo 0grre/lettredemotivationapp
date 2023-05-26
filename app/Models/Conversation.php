@@ -19,6 +19,16 @@ class Conversation extends Model
         'user_id',
     ];
 
+    public function chat(){
+//        $sorted = $collection->sortBy([
+//            fn (array $a, array $b) => $a['name'] <=> $b['name'],
+//            fn (array $a, array $b) => $b['age'] <=> $a['age'],
+//        ]);
+//
+//        $sorted->values()->all();)
+
+    }
+
     /**
      * @return HasOne
      */

@@ -13,12 +13,13 @@ return new class extends Migration
     {
         Schema::create('letters', function (Blueprint $table) {
             $table->id();
-            $table->string('title', 250);
+            $table->text('prompt');
             $table->text('text');
             $table->string('company', 50);
             $table->string('localization', 50);
             $table->integer('experience');
             $table->json('skills');
+            $table->integer('words');
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')
                 ->references('id')

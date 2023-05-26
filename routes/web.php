@@ -46,6 +46,11 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/letters', [LetterController::class, 'index'])->name('letters.index');
     Route::get('/letters/{letter}', [LetterController::class, 'show'])->name('letters.show');
     Route::get('/letters/download/{letter}', [LetterController::class, 'download'])->name('letters.download');
+    Route::get('/letters/regenerate/{letter}', [LetterController::class, 'regenerate'])->name('letters.regenerate');
+    Route::get('/letters/increase/{letter}', [LetterController::class, 'increase'])->name('letters.increase');
+    Route::get('/letters/reduce/{letter}', [LetterController::class, 'reduce'])->name('letters.reduce');
+
+
     Route::get('/create/letters', [LetterController::class, 'create'])->name('letters.create');
     Route::post('/letters', [LetterController::class, 'store'])->name('letters.create.post');
     Route::patch('/letters/{letter}', [LetterController::class, 'update']);

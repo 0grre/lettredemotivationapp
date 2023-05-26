@@ -3,7 +3,7 @@
     <section class="bg-white dark:bg-gray-900">
         <div class="py-8 px-4 mx-auto max-w-2xl lg:py-16">
             <h2 class="mb-4 text-xl font-bold text-gray-900 dark:text-white">{{ __('Nouvelle lettre de motivation') }}</h2>
-            <form  method="post" action="{{ route('letters.create.post') }}">
+            <form onsubmit="loading()" method="post" action="{{ route('letters.create.post') }}">
                 @csrf
                 @method('post')
                 <div class="grid gap-4 sm:grid-cols-2 sm:gap-6">

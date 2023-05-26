@@ -9,3 +9,9 @@ const app = createApp({})
 
 app.component('appellation-list', AppellationList)
 app.mount('#app')
+
+const loading = () => {
+    const spinner = document.getElementById('spinner');
+    spinner.classList.remove('hidden')
+    spinner.classList.add('flex')
+}

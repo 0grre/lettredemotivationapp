@@ -141,13 +141,7 @@ class LetterController extends Controller
         $new_letter = $letter->generate($user);
         $request->session()->put('letter', $new_letter);
 
-        $message = new Message();
-        $message->fill([
-            "role" => "user",
-            "content" => $new_letter->text,
-            "order" => 1
-        ]);
-        $request->session()->put('message', $message);
+        $new_letter->createNewConversation($request);
 
         return redirect()->route('letter.created');
     }
@@ -230,16 +224,10 @@ class LetterController extends Controller
             "appellation_id" => $appellation->id
         ]);
 
-        $new_letter = $letter->generate($user);
+        $new_letter = $letter->generate($user)['self'];
         $request->session()->put('letter', $new_letter);
 
-        $message = new Message();
-        $message->fill([
-            "role" => "user",
-            "content" => $new_letter->text,
-            "order" => 1
-        ]);
-        $request->session()->put('message', $message);
+        $new_letter->createNewConversation($request, $new_letter['content']);
 
         Letter::saveLetter($request, $user);
 
@@ -269,6 +257,41 @@ class LetterController extends Controller
         $dompdf->loadHtml($letter->text);
         $dompdf->render();
         $dompdf->stream();
+    }
+
+
+    /**
+     * @param Letter $letter
+     * @return void
+     */
+    public function regenerate(Letter $letter): void
+    {
+        $result = $letter->conversation->messages->map(function($message, $order) {
+            return $chat[$message->order] = ['role' => $message->role, 'content' => $message->content ];
+        })->all();
+
+        dd($result);
+
+    }
+
+
+    /**
+     * @param Letter $letter
+     * @return void
+     */
+    public function increase(Letter $letter): void
+    {
+
+    }
+
+
+    /**
+     * @param Letter $letter
+     * @return void
+     */
+    public function reduce(Letter $letter): void
+    {
+
     }
 }
 
