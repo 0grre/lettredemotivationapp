@@ -35,7 +35,7 @@
                 <a href="/" class="flex items-center justify-between mr-4">
                     <x-logo.light class="mr-3 h-8 dark:hidden"/>
                     <x-logo.dark class="mr-3 h-8 m:h-9 hidden dark:block"/>
-                    <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Super lettre de motivation</span>
+                    <span class="hidden lg:flex self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Super lettre de motivation</span>
                 </a>
                 <form action="#" method="GET" class="hidden md:block md:pl-2">
                     <label for="topbar-search" class="sr-only">Search</label>

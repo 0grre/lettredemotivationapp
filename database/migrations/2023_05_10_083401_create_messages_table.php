@@ -15,7 +15,6 @@ return new class extends Migration
             $table->id();
             $table->string('role', 10);
             $table->text('content');
-            $table->integer('order');
             $table->unsignedBigInteger('conversation_id');
             $table->foreign('conversation_id')
                 ->references('id')

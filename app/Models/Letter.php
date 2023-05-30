@@ -25,6 +25,16 @@ class Letter extends Model
         'user_id',
         'appellation_id',
     ];
+    /**
+     * @var mixed|OpenAI\Client
+     */
+    private mixed $client;
+
+    public function __construct(array $attributes = [])
+    {
+        parent::__construct($attributes);
+        $this->client = OpenAI::client(config('openai.api_key'));
+    }
 
     /**
      * @param User $user
@@ -32,7 +42,7 @@ class Letter extends Model
      */
     public function generate(User $user): Letter
     {
-        $client = OpenAI::client(env('OPENAI_API_KEY'));
+        $client = OpenAI::client(config('openai.api_key'));
 
         $string_skills = '';
         $words = 300;
@@ -65,6 +75,46 @@ class Letter extends Model
     }
 
     /**
+     * @return $this
+     */
+    public function regenerate(): static
+    {
+        $prompt = "En te basant sur les mêmes informations, reformule et améliore la précédente lettre en étant moins générique";
+
+        $messages = $this->messages();
+        $messages = array_merge($messages, [
+            ['role' => 'user', 'content' => $prompt]
+        ]);
+
+        $response = $this->client->chat()->create([
+            'model' => 'gpt-3.5-turbo',
+            'messages' => $messages,
+        ]);
+
+        $this->prompt = $prompt;
+        $this->text = $response->choices[0]->message->content;
+        $this->save();
+
+        $conversation = $this->conversation;
+
+        $prompt_message = new Message();
+        $prompt_message->fill([
+            "role" => "user",
+            "content" => $this->prompt,
+        ]);
+        $conversation->messages()->save($prompt_message);
+
+        $response_message = new Message();
+        $response_message->fill([
+            "role" => "assistant",
+            "content" => $this->text,
+        ]);
+        $conversation->messages()->save($response_message);
+
+        return $this;
+    }
+
+    /**
      * @param Request $request
      * @return void
      */
@@ -74,7 +124,6 @@ class Letter extends Model
         $prompt_message->fill([
             "role" => "user",
             "content" => $this->prompt,
-            "order" => 1
         ]);
         $request->session()->put('prompt_message', $prompt_message);
 
@@ -82,7 +131,7 @@ class Letter extends Model
         $response_message->fill([
             "role" => "assistant",
             "content" => $this->text,
-            "order" => 2
+
         ]);
         $request->session()->put('response_message', $response_message);
     }
@@ -110,6 +159,16 @@ class Letter extends Model
         $request->session()->forget('letter');
         $request->session()->forget('prompt_message');
         $request->session()->forget('response_message');
+    }
+
+    /**
+     * @return array
+     */
+    public function messages(): array
+    {
+        return $this->conversation->messages->map(function($message) {
+            return ['role' => $message->role, 'content' => $message->content ];
+        })->all();
     }
 
     /**

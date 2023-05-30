@@ -243,7 +243,8 @@ class LetterController extends Controller
     public function show(Letter $letter): View
     {
         return view('letter.show', [
-            'letter' => $letter
+            'letter' => $letter,
+            'old_letters' => $letter->conversation->messages->where('role', 'assistant'),
         ]);
     }
 
@@ -262,16 +263,13 @@ class LetterController extends Controller
 
     /**
      * @param Letter $letter
-     * @return void
+     * @return RedirectResponse
      */
-    public function regenerate(Letter $letter): void
+    public function regenerate(Letter $letter)
     {
-        $result = $letter->conversation->messages->map(function($message, $order) {
-            return $chat[$message->order] = ['role' => $message->role, 'content' => $message->content ];
-        })->all();
+        $letter->regenerate();
 
-        dd($result);
-
+        return redirect()->back();
     }
 
 
