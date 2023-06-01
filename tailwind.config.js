@@ -22,9 +22,7 @@ module.exports = {
             },
         },
         colors: {
-            primary: colors.indigo,
-            secondary: '#ecc94b',
-            // ...
+            primary: colors.violet,
         }
     },
 

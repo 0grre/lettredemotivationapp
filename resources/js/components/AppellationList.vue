@@ -4,7 +4,7 @@
         type="text"
         id="search"
         name="appellation"
-        placeholder="Cherche ici l'intitulé du job de tes rêves..."
+        placeholder="tu peux chercher un métier par mots clefs"
         v-model="searchTerm"
         autofocus
         required>

@@ -1,4 +1,4 @@
-<img class="w-full mt-4" src="{{ env('app_url') . asset('storage/undraw/undraw_add_document_re_mbjx.svg') }}" alt="dashboard image">
+<img class="w-full mt-4" src="{{ env('app_url') . asset('storage/undraw/LinkedIn_Isometric.svg') }}" alt="dashboard image">
 <div class="mt-4 md:mt-0">
 <ol class="my-12 flex items-center w-full text-sm font-medium text-center text-gray-500 dark:text-gray-400 sm:text-base">
     <li class="flex md:w-full items-center text-primary-600 dark:text-primary-500 sm:after:content-[''] after:w-full after:h-1 after:border-b after:border-gray-200 after:border-1 after:hidden sm:after:inline-block after:mx-6 xl:after:mx-10 dark:after:border-gray-700">

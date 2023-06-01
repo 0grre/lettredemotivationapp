@@ -18,13 +18,13 @@
                             </div>
                 </div>
                 @foreach($old_letters as $old_letter)
-                <h2 id="accordion-collapse-heading-{{ $old_letter->order }}">
-                    <button type="button" class="flex items-center justify-between w-full p-5 font-medium text-left text-gray-500 border border-b-0 border-gray-200 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-800 dark:border-gray-700 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800" data-accordion-target="#accordion-collapse-body-{{ $old_letter->order }}" aria-expanded="false" aria-controls="accordion-collapse-body-{{ $old_letter->order }}">
-                        <span>Version {{ $old_letter->order }}</span>
+                <h2 id="accordion-collapse-heading-{{ $old_letter->id }}">
+                    <button type="button" class="flex items-center justify-between w-full p-5 font-medium text-left text-gray-500 border border-b-0 border-gray-200 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-800 dark:border-gray-700 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800" data-accordion-target="#accordion-collapse-body-{{ $old_letter->id }}" aria-expanded="false" aria-controls="accordion-collapse-body-{{ $old_letter->id }}">
+                        <span>Version précédente</span>
                         <svg data-accordion-icon class="w-6 h-6 shrink-0" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
                     </button>
                 </h2>
-                <div id="accordion-collapse-body-{{ $old_letter->order }}" class="hidden" aria-labelledby="accordion-collapse-heading-2">
+                <div id="accordion-collapse-body-{{ $old_letter->id }}" class="hidden" aria-labelledby="accordion-collapse-heading-2">
                     <div class="p-5 border border-b-0 border-gray-200 dark:border-gray-700">
                         <article class="mx-auto max-w-2xl format format-sm sm:format-base lg:format-lg format-blue bg-white p-12 rounded-lg shadow-xl">
                             <header class="mb-6 lg:mb-6 not-format">
