@@ -1,5 +1,5 @@
 <x-guest-layout>
-    <section class="bg-gray-50 dark:bg-gray-900 bg-[url('https://flowbite.s3.amazonaws.com/docs/jumbotron/hero-pattern.svg')] dark:bg-[url('https://flowbite.s3.amazonaws.com/docs/jumbotron/hero-pattern-dark.svg')]">
+    <section class="bg-gray-50 dark:bg-gray-900 bg-opacity-50 dark:bg-opacity-50">
         <div class="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
             <a href="/" class="flex items-center mb-6 text-2xl font-semibold text-gray-900 dark:text-white">
                 <x-logo.light class="w-8 h-8 mr-2 dark:hidden"/>

@@ -224,7 +224,7 @@ class LetterController extends Controller
             "appellation_id" => $appellation->id
         ]);
 
-        $new_letter = $letter->generate($user)['self'];
+        $new_letter = $letter->generate($user);
         $request->session()->put('letter', $new_letter);
 
         $new_letter->createNewConversation($request, $new_letter['content']);

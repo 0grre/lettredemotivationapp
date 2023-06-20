@@ -1,6 +1,6 @@
 import './bootstrap';
 import './theme'
-import './favicon'
+// import './favicon'
 import 'flowbite';
 import {createApp} from "vue";
 import AppellationList from "./components/AppellationList.vue";

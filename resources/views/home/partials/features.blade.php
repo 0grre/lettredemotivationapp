@@ -7,8 +7,8 @@
         <img class="w-full" src="{{ env('app_url') . asset('storage/undraw/undraw_robotics_kep0.svg') }}" alt="dashboard image">
     </div>
 </section>
-<section class="bg-white dark:bg-gray-900 bg-[url('https://flowbite.s3.amazonaws.com/docs/jumbotron/hero-pattern.svg')] dark:bg-[url('https://flowbite.s3.amazonaws.com/docs/jumbotron/hero-pattern-dark.svg')]">
-    <div class="gap-8 items-center py-8 px-4 mx-auto max-w-screen-xl xl:gap-16 md:grid md:grid-cols-2 sm:py-16 lg:px-6">
+<section class="bg-white dark:bg-gray-900 bg-opacity-80">
+    <div class="gap-8 items-center py-8 px-4 mx-auto max-w-screen-xl xl:gap-16 md:grid md:grid-cols-2 sm:py-16 lg:px-6 flex flex-col-reverse lg:flex-col">
         <img class="w-full" src="{{ env('app_url') . asset('storage/undraw/undraw_security_on_re_e491.svg') }}" alt="dashboard image">
         <div class="mt-4 md:mt-0">
             <h2 class="mb-4 text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white">La confidentialité de vos données est notre priorité absolue.</h2>

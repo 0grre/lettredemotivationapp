@@ -1,6 +1,6 @@
 <x-app-layout>
     <x-navigation/>
-    <main class="flex flex-col justify-between min-h-screen bg-white dark:bg-gray-900">
+    <main class="flex flex-col justify-between min-h-screen">
         {{ $slot }}
         <x-footer/>
     </main>

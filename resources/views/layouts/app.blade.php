@@ -56,7 +56,7 @@
     </script>
 
 </head>
-<body class="antialiased bg-gray-50 dark:bg-gray-900 bg-[url('https://flowbite.s3.amazonaws.com/docs/jumbotron/hero-pattern.svg')] dark:bg-[url('https://flowbite.s3.amazonaws.com/docs/jumbotron/hero-pattern-dark.svg')]">
+<body class="antialiased bg-cover bg-[url('https://fffuel.co/images/dddepth/dddepth-238.jpg')]">
 <div id="spinner" class="fixed top-0 left-0 right-0 z-[60] overflow-x-hidden h-full w-full bg-white/70 hidden flex-col justify-center">
     <div class="text-center">
         <div role="status">
@@ -91,6 +91,8 @@
         </div>
     </div>
 </section>
-{{ $slot }}
+<section class="min-h-screen bg-white dark:bg-gray-900 bg-opacity-70 dark:bg-opacity-70">
+    {{ $slot }}
+</section>
 </body>
 </html>
