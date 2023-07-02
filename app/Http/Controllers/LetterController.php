@@ -190,10 +190,7 @@ class LetterController extends Controller
     {
         $request->validated();
 
-        $letter = new Letter();
-        $letter->fill($request->all());
-
-        $user = Auth::user();
+        // start pôle emploi
 
         $appellation = Appellation::where('libelle', $request->appellation)->first();
 
@@ -218,6 +215,13 @@ class LetterController extends Controller
         $guzzle_request = new \GuzzleHttp\Psr7\Request('GET', 'https://api.pole-emploi.io/partenaire/rome-metiers/v1/metiers/appellation/' . $appellation->code, $headers);
         $res = $client->sendAsync($guzzle_request)->wait();
         $appellation_request = json_decode($res->getBody());
+
+        // end pôle emploi
+
+        $letter = new Letter();
+        $letter->fill($request->all());
+
+        $user = Auth::user();
 
         $letter->fill([
             "skills" => Appellation::getSkills($appellation_request->competencesCles),

@@ -160,6 +160,8 @@ return [
          * Package Service Providers...
          */
         Laravel\Socialite\SocialiteServiceProvider::class,
+        Ogrre\ChatGPT\ChatServiceProvider::class,
+
         /*
          * Application Service Providers...
          */

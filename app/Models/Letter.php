@@ -25,6 +25,7 @@ class Letter extends Model
         'user_id',
         'appellation_id',
     ];
+
     /**
      * @var mixed|OpenAI\Client
      */
