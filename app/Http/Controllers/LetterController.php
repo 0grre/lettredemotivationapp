@@ -228,15 +228,19 @@ class LetterController extends Controller
             "appellation_id" => $appellation->id
         ]);
 
-        $new_letter = $letter->generate($user);
-        $request->session()->put('letter', $new_letter);
+        $user->letters()->save($letter);
 
-        $new_letter->createNewConversation($request, $new_letter['content']);
+        $prompt = $letter->newLetterPrompt($user, 300);
 
-        Letter::saveLetter($request, $user);
+        $new_chat = $letter->newChat();
+        $chat = $new_chat->gpt($prompt);
+
+        $letter->text = $chat['messages']->last()->content;
+        $letter->save();
 
         return view('letter.show', [
-            'letter' => $user->letters->last()
+            'letter' => $letter,
+            'old_letters' => []
         ]);
     }
 
@@ -246,9 +250,11 @@ class LetterController extends Controller
      */
     public function show(Letter $letter): View
     {
+        $old_letters = $letter->chats->last()->messages()->where('role', 'assistant')->get();
+
         return view('letter.show', [
             'letter' => $letter,
-            'old_letters' => $letter->conversation->messages->where('role', 'assistant'),
+            'old_letters' => sizeof($old_letters) > 1 ? $old_letters : []
         ]);
     }
 
@@ -271,7 +277,9 @@ class LetterController extends Controller
      */
     public function regenerate(Letter $letter)
     {
-        $letter->regenerate();
+        $prompt = "En te basant sur les mêmes informations, reformule et améliore la précédente lettre en étant moins générique";
+
+        $letter->regenerate($prompt);
 
         return redirect()->back();
     }
@@ -279,21 +287,29 @@ class LetterController extends Controller
 
     /**
      * @param Letter $letter
-     * @return void
+     * @return RedirectResponse
      */
-    public function increase(Letter $letter): void
+    public function increase(Letter $letter)
     {
+        $prompt = "En te basant sur les mêmes informations, reformule et améliore la précédente lettre en ajoutant un paragraphe";
 
+        $letter->regenerate($prompt);
+
+        return redirect()->back();
     }
 
 
     /**
      * @param Letter $letter
-     * @return void
+     * @return RedirectResponse
      */
-    public function reduce(Letter $letter): void
+    public function reduce(Letter $letter)
     {
+        $prompt = "En te basant sur les mêmes informations, reformule et améliore la précédente lettre en retirant un paragraphe";
 
+        $letter->regenerate($prompt);
+
+        return redirect()->back();
     }
 }
 

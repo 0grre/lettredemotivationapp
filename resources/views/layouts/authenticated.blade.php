@@ -184,7 +184,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="{{ route('letters.increase', $id) }}"
+                        <a onclick="loading()" href="{{ route('letters.increase', $id) }}"
                            class="flex items-center p-2 text-base font-medium text-gray-900 rounded-lg transition duration-75 hover:bg-gray-100 dark:hover:bg-gray-700 dark:text-white group">
                             <svg
                                 class="flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
@@ -196,7 +196,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="{{ route('letters.reduce', $id) }}"
+                        <a onclick="loading()" href="{{ route('letters.reduce', $id) }}"
                            class="flex items-center p-2 text-base font-medium text-gray-900 rounded-lg transition duration-75 hover:bg-gray-100 dark:hover:bg-gray-700 dark:text-white group">
                             <svg
                                 class="flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"

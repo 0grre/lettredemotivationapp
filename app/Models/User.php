@@ -8,6 +8,8 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use Ogrre\ChatGPT\Traits\HasChat;
+
 
 class User extends Authenticatable
 {
@@ -43,14 +45,6 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
-
-    /**
-     * @return HasMany
-     */
-    public function jobs(): HasMany
-    {
-        return $this->hasMany(Job::class);
-    }
 
     /**
      * Get the products for the blog post.
