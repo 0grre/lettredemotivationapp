@@ -20,6 +20,13 @@ module.exports = {
             fontFamily: {
                 sans: ['Figtree', ...defaultTheme.fontFamily.sans],
             },
+            zIndex: {
+                '60': '60',
+                '70': '70',
+                '80': '80',
+                '90': '90',
+                '100': '100',
+            }
         },
         colors: {
             primary: colors.violet,

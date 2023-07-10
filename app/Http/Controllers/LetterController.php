@@ -42,7 +42,7 @@ class LetterController extends Controller
      * @param JobFormLetterRequest $request
      * @return RedirectResponse
      */
-    public function postCreateStepjob(JobFormLetterRequest $request): RedirectResponse
+    public function postCreateStepJob(JobFormLetterRequest $request): RedirectResponse
     {
         $request->validated();
 
@@ -136,12 +136,19 @@ class LetterController extends Controller
             $user = $request->session()->get('user');
         }
         $user->fill(['name' => $request->firstname . " " . $request->lastname]);
+        $user->letters()->save($letter);
+
+        $request->session()->forget('letter');
         $request->session()->put('user', $user);
 
-        $new_letter = $letter->generate($user);
-        $request->session()->put('letter', $new_letter);
+        $prompt = $letter->newLetterPrompt($user, 300);
 
-        $new_letter->createNewConversation($request);
+        $new_chat = $letter->newChat();
+        $chat = $new_chat->gpt($prompt);
+
+        $letter->text = $chat['messages']->last()->content;
+
+        $request->session()->put('letter', $letter);
 
         return redirect()->route('letter.created');
     }

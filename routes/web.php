@@ -39,9 +39,17 @@ Route::middleware('guest')->group(function () {
 });
 
 /** Authenticated */
-Route::middleware(['auth', 'verified'])->group(function () {
+Route::middleware(['auth'])->group(function () {
 
     Route::get('/dashboard', [PageController::class, 'dashboard'])->name('dashboard');
+
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+});
+
+/** Authenticated and Verified */
+Route::middleware(['auth', 'verified'])->group(function () {
 
     Route::get('/letters', [LetterController::class, 'index'])->name('letters.index');
     Route::get('/letters/{letter}', [LetterController::class, 'show'])->name('letters.show');
@@ -54,11 +62,6 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/create/letters', [LetterController::class, 'create'])->name('letters.create');
     Route::post('/letters', [LetterController::class, 'store'])->name('letters.create.post');
     Route::patch('/letters/{letter}', [LetterController::class, 'update']);
-
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-
 });
 
 Route::get('/test', function () {
