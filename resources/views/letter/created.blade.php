@@ -34,13 +34,9 @@
                         </div>
                         <!-- Accept Terms -->
                         <div class="flex items-start">
-                            <div class="flex items-center h-5">
-                                <input id="terms" aria-describedby="terms" type="checkbox" name="terms" class="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-primary-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-primary-600 dark:ring-offset-gray-800" required>
-                            </div>
                             <div class="ml-3 text-sm">
-                                <label for="terms" class="font-light text-gray-500 dark:text-gray-300">J'accepte les <a class="font-medium text-primary-600 hover:underline dark:text-primary-500" href="{{ route('terms') }}">les conditions d'utilisation</a></label>
+                                <label for="terms" class="font-light text-gray-500 dark:text-gray-300">En m'inscrivant, j'accepte les <a class="font-medium text-primary-600 hover:underline dark:text-primary-500" href="{{ route('terms') }}">les conditions d'utilisation</a></label>
                             </div>
-                            <x-error field="terms" class="text-sm text-red-600 dark:text-red-400 space-y-1 mt-2" />
                         </div>
                         <button type="submit" class="w-full text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">Créer un compte</button>
                     </div>

@@ -3,10 +3,11 @@
         <section class="bg-white dark:bg-gray-900 bg-opacity-70 dark:bg-opacity-70">
             <div class="py-8 px-4 mx-auto max-w-screen-xl text-center lg:py-16 lg:px-12">
                 <a href="#" class="inline-flex justify-between items-center py-1 px-1 pr-4 mb-7 text-sm text-gray-700 bg-gray-100 rounded-full dark:bg-gray-800 dark:text-white hover:bg-gray-200 dark:hover:bg-gray-700" role="alert">
-                    <span class="text-xs bg-primary-600 rounded-full text-white px-4 py-1.5 mr-3">New</span> <span class="text-sm font-medium">Accédez aux données ROME 4.0</span>
+                    <span class="text-xs bg-gradient-to-r from-primary-400 to-emerald-300 rounded-full text-white px-4 py-1.5 mr-3">New</span> <span class="text-sm font-medium">Accédez aux données ROME 4.0</span>
                     <svg class="ml-2 w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path></svg>
                 </a>
-                <h1 class="mb-4 text-4xl font-extrabold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-6xl dark:text-white">Obtenez votre lettre de motivation parfaite en quelques secondes.</h1>
+{{--                <h1 class="mb-4 text-4xl font-extrabold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-6xl dark:text-white">Obtenez votre lettre de motivation parfaite en quelques secondes.</h1>--}}
+                <h1 class="mb-4 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl dark:text-white">Obtenez votre <span class="text-primary-700 dark:text-primary-600">lettre de motivation</span> parfaite en quelques secondes.</h1>
                 <p class="mb-8 text-lg font-normal text-gray-500 lg:text-xl sm:px-16 xl:px-48 dark:text-gray-400">Générez des lettres de motivation professionnelles en quelques clics grâce à notre IA. Fini
                     les heures passées à écrire, notre générateur de lettres de motivation vous offre un service
                     rapide et efficace pour décrocher l'emploi de vos rêves.</p>
@@ -44,8 +45,8 @@
     <section class="bg-white dark:bg-gray-900">
         <div class="gap-8 items-center py-8 px-4 mx-auto max-w-screen-xl xl:gap-16 md:grid md:grid-cols-2 sm:py-16 lg:px-6">
             <div class="mt-4 md:mt-0">
-                <h2 class="mb-4 text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white">Personnalisez vos lettres de motivation selon vos besoins.</h2>
-                <p class="mb-6 font-light text-gray-500 md:text-lg dark:text-gray-400">Apportez une touche personnelle à vos lettres de motivation. Notre plateforme vous permet de modifier et d'améliorer vos lettres pour les adapter à votre style et maximiser leur impact. Soyez unique et impressionnez les recruteurs.</p>
+                <h2 class="mb-4 text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white">Reformulez, Augmentez, Réduisez pour un impact maximal !</h2>
+                <p class="mb-6 font-light text-gray-500 md:text-lg dark:text-gray-400">Avec notre fonctionnalité exclusive, vous pouvez également transformer votre lettre de motivation en un atout incontestable. Réformulez habilement vos phrases, réduisez la taille pour plus de concision, ou amplifiez son impact en ajoutant des arguments convaincants.</p>
             </div>
             <img class="w-full" src="{{ env('app_url') . asset('storage/undraw/undraw_wall_post_re_y78d.svg') }}" alt="dashboard image">
         </div>

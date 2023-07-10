@@ -8,25 +8,17 @@ use App\Http\Requests\FormLetter\CompanyFormLetterRequest;
 use App\Http\Requests\Letter\StoreLetterRequest;
 use App\Models\Appellation;
 use App\Models\Letter;
-use App\Models\Message;
 use App\Models\User;
-use Dompdf\Dompdf;
+use Barryvdh\DomPDF\Facade\PDF;
 use GuzzleHttp\Client;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\View\View;
-use OpenAI;
 
 class LetterController extends Controller
 {
-    public OpenAI\Client $client;
-
-    public function __construct()
-    {
-        $this->client = OpenAI::client(env('OPENAI_API_KEY'));;
-    }
-
     /**
      * @return View
      */
@@ -267,14 +259,11 @@ class LetterController extends Controller
 
     /**
      * @param Letter $letter
-     * @return void
+     * @return Response
      */
-    public function download(Letter $letter): void
+    public function download(Letter $letter)
     {
-        $dompdf = new Dompdf();
-        $dompdf->loadHtml($letter->text);
-        $dompdf->render();
-        $dompdf->stream();
+        return Pdf::loadView('letter.pdf', ['letter' => $letter])->download($letter->appellation->libelle . '.pdf');
     }
 
 
@@ -305,7 +294,6 @@ class LetterController extends Controller
         return redirect()->back();
     }
 
-
     /**
      * @param Letter $letter
      * @return RedirectResponse
@@ -317,6 +305,17 @@ class LetterController extends Controller
         $letter->regenerate($prompt);
 
         return redirect()->back();
+    }
+
+    /**
+     * @param Letter $letter
+     * @return RedirectResponse
+     */
+    public function delete(Letter $letter)
+    {
+        $letter->delete();
+
+        return redirect()->route('dashboard');
     }
 }
 

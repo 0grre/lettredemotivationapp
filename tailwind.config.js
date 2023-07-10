@@ -30,6 +30,7 @@ module.exports = {
         },
         colors: {
             primary: colors.violet,
+            emerald: colors.emerald
         }
     },
 

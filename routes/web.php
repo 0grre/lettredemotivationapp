@@ -4,6 +4,7 @@ use App\Http\Controllers\LetterController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\ProfileController;
 use App\Models\Appellation;
+use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -62,14 +63,13 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/create/letters', [LetterController::class, 'create'])->name('letters.create');
     Route::post('/letters', [LetterController::class, 'store'])->name('letters.create.post');
     Route::patch('/letters/{letter}', [LetterController::class, 'update']);
+    Route::delete('/letters/{letter}', [LetterController::class, 'delete'])->name('letters.delete');
 });
 
 Route::get('/test', function () {
-    return view('letter.show', [
 
-        'letter' => Auth::user()->letters->last()
 
-    ]);
+
 });
 
 require __DIR__ . '/auth.php';

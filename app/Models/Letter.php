@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
 use Ogrre\ChatGPT\Traits\HasChat;
 use OpenAI;
 
@@ -70,8 +71,10 @@ class Letter extends Model
             " - Compétences: " . $string_skills .
             " - Entreprise: " . $this->company .
             " - Localisation: " . $this->localization .
-            " - Expérience: " . $this->experience . " ans";
-    }
+            " - Expérience: " . $this->experience . " ans
+            En ce qui concerne l'entête tu ne mettras que mon nom et prénom ainsi que la date d'aujourd'hui qui est "
+            . Carbon::now()->addDay()->locale('fr')->isoFormat('dddd D MMMM YYYY');
+        }
 
     /**
      * @param string $prompt
