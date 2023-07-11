@@ -13,9 +13,11 @@ return new class extends Migration
     {
         Schema::create('letters', function (Blueprint $table) {
             $table->id();
+            $table->string('title', 50)->nullable();
             $table->text('text')->nullable();
             $table->string('company', 50);
-            $table->string('localization', 50);
+            $table->string('contract_type', 25);
+            $table->string('localization', 50)->nullable();
             $table->integer('experience');
             $table->json('skills');
             $table->unsignedBigInteger('user_id')->nullable();
@@ -28,6 +30,7 @@ return new class extends Migration
                 ->references('id')
                 ->on('appellations')
                 ->onDelete('cascade');
+            $table->timestamp('archived_at')->nullable();
             $table->timestamps();
         });
     }

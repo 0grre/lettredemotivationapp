@@ -4,7 +4,6 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
 use Ogrre\ChatGPT\Traits\HasChat;
@@ -19,13 +18,16 @@ class Letter extends Model
      */
     protected $fillable = [
         'id',
+        'title',
         'text',
         'company',
+        'contract_type',
         'skills',
         'experience',
         'localization',
         'user_id',
         'appellation_id',
+        'archived_at'
     ];
 
     /**
@@ -68,11 +70,14 @@ class Letter extends Model
         return "Rédige moi une lettre de motivation professionnelle et pertinente de " . $words . " mots maximum en te basant sur les informations suivantes:
               - Prénom, Nom: " . $user->name .
             " - Poste: " . $this->appellation->libelle .
+            " - Type de contrat: " . $this->contract_type .
             " - Compétences: " . $string_skills .
             " - Entreprise: " . $this->company .
             " - Localisation: " . $this->localization .
             " - Expérience: " . $this->experience . " ans
-            En ce qui concerne l'entête tu ne mettras que mon nom et prénom ainsi que la date d'aujourd'hui qui est "
+            En ce qui concerne l'entête tu ne mettras que mon nom et prénom indenté comme une lettre de motivation,
+            tu indiquera dans l'objet de la lettre le type de contrat et le poste visé,
+            tu laisseras un espace supplémentaire et en dessous tu ajouteras la date d'aujourd'hui qui est "
             . Carbon::now()->addDay()->locale('fr')->isoFormat('dddd D MMMM YYYY');
         }
 

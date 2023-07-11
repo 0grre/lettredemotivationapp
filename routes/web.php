@@ -53,6 +53,7 @@ Route::middleware(['auth'])->group(function () {
 Route::middleware(['auth', 'verified'])->group(function () {
 
     Route::get('/letters', [LetterController::class, 'index'])->name('letters.index');
+    Route::get('/archives', [LetterController::class, 'archives'])->name('letters.archives');
     Route::get('/letters/{letter}', [LetterController::class, 'show'])->name('letters.show');
     Route::get('/letters/download/{letter}', [LetterController::class, 'download'])->name('letters.download');
     Route::get('/letters/regenerate/{letter}', [LetterController::class, 'regenerate'])->name('letters.regenerate');

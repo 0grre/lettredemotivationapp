@@ -20,3 +20,5 @@ yarn-error.log
 /yarn.lock
 /composer.lock
 package-lock.json
+/.data/
+/log/

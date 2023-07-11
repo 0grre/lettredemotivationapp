@@ -14,6 +14,7 @@ use GuzzleHttp\Client;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\View\View;
 
@@ -70,6 +71,7 @@ class LetterController extends Controller
 
         $letter->fill([
             "experience" => $request->experience,
+            "contract_type" => $request->contract_type,
             "skills" => Appellation::getSkills($appellation_request->competencesCles),
             "appellation_id" => $appellation->id
         ]);
@@ -98,6 +100,9 @@ class LetterController extends Controller
 
         $letter = $request->session()->get('letter');
         $letter->fill($request->all());
+        $letter->fill([
+            "title" => $letter->company . "_" .$letter->appellation->libelle
+        ]);
         $request->session()->put('letter', $letter);
 
         return redirect()->route('letters.create.step.name');
@@ -177,7 +182,17 @@ class LetterController extends Controller
     public function index(): View
     {
         return view('letter.index', [
-            'letters' => Auth::user()->letters,
+            'letters' => Auth::user()->letters()->where('archived_at', null)->get(),
+        ]);
+    }
+
+    /**
+     * @return View
+     */
+    public function archives(): View
+    {
+        return view('letter.archives', [
+            'letters' => Auth::user()->letters()->where('archived_at', !null)->get(),
         ]);
     }
 
@@ -224,7 +239,8 @@ class LetterController extends Controller
 
         $letter->fill([
             "skills" => Appellation::getSkills($appellation_request->competencesCles),
-            "appellation_id" => $appellation->id
+            "appellation_id" => $appellation->id,
+            "title" => $letter->company . "_" .$appellation->libelle
         ]);
 
         $user->letters()->save($letter);
@@ -263,7 +279,9 @@ class LetterController extends Controller
      */
     public function download(Letter $letter)
     {
-        return Pdf::loadView('letter.pdf', ['letter' => $letter])->download($letter->appellation->libelle . '.pdf');
+        $title = $letter->title ? $letter->title : $letter->company . "_" . $letter->appellation->libelle;
+
+        return Pdf::loadView('letter.pdf', ['letter' => $letter])->download($title . '.pdf');
     }
 
 
@@ -305,6 +323,17 @@ class LetterController extends Controller
         $letter->regenerate($prompt);
 
         return redirect()->back();
+    }
+
+    /**
+     * @param Letter $letter
+     * @return RedirectResponse
+     */
+    public function archive(Letter $letter)
+    {
+        $letter->archived_at = Carbon::now();
+
+        return redirect()->route('dashboard');
     }
 
     /**

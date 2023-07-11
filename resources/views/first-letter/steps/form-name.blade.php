@@ -1,6 +1,9 @@
-<img class="w-full mt-4" src="{{ env('app_url') . asset('storage/undraw/undraw_sync_files_re_ws4c.svg') }}" alt="dashboard image">
-<div class="mt-4 md:mt-0">
-    <ol class="my-12 flex items-center w-full text-sm font-medium text-center text-gray-500 dark:text-gray-400 sm:text-base">
+<div class="hidden lg:flex justify-center items-center">
+    <img class="w-full mt-4" src="{{ env('app_url') . asset('storage/undraw/undraw_sync_files_re_ws4c.svg') }}" alt="dashboard image">
+</div>
+
+<div class="max-w-xl">
+    <ol class="mb-6 flex items-center w-full text-sm font-medium text-center text-gray-500 dark:text-gray-400 sm:text-base">
         <li class="flex md:w-full items-center after:content-[''] after:w-full after:h-1 after:border-b after:border-gray-200 after:border-1 after:hidden sm:after:inline-block after:mx-6 xl:after:mx-10 dark:after:border-gray-700">
         <span class="flex items-center after:content-['/'] sm:after:hidden after:mx-2 after:text-gray-200 dark:after:text-gray-500">
             <span class="mr-2">2</span>
@@ -43,8 +46,8 @@
             <x-error field="lastname" class="text-sm text-red-600 dark:text-red-400 space-y-1 mt-2"/>
         </div>
         <button type="submit"
-                class="inline-flex items-center px-5 py-2.5 mt-4 sm:mt-8 text-sm font-medium text-center text-white bg-primary-700 rounded-lg focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-primary-800">
-            {{ __('Tout est prêt, Let\'s go !') }}
+                class="inline-flex items-center px-5 py-2.5 mt-8 text-sm font-medium text-center text-white bg-primary-700 rounded-lg focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-primary-800">
+            {{ __('Tout est prêt, Let\'s go!') }}
             <svg class="ml-2 -mr-1 w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                 <path fill-rule="evenodd"
                       d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"

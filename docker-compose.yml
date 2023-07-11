@@ -1,0 +1,36 @@
+version: '3.8'
+
+services:
+  superlettredemotivation:
+    image: jbloup/php:8.0
+    container_name: app
+    volumes:
+      - .:/var/www/html
+      - ./log:/var/log/apache2
+    working_dir: /var/www/html
+    ports:
+      - '8000:8000'
+    command: sh -c "rm -rf vendor composer.lock && composer install && php artisan serve --host=0.0.0.0"
+
+  superlettredemotivation-db:
+    image: postgres:latest
+    container_name: db
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: postgres
+    ports:
+      - '15432:5432'
+    volumes:
+      - .data:/var/lib/postgresql/data
+
+  superlettredemotivation-adminer:
+    container_name: pg-adminer
+    image: adminer
+    ports:
+      - "8082:8080"
+    restart: always
+    depends_on:
+      - "superlettredemotivation-db"
+

@@ -1,8 +1,6 @@
 <x-authenticated-layout>
-    <main class="bg-gray-200 dark:bg-gray-900 py-24">
-        <div class="flex justify-between px-4 mx-auto max-w-screen-xl">
-            <article
-                class="mx-auto w-full max-w-2xl format format-sm sm:format-base lg:format-lg format-blue bg-white p-12 rounded-lg shadow-xl">
+        <div class="flex justify-between px-2 md:px-4 mx-auto max-w-screen-xl">
+            <article class="mx-auto w-full max-w-2xl format format-sm sm:format-base lg:format-lg format-blue bg-white p-6 md:p-8 lg:p-12 rounded-lg shadow-xl">
                 <header class="mb-6 lg:mb-6 not-format">
                     <h1 class="mb-12 text-xl font-extrabold leading-tight text-gray-900 text-center">{{ $letter->title }}</h1>
                 </header>
@@ -63,5 +61,4 @@
                 <span class="sr-only">Open actions menu</span>
             </button>
         </div>
-    </main>
 </x-authenticated-layout>

@@ -24,7 +24,7 @@ class CompanyFormLetterRequest extends FormRequest
     {
         return [
             'company' => 'string|max:50',
-            'localization' => 'string|max:50',
+            'localization' => 'nullable|string|max:50',
         ];
     }
 }

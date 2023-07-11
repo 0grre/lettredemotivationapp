@@ -16,6 +16,22 @@
                                 <x-error field="job" class="text-sm text-red-600 dark:text-red-400 space-y-1 mt-2"/>
                             </div>
                             <div class="sm:col-span-2">
+                                <label for="contract_type" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Type de
+                                    contrat</label>
+                                <select id="contract_type" name="contract_type"
+                                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                                        required>
+                                    <option disabled selected>Candidature spontanée, CDI ou même stage ?</option>
+                                    <option value="stage">Stage</option>
+                                    <option value="bénévolat">Bénévolat</option>
+                                    <option value="apprentissage">Apprentissage</option>
+                                    <option value="alternance">Alternance</option>
+                                    <option value="CDD">CDD</option>
+                                    <option value="CDI">CDI</option>
+                                </select>
+                                <x-error field="contract_type" class="text-sm text-red-600 dark:text-red-400 space-y-1 mt-2"/>
+                            </div>
+                            <div class="sm:col-span-2">
                                 <label for="experience"
                                        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Ton
                                     expérience</label>

@@ -24,6 +24,7 @@ class JobFormLetterRequest extends FormRequest
     {
         return [
             'appellation' => 'string|max:250',
+            'contract_type' => 'string|max:25',
             'experience' => 'integer|max:4',
         ];
     }
