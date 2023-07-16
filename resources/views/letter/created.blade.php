@@ -1,7 +1,6 @@
 <x-guest-layout>
-    <div class="mx-auto px-4 lg:px-6 py-8 sm:py-16 xl:w-1/2 lg:w-3/4 w-full">
-        <article
-            class="w-full max-w-2xl format format-sm sm:format-base lg:format-lg format-blue bg-white p-12 rounded-lg shadow-xl">
+    <div class="mx-auto px-4 lg:px-6 py-8 sm:py-16 w-full">
+        <article class="mx-auto p-12 w-full max-w-3xl format format-sm sm:format-base lg:format-lg format-blue bg-white rounded-lg shadow-xl">
             <p class="leading-relaxed whitespace-pre-line text-justify text-lg font-semibold text-gray-900 dark:text-white gradient-mask-b-0 notSelectable">{{ $text }}</p>
             <form class="-translate-y-5" method="POST" action="{{ route('register') }}">
                 @csrf

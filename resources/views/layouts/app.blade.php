@@ -12,10 +12,10 @@
     <title>{{ config('app.name', 'Super Lettre de Motivation') }}</title>
 
     <link rel="icon"
-          href="/storage/logo.png"
+          href="{{ asset('assets/logo.png') }}"
           id="light-scheme-icon">
     <link rel="icon"
-          href="/storage/_logo.png"
+          href="{{ asset('assets/_logo.png') }}"
           id="dark-scheme-icon">
 
     <!-- Fonts -->

@@ -279,7 +279,7 @@ class LetterController extends Controller
      */
     public function download(Letter $letter)
     {
-        $title = $letter->title ? $letter->title : $letter->company . "_" . $letter->appellation->libelle;
+        $title = $letter->title ? $letter->title : $letter->company . " " . $letter->appellation->libelle;
 
         return Pdf::loadView('letter.pdf', ['letter' => $letter])->download($title . '.pdf');
     }
