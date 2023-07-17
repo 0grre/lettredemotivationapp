@@ -13,7 +13,7 @@
                     <a href="{{ route('login') }}"
                        class="hidden lg:flex text-gray-800 dark:text-white hover:bg-gray-50 focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2 dark:hover:bg-gray-700 focus:outline-none dark:focus:ring-gray-800">{{ __('Connexion') }}</a>
                     <a href="{{ route('register') }}"
-                       class="hidden lg:flex text-white bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2 dark:bg-primary-600 dark:hover:bg-primary-700 focus:outline-none dark:focus:ring-primary-800">{{ __('Commencer') }}</a>
+                       class="hidden lg:flex text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2 focus:outline-none dark:focus:ring-primary-800">{{ __('Commencer') }}</a>
                 @endauth
                 <button data-collapse-toggle="mobile-menu-2" type="button"
                         class="inline-flex items-center p-2 ml-1 text-sm text-gray-500 rounded-lg lg:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
@@ -47,22 +47,26 @@
                            class="block py-2 pr-4 pl-3 {{ request()->routeIs('faq') ? "text-white rounded bg-primary-700 lg:bg-transparent lg:text-primary-700 lg:p-0 dark:text-white" : " text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700"}}">FAQ</a>
                     </li>
                     <li>
+                        <a href="/rome"
+                           class="block py-2 pr-4 pl-3 {{ request()->routeIs('rome') ? "text-white rounded bg-primary-700 lg:bg-transparent lg:text-primary-700 lg:p-0 dark:text-white" : " text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700"}}">Fiches</a>
+                    </li>
+                    <li>
                         <a href="/contact"
                            class="block py-2 pr-4 pl-3 {{ request()->routeIs('contact') ? "text-white rounded bg-primary-700 lg:bg-transparent lg:text-primary-700 lg:p-0 dark:text-white" : " text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700"}}">Contact</a>
                     </li>
                     @auth
                         <li>
                             <a href="{{ route('dashboard') }}"
-                               class="block lg:hidden py-2 pr-4 pl-3 {{ request()->routeIs('dashboard') ? "text-white rounded bg-primary-700 lg:bg-transparent lg:text-primary-700 lg:p-0 dark:text-white" : " text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700"}}">Dashboard</a>
+                               class="block lg:hidden py-2 pr-4 pl-3 {{ request()->routeIs('dashboard') ? "text-white rounded bg-primary-600 lg:bg-transparent lg:text-primary-700 lg:p-0 dark:text-white" : " text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700"}}">Dashboard</a>
                         </li>
                     @else
                         <li>
                             <a href="{{ route('login') }}"
-                               class="block lg:hidden py-2 pr-4 pl-3 {{ request()->routeIs('login') ? "text-white rounded bg-primary-700 lg:bg-transparent lg:text-primary-700 lg:p-0 dark:text-white" : " text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700"}}">Connexion</a>
+                               class="block lg:hidden py-2 pr-4 pl-3 {{ request()->routeIs('login') ? "text-white rounded bg-primary-600 lg:bg-transparent lg:text-primary-700 lg:p-0 dark:text-white" : " text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700"}}">Connexion</a>
                         </li>
                         <li>
                             <a href="{{ route('register') }}"
-                               class="block lg:hidden py-2 pr-4 pl-3 {{ request()->routeIs('register') ? "text-white rounded bg-primary-700 lg:bg-transparent lg:text-primary-700 lg:p-0 dark:text-white" : " text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700"}}">Commencer</a>
+                               class="block lg:hidden py-2 pr-4 pl-3 {{ request()->routeIs('register') ? "text-white rounded bg-primary-600 lg:bg-transparent lg:text-primary-700 lg:p-0 dark:text-white" : " text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700"}}">Commencer</a>
                         </li>
                     @endauth
                 </ul>
