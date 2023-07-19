@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Super Lettre de Motivation') }}</title>
+    <title>Super Lettre de motivation - Exemple de lettre de motivation</title>
 
     <link rel="icon"
           href="{{ asset('assets/super.png') }}"
@@ -23,7 +23,9 @@
     <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet"/>
 
     <meta name="author" content="0grre"/>
-    <meta name="your keywords" content="
+    <meta name="description" content="Générez des lettres de motivation professionnelles
+    ou des exemple de lettre de motivation en quelques clics grâce à notre IA et aux données de Pôle Emploi."/>
+    <meta name="keywords" content="
     lettre de motivation,
     lettre de motivation exemple,
     exemple lettre de motivation,
@@ -57,8 +59,8 @@
 
 </head>
 {{--<body class="antialiased bg-cover bg-[url('https://fffuel.co/images/dddepth/dddepth-238.jpg')]">--}}
-<body class="antialiased background-gradient">
-<div id="spinner" class="fixed top-0 left-0 right-0 z-[60] overflow-x-hidden h-full w-full background-gradient flex-col justify-center hidden">
+<body class="antialiased bg-cover bg-gray-300 dark:bg-gray-800">
+<div id="spinner" class="fixed top-0 left-0 right-0 z-[60] overflow-x-hidden h-full w-full bg-primary-900/60 flex-col justify-center hidden">
     <div class="py-8 px-4 flex flex-col justify-center mx-auto min-h-screen max-w-screen-xl lg:py-16 lg:px-6">
         <div class="mx-auto max-w-screen-sm text-center bg-white p-12 rounded-lg shadow-md">
             <p class="mb-4 text-3xl tracking-tight font-bold text-gray-900 md:text-4xl dark:text-white">Génération

@@ -16,7 +16,7 @@ class PageController extends Controller
      */
     public function home(): View
     {
-        return view('home.welcome');
+        return view('welcome');
     }
 
     /**
@@ -25,6 +25,20 @@ class PageController extends Controller
     public function faq(): View
     {
         return view('faq');
+    }
+    /**
+     * @return View
+     */
+    public function pricing(): View
+    {
+        return view('pricing');
+    }
+    /**
+     * @return View
+     */
+    public function contact(): View
+    {
+        return view('contact');
     }
 
     /**

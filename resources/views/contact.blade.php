@@ -63,6 +63,7 @@
                             Est-ce que je peux essayer votre service gratuitement avant de m'engager ?
                         </h3>
                         <p class="text-gray-500 dark:text-gray-400">Absolument ! Nous offrons une version gratuite de notre service qui vous permet de découvrir et de tester nos fonctionnalités de base. Vous pouvez passer à un plan payant pour accéder à des fonctionnalités avancées et des avantages supplémentaires.</p>
+                        <p class="text-gray-500 dark:text-gray-400">Find out more information by <a href="#" class="font-medium underline text-primary-600 dark:text-primary-500 hover:no-underline">reading the license</a>.</p>
                     </div>
                 </div>
             </div>

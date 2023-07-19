@@ -22,6 +22,8 @@ use Illuminate\Support\Facades\Route;
 /** Public */
 Route::get('/', [PageController::class, 'home'])->name('home');
 Route::get('/faq', [PageController::class, 'faq'])->name('faq');
+Route::get('/pricing', [PageController::class, 'pricing'])->name('pricing');
+Route::get('/contact', [PageController::class, 'contact'])->name('contact');
 Route::get('/terms', [PageController::class, 'terms'])->name('terms');
 Route::get('/privacy', [PageController::class, 'privacy'])->name('privacy');
 
