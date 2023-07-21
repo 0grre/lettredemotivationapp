@@ -1,5 +1,4 @@
 <x-guest-layout>
-
     {{-- Hero --}}
     <section class="background-gradient">
         <div class="py-8 px-4 mx-auto max-w-screen-xl text-center lg:py-16 lg:px-12">
@@ -44,26 +43,23 @@
             </div>
             <div class="space-y-8 lg:grid lg:grid-cols-3 sm:gap-6 xl:gap-10 lg:space-y-0">
 
-                <div
-                    class="flex flex-col p-6 mx-auto max-w-lg text-center text-gray-900 bg-white rounded-lg border border-gray-100 shadow dark:border-gray-600 xl:p-8 dark:bg-gray-800 dark:text-white">
+                <div class="flex flex-col p-6 mx-auto max-w-lg text-center text-gray-900 bg-white rounded-lg border border-gray-100 shadow dark:border-gray-600 xl:p-8 dark:bg-gray-800 dark:text-white reveal first">
                     <a href="#">
                         <img class="p-12" src="{{ asset('assets/undraw/undraw_robotics_kep0.svg') }}"
                              alt="dashboard image">
                     </a>
                     <div class="p-5">
                         <a href="#">
-                            <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Des lettres
+                            <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Des exemples de lettres
                                 de motivation percutantes grâce à l'IA et à Pôle Emploi.</h5>
                         </a>
-                        <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Générez des lettres de motivation
-                            de qualité supérieure en utilisant notre technologie d'intelligence artificielle alimentée
-                            par les données de Pôle Emploi. Obtenez des résultats efficaces et démarquez-vous dans votre
-                            recherche d'emploi.</p>
+                        <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Générez des lettres de motivation professionnelles
+                            ou des exemple de lettre de motivation en quelques clics grâce à notre IA alimentée avec les données de Pôle Emploi.</p>
                     </div>
                 </div>
 
                 <div
-                    class="flex flex-col p-6 mx-auto max-w-lg text-center text-gray-900 bg-white rounded-lg border border-gray-100 shadow dark:border-gray-600 xl:p-8 dark:bg-gray-800 dark:text-white">
+                    class="flex flex-col p-6 mx-auto max-w-lg text-center text-gray-900 bg-white rounded-lg border border-gray-100 shadow dark:border-gray-600 xl:p-8 dark:bg-gray-800 dark:text-white reveal second">
                     <a href="#">
                         <img class="p-12" src="{{ asset('assets/undraw/undraw_security_on_re_e491.svg') }}"
                              alt="dashboard image">
@@ -81,7 +77,7 @@
                 </div>
 
                 <div
-                    class="flex flex-col p-6 mx-auto max-w-lg text-center text-gray-900 bg-white rounded-lg border border-gray-100 shadow dark:border-gray-600 xl:p-8 dark:bg-gray-800 dark:text-white">
+                    class="flex flex-col p-6 mx-auto max-w-lg text-center text-gray-900 bg-white rounded-lg border border-gray-100 shadow dark:border-gray-600 xl:p-8 dark:bg-gray-800 dark:text-white reveal third">
                     <img class="p-12" src="{{ asset('assets/undraw/undraw_wall_post_re_y78d.svg') }}"
                          alt="dashboard image">
                     <div class="p-5">
@@ -114,7 +110,7 @@
                      alt="dashboard image">
                 <div class="mt-4 md:mt-0">
                     <ol class="relative border-l border-gray-200 dark:border-gray-700">
-                        <li class="mb-10 ml-6 p-6 bg-white rounded-lg border border-gray-100 shadow dark:border-gray-600 xl:p-8 dark:bg-gray-800">
+                        <li class="mb-10 ml-6 p-6 bg-white rounded-lg border border-gray-100 shadow dark:border-gray-600 xl:p-8 dark:bg-gray-800 reveal first">
                             <span class="absolute text-3xl flex items-center justify-center w-6 h-6 -left-3 ring-8 ring-white dark:ring-gray-900">
                              👨🏻‍💻
                             </span>
@@ -129,7 +125,7 @@
                             </ul>
 
                         </li>
-                        <li class="mb-10 ml-6 p-6 bg-white rounded-lg border border-gray-100 shadow dark:border-gray-600 xl:p-8 dark:bg-gray-800">
+                        <li class="mb-10 ml-6 p-6 bg-white rounded-lg border border-gray-100 shadow dark:border-gray-600 xl:p-8 dark:bg-gray-800 reveal first">
                             <span class="absolute text-3xl flex items-center justify-center w-6 h-6 -left-3 ring-8 ring-white dark:ring-gray-900">
                                 ⚡️
                             </span>
@@ -143,7 +139,7 @@
                                 </li>
                             </ul>
                         </li>
-                        <li class="ml-6 p-6 bg-white rounded-lg border border-gray-100 shadow dark:border-gray-600 xl:p-8 dark:bg-gray-800">
+                        <li class="ml-6 p-6 bg-white rounded-lg border border-gray-100 shadow dark:border-gray-600 xl:p-8 dark:bg-gray-800 reveal first">
                             <span class="absolute text-3xl flex items-center justify-center w-6 h-6 -left-3 ring-8 ring-white dark:ring-gray-900">
                                 📑
                             </span>

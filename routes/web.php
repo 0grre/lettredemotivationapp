@@ -69,10 +69,6 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::delete('/letters/{letter}', [LetterController::class, 'delete'])->name('letters.delete');
 });
 
-Route::get('/test', function () {
-
-
-
-});
+Route::get('/test', [LetterController::class, 'test']);
 
 require __DIR__ . '/auth.php';

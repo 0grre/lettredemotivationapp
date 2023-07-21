@@ -17,6 +17,7 @@ use Illuminate\Http\Response;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\View\View;
+use App\PoleEmploi\PoleEmploiClient;
 
 class LetterController extends Controller
 {
@@ -345,6 +346,14 @@ class LetterController extends Controller
         $letter->delete();
 
         return redirect()->route('dashboard');
+    }
+
+
+    public function test(PoleEmploiClient $poleEmploiClient)
+    {
+
+//        return $poleEmploiClient->base('GET', 'rome-metiers/v1/metiers/appellation/' . 10277);
+        return $poleEmploiClient->base('GET', 'rome-fiches-metiers/v1/fiches-rome/fiche-metier/' . 'A1301');
     }
 }
 
