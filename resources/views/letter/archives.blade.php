@@ -1,7 +1,7 @@
 <x-authenticated-layout>
     <!-- Start block -->
-    <section class="bg-gray-50 dark:bg-gray-900 p-3 sm:p-5 antialiased">
-        <div class="mx-auto max-w-screen-xl px-4 lg:px-12">
+    <section class="py-8 px-4 mx-auto max-w-screen-xl sm:py-16 lg:px-6">
+        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 space-y-6">
             <!-- Start coding here -->
             <div class="bg-white dark:bg-gray-800 relative shadow-md sm:rounded-lg overflow-hidden">
                 <div class="flex flex-col md:flex-row items-center justify-between space-y-3 md:space-y-0 md:space-x-4 p-4">

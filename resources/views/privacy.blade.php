@@ -1,174 +1,117 @@
 <x-guest-layout>
-    <section>
-        <div class="mx-auto w-full lg:px-24 max-w-7xl md:px-12 items-center px-8 py-24">
-            <div>
-                <div class="relative mx-auto max-w-[40rem] pt-20 pb-24">
-                    <h1 class="font-extrabold text-5xl text-black font-display">
-                        Privacy policy
-                    </h1>
-                    <p class="mt-4 text-base lea ding-7 text-slate-500">
-                        Last updated on January 01, 2023
-                    </p>
-                </div>
-            </div>
-            <div>
-                <div
-                    class="mx-auto max-w-[40rem] prose-base prose text-slate-500 prose-h3:text-black prose-a:font-semibold prose-a:text-accent-300 hover:prose-a:text-black">
-                    <p>
-                        This privacy policy sets out how Unwrapped AB collects, processes and
-                        uses your Personal Information through your use of our Services.
-                    </p>
-                    <h3>Definitions</h3>
-                    <h3>DPO</h3>
-                    <p>
-                        DPO means Data Protection Officer, and is the person specifically
-                        appointed by us to deal with your enquiries with respect to this
-                        privacy policy and your Personal Information.
-                    </p>
-                    <p>
-                        Personal Information means any identifying information about you. This
-                        includes, but is not limited to, the following: cookies and usage
-                        data.
-                    </p>
-                    <p>
-                        Services means all services provided by Michael Alexander Web Agency
-                        to you, including (but not limited to) this Website.
-                    </p>
-                    <p>
-                        Website means this website and all websites, applications and
-                        communications that post a link to this Privacy Policy.
-                    </p>
-                    <h3>Personal Information Collection</h3>
-                    <p>
-                        We only collect and use Personal Information to the extent necessary
-                        to provide you with the Services. We collect Personal Information for
-                        the Website to provide you with a better online experience.
-                    </p>
-                    <h3>Personal Information Retention</h3>
-                    <p>
-                        We keep Personal Information for the shortest time necessary to
-                        provide you with Services and to meet all our legal and compliance
-                        obligations. To determine this retention period, we take into account
-                        (i) the nature of the Personal Information gathered; and (ii) the
-                        nature of our legal and compliance obligations. All Personal
-                        Information no longer required by us is destroyed and/or erased.
-                    </p>
-                    <h3>Personal Data from Third Parties</h3>
-                    <p>
-                        We may, from time to time, obtain Personal Information from third
-                        parties to enable us to better tailor our Services to you (Third Party
-                        Personal Information). When we obtain Third Party Personal
-                        Information, we will notify you within one month. If we use or share
-                        Third Party Personal Information, we will notify you immediately.
-                    </p>
-                    <h3>Your Rights</h3>
-                    <p>
-                        With respect to Personal Information we hold, you have the following
-                        rights:
-                    </p>
-                    <ul>
-                        <li>
-                            Access: You may request from us access to your data that we hold on
-                            you.
+    <section class="pt-8 pb-16 lg:pt-16 lg:pb-24 bg-white dark:bg-gray-900">
+        <div class="flex justify-between px-4 mx-auto max-w-screen-xl ">
+            <article
+                class="mx-auto w-full max-w-2xl format format-sm sm:format-base lg:format-lg format-blue dark:format-invert">
+                <header class="mb-4 lg:mb-6 not-format">
+                    <h1 class="mb-4 text-3xl font-extrabold leading-tight text-gray-900 lg:mb-6 lg:text-4xl dark:text-white">
+                        Politique de confidentialité</h1>
+                </header>
+                <p>Le site web superlettredemotivation.com est détenu par super lettre de motivation, qui est un
+                    contrôleur de données de vos données personnelles.</p>
+                <p>
+                    Nous avons adopté cette politique de confidentialité, qui détermine la manière dont nous traitons
+                    les informations collectées par <a href="https://twitter.com/_0grre" target="_blank"
+                                                       class="font-medium underline text-primary-600 dark:text-primary-500 hover:no-underline">0grre</a>,
+                    qui fournit également les raisons pour
+                    lesquelles nous devons collecter certaines données personnelles vous concernant. Par conséquent,
+                    vous devez lire cette politique de confidentialité avant d'utiliser le site web de
+                    superlettredemotivation.com.
+                </p>
+                <p>
+                    Nous prenons soin de vos données personnelles et nous nous engageons à en garantir la
+                    confidentialité et la sécurité.
+                </p>
 
-                            <p></p> li
-                        </li>
-                        <li>
-                            Rectification: If the data we hold on you is inaccurate, you may
-                            request that we correct it. If the data we hold is incomplete, you
-                            may request that we complete it.
-                        </li>
-                        <li>
-                            Erasure: Subject to certain conditions, you may request that we
-                            erase all of the data we hold on you. li Restrictions: Subject to
-                            certain conditions, you may request that we restrict the processing
-                            of data we hold on you.
-                        </li>
+                <h3>Les informations personnelles que nous collectons :</h3>
+                <p>
+                    Lorsque vous visitez le superlettredemotivation.com, nous recueillons automatiquement certaines
+                    informations sur votre appareil, notamment des informations sur votre navigateur web, votre adresse
+                    IP, votre fuseau horaire et certains des cookies installés sur votre appareil. En outre, lorsque
+                    vous naviguez sur le site, nous recueillons des informations sur les pages web ou les produits
+                    individuels que vous consultez, sur les sites web ou les termes de recherche qui vous ont renvoyé au
+                    site et sur la manière dont vous interagissez avec le site. Nous désignons ces informations
+                    collectées automatiquement par le terme "informations sur les appareils". En outre, nous pourrions
+                    collecter les données personnelles que vous nous fournissez (y compris, mais sans s'y limiter, le
+                    nom, le prénom, l'adresse, les informations de paiement, etc.) lors de l'inscription afin de pouvoir
+                    exécuter le contrat.
+                </p>
+                <h3>Pourquoi traitons-nous vos données ?</h3>
+                <p>
 
-                        <li>
-                            Portability: Subject to certain conditions, you may request that we
-                            transfer all the data we hold on you to a third party (including
-                            yourself).
-                        </li>
-                        <li>
-                            Objections: Subject to certain conditions, you may object to us
-                            processing the data we hold on you.
-                        </li>
-                    </ul>
-                    <h3>Social Media</h3>
-                    <p>
-                        You may choose to engage with our Services through a variety of social
-                        media sites and platforms, for example Facebook, Instagram and
-                        Twitter. When you interact with our Services through these social
-                        media platforms, you may allow us to receive Personal Information on
-                        how you are interacting with our Services. This will depend on your
-                        privacy settings on each social media site and platform. The data we
-                        are provided by you through your interaction with our Services on
-                        social media sites and platforms will be used by us subject to the
-                        terms of this privacy policy. Depending on your social media site’s
-                        privacy settings, your Personal Information may become public to a
-                        community of users if you choose to engage with our Services through
-                        these platforms. For further information on how you can customize your
-                        privacy settings on social media sites and how those sites handle your
-                        privacy, please refer to the privacy policy of each particular social
-                        media site.
-                    </p>
-                    <h3>Minors</h3>
-                    <p>
-                        We do not knowingly collect information on children under the age of
-                        16 (“Child”). If you become aware that a Child has provided us with
-                        Personal Information, please contact us. If we become aware that we
-                        have collected Personal Information from a Child without their
-                        parent's verifiable authorization to access our Services, we will take
-                        steps to remove that information from our servers.
-                    </p>
-                    <h3>Third Party Links</h3>
-                    <p>
-                        Our website contains links to other third-party websites not owned or
-                        managed by Unwrapped. This privacy policy applies to this website
-                        only. If you click a link to a third-party website, the privacy policy
-                        of that website will apply. We highly recommend that you read the
-                        privacy policies of other websites as they may be different from ours.
-                    </p>
-                    <h3>Payment Vendors</h3>
-                    <p>
-                        You can make payments via our website. Our vendors are listed below:
-                    </p>
-                    <ul><li>Paypal</li></ul>
-                    <p>
-                        Their privacy policy can be viewed <a
-                            href="https://www.paypal.com/webapps/mpp/ua/privacy-full">here</a
-                        >
-                    </p>
-                    <h3>Merger, acquisition or asset sale</h3>
-                    <p>
-                        If we or our subsidiaries are involved in a merger, acquisition, or
-                        asset sale, your Personal Information may be transferred.
-                    </p>
-                    <h3>Updates</h3>
-                    <p>
-                        We are constantly reviewing our privacy policy and procedures to
-                        ensure that they meet best practices. This policy was last updated on
-                        August 21, 2021.
-                    </p>
-                    <h3>Contact us</h3>
-                    <p>
-                        If you have any questions or suggestions about our privacy policy or
-                        want to know more information about Personal Information we hold,
-                        please contact us at support@unwrapped.design or write to us at
-                        Mariehamn, Åland Islands..
-                    </p>
-                    <h3>Complaints</h3>
-                    <p>
-                        If you believe that we have breached our obligations to you under this
-                        privacy policy or relevant privacy laws, please contact us at <a
-                            href="">email@example</a
-                        >
-                        If you are not satisfied with our response, you have the right to lodge
-                        a complaint at any time to your relevant authority.
-                    </p>
-                </div>
-            </div>
+                    Notre priorité absolue est la sécurité des données des clients et, à ce titre, nous ne pouvons traiter que des données minimales sur les utilisateurs, uniquement dans la mesure où cela est absolument nécessaire pour maintenir le site web. Les informations collectées automatiquement sont utilisées uniquement pour identifier les cas potentiels d'abus et établir des informations statistiques concernant l'utilisation du site web. Ces informations statistiques ne sont pas autrement agrégées de manière à identifier un utilisateur particulier du système.
+
+                    Vous pouvez visiter le site web sans nous dire qui vous êtes ni révéler d'informations, par
+                    lesquelles quelqu'un pourrait vous identifier comme un individu spécifique et identifiable.
+                    Toutefois, si vous souhaitez utiliser certaines fonctionnalités du site web, ou si vous souhaitez
+                    recevoir notre lettre d'information ou fournir d'autres détails en remplissant un formulaire, vous
+                    pouvez nous fournir des données personnelles, telles que votre e-mail, votre prénom, votre nom,
+                    votre ville de résidence, votre organisation, votre numéro de téléphone. Vous pouvez choisir de ne
+                    pas nous fournir vos données personnelles, mais il se peut alors que vous ne puissiez pas profiter
+                    de certaines fonctionnalités du site web. Par exemple, vous ne pourrez pas recevoir notre bulletin
+                    d'information ou nous contacter directement à partir du site web. Les utilisateurs qui ne savent pas
+                    quelles informations sont obligatoires sont invités à nous contacter via contact@superlettredemotivation.
+                </p>
+                <h3>Vos droits :</h3>
+                <p>
+
+                    Si vous êtes un résident européen, vous disposez des droits suivants liés à vos données personnelles :
+
+                    Le droit d'être informé.
+                    Le droit d'accès.
+                    Le droit de rectification.
+                    Le droit à l'effacement.
+                    Le droit de restreindre le traitement.
+                    Le droit à la portabilité des données.
+                    Le droit d'opposition.
+                    Les droits relatifs à la prise de décision automatisée et au profilage.
+                    Si vous souhaitez exercer ce droit, veuillez nous contacter via les coordonnées ci-dessous.
+
+                    En outre, si vous êtes un résident européen, nous notons que nous traitons vos informations afin
+                    d'exécuter les contrats que nous pourrions avoir avec vous (par exemple, si vous passez une commande
+                    par le biais du site), ou autrement pour poursuivre nos intérêts commerciaux légitimes énumérés
+                    ci-dessus. En outre, veuillez noter que vos informations pourraient être transférées en dehors de
+                    l'Europe, y compris au Canada et aux États-Unis.
+                </p>
+                <h3>Liens vers d'autres sites web :</h3>
+                <p>
+
+                    Notre site web peut contenir des liens vers d'autres sites web qui ne sont pas détenus ou contrôlés
+                    par nous. Sachez que nous ne sommes pas responsables de ces autres sites web ou des pratiques de
+                    confidentialité des tiers. Nous vous encourageons à être attentif lorsque vous quittez notre site
+                    web et à lire les déclarations de confidentialité de chaque site web susceptible de collecter des
+                    informations personnelles.
+                </p>
+                <h3>Sécurité de l'information :</h3>
+                <p>
+                    Nous sécurisons les informations que vous fournissez sur des serveurs informatiques dans un
+                    environnement contrôlé et sécurisé, protégé contre tout accès, utilisation ou divulgation non
+                    autorisés. Nous conservons des garanties administratives, techniques et physiques raisonnables pour
+                    nous protéger contre tout accès, utilisation, modification et divulgation non autorisés des données
+                    personnelles sous son contrôle et sa garde. Toutefois, aucune transmission de données sur Internet
+                    ou sur un réseau sans fil ne peut être garantie.
+                </p>
+                <h3>Divulgation légale :</h3>
+                <p>
+
+                    Nous divulguerons toute information que nous collectons, utilisons ou recevons si la loi l'exige ou
+                    l'autorise, par exemple pour nous conformer à une citation à comparaître ou à une procédure
+                    judiciaire similaire, et lorsque nous pensons de bonne foi que la divulgation est nécessaire pour
+                    protéger nos droits, votre sécurité ou celle d'autrui, enquêter sur une fraude ou répondre à une
+                    demande du gouvernement.
+                </p>
+                <h3>Informations de contact :</h3>
+                <p>
+                    Informations de contact :
+                    Si vous souhaitez nous contacter pour comprendre davantage la présente politique ou si vous
+                    souhaitez nous contacter concernant toute question relative aux droits individuels et à vos
+                    informations personnelles, vous pouvez envoyer un courriel à
+                    <a href="mailto:contact@superlettredemotivation" class="font-medium underline text-primary-600 dark:text-primary-500 hover:no-underline">
+                        contact@superlettredemotivation
+                    </a>.
+                </p>
+
+            </article>
         </div>
     </section>
 </x-guest-layout>

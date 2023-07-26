@@ -17,6 +17,7 @@
     "dependencies": {
         "@vitejs/plugin-vue": "^4.2.3",
         "flowbite": "^1.6.5",
+        "flowbite-typography": "^1.0.3",
         "tailwind-gradient-mask-image": "^1.0.0",
         "vue": "^3.2.36"
     }

@@ -20,24 +20,16 @@ module.exports = {
             fontFamily: {
                 sans: ['Figtree', ...defaultTheme.fontFamily.sans],
             },
-            zIndex: {
-                '60': '60',
-                '70': '70',
-                '80': '80',
-                '90': '90',
-                '100': '100',
-            }
         },
         colors: {
             primary: colors.violet,
-            // primary: colors.emerald,
-            emerald: colors.emerald
         }
     },
 
     plugins: [
         require('@tailwindcss/forms'),
         require("tailwind-gradient-mask-image"),
-        require('flowbite/plugin')
+        require('flowbite/plugin'),
+        require('flowbite-typography'),
     ],
 };

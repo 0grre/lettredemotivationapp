@@ -59,9 +59,8 @@
 
 </head>
 {{--<body class="antialiased bg-cover bg-[url('https://fffuel.co/images/dddepth/dddepth-238.jpg')]">--}}
-<body class="antialiased bg-cover bg-gray-300 dark:bg-gray-800">
-<div id="spinner"
-     class="fixed top-0 left-0 right-0 z-[60] overflow-x-hidden h-full w-full bg-primary-900/60 flex-col justify-center hidden">
+<body class="antialiased bg-cover bg-gray-100 dark:bg-gray-900">
+<div id="spinner" class="fixed top-0 left-0 right-0 z-[60] overflow-x-hidden h-full w-full bg-primary-900/60 flex-col justify-center hidden">
     <div class="py-8 px-4 flex flex-col justify-center mx-auto min-h-screen max-w-screen-xl lg:py-16 lg:px-6">
         <div class="mx-auto max-w-screen-sm text-center bg-white p-12 rounded-lg shadow-md">
             <p class="mb-4 text-3xl tracking-tight font-bold text-gray-900 md:text-4xl dark:text-white">Génération
@@ -84,6 +83,8 @@
         </div>
     </div>
 </div>
-{{ $slot }}
+{{--<section class="min-h-screen">--}}
+    {{ $slot }}
+{{--</section>--}}
 </body>
 </html>

@@ -7,7 +7,7 @@
                role="alert">
                 <span
                     class="text-xs bg-primary-700 dark:bg-primary-600 rounded-full text-white px-4 py-1.5 mr-3">New</span>
-                <span class="text-sm font-medium">Accédez aux données PÔLE EMPLOI</span>
+                <span class="text-sm font-medium">Accédez aux données PÔLE EMPLOI.</span>
                 <svg class="ml-2 w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                     <path fill-rule="evenodd"
                           d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
@@ -25,7 +25,7 @@
                    class="inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-white rounded-lg bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 dark:focus:ring-primary-900">
                     Je teste ! 👉
                 </a>
-                <a href="{{ route('login') }}"
+                <a href="{{ route('register') }}"
                    class="bg-white dark:bg-gray-900 inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-gray-900 rounded-lg border border-gray-300 hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 dark:text-white dark:border-gray-700 dark:hover:bg-gray-700 dark:focus:ring-gray-800">
                     S'inscrire gratuitement 🎉
                 </a>
@@ -39,14 +39,14 @@
         <div class="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-6">
             <div class="mx-auto max-w-screen-md text-center mb-8 lg:mb-12">
                 <h2 class="mb-4 text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white">Pourquoi utiliser notre service de génération de lettre de motivation ?</h2>
-                <p class="mb-5 font-light text-gray-500 sm:text-xl dark:text-gray-400">Découvrez les avantages de notre plateforme et les raisons pour lesquelles vous devriez choisir notre service</p>
+                <p class="mb-5 font-light text-gray-500 sm:text-xl dark:text-gray-400">Découvrez les avantages de notre plateforme et les raisons pour lesquelles vous devriez choisir notre service.</p>
             </div>
             <div class="space-y-8 lg:grid lg:grid-cols-3 sm:gap-6 xl:gap-10 lg:space-y-0">
 
                 <div class="flex flex-col p-6 mx-auto max-w-lg text-center text-gray-900 bg-white rounded-lg border border-gray-100 shadow dark:border-gray-600 xl:p-8 dark:bg-gray-800 dark:text-white reveal first">
                     <a href="#">
                         <img class="p-12" src="{{ asset('assets/undraw/undraw_robotics_kep0.svg') }}"
-                             alt="dashboard image">
+                             alt="undraw_robotics_kep0">
                     </a>
                     <div class="p-5">
                         <a href="#">
@@ -167,7 +167,7 @@
             <div class="mx-auto max-w-screen-sm text-center">
                 <h2 class="mb-4 text-4xl tracking-tight font-extrabold leading-tight text-white animate-wiggle">Envie de tester ?</h2>
                 <p class="mb-6 font-light text-white md:text-lg">Obtenez votre première lettre de motivation
-                    gratuitement. Pas de carte de crédit requise !</p>
+                    gratuitement. Pas de carte de crédit requise.</p>
                 <a href="{{ route('letters.create.step.job') }}"
                    class="bg-white dark:bg-gray-900 inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-gray-900 rounded-lg border border-gray-300 hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 dark:text-white dark:border-gray-700 dark:hover:bg-gray-700 dark:focus:ring-gray-800">
                     Tester gratuitement 🚀
