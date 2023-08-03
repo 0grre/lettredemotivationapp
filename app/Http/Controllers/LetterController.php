@@ -9,6 +9,7 @@ use App\Http\Requests\Letter\StoreLetterRequest;
 use App\Models\Appellation;
 use App\Models\Letter;
 use App\Models\User;
+use App\PoleEmploi\PoleEmploi;
 use Barryvdh\DomPDF\Facade\PDF;
 use GuzzleHttp\Client;
 use Illuminate\Http\RedirectResponse;
@@ -102,7 +103,7 @@ class LetterController extends Controller
         $letter = $request->session()->get('letter');
         $letter->fill($request->all());
         $letter->fill([
-            "title" => $letter->company . "_" .$letter->appellation->libelle
+            "title" => $letter->company . "_" . $letter->appellation->libelle
         ]);
         $request->session()->put('letter', $letter);
 
@@ -241,7 +242,7 @@ class LetterController extends Controller
         $letter->fill([
             "skills" => Appellation::getSkills($appellation_request->competencesCles),
             "appellation_id" => $appellation->id,
-            "title" => $letter->company . "_" .$appellation->libelle
+            "title" => $letter->company . "_" . $appellation->libelle
         ]);
 
         $user->letters()->save($letter);
@@ -351,9 +352,20 @@ class LetterController extends Controller
 
     public function test(PoleEmploiClient $poleEmploiClient)
     {
+//        return (new PoleEmploi($poleEmploiClient))->ficheMetiers();
+
+        return (new PoleEmploi($poleEmploiClient))->appellationMetier([
+            "uuidInference" =>  "354c6efc-3a9a-4cc6-aab2-b35e3dfa07ad",
+
+    "bonnePrediction" =>  false,
+
+    "codeAppellation" =>  "18210"
+        ], true);
+
 
 //        return $poleEmploiClient->base('GET', 'rome-metiers/v1/metiers/appellation/' . 10277);
-        return $poleEmploiClient->base('GET', 'rome-fiches-metiers/v1/fiches-rome/fiche-metier/' . 'A1301');
+//        return $poleEmploiClient->base('GET', 'rome-fiches-metiers/v1/fiches-rome/fiche-metier/' . 'A1301' . '?champs=code,groupesSavoirs');
+//        return $poleEmploiClient->base('GET', 'explorateurmetiers/v1/explorateurmetiers?libelle='. 'com' .'&nombre='. '5' .'&type=' . 'metier');
     }
 }
 

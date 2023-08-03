@@ -3,9 +3,7 @@
 namespace App\PoleEmploi;
 
 use GuzzleHttp\Client;
-use GuzzleHttp\Promise\PromiseInterface;
 use GuzzleHttp\Psr7\Request;
-use Illuminate\Http\Client\Response;
 use Illuminate\Support\Facades\Cache;
 
 class PoleEmploiClient
@@ -29,14 +27,16 @@ class PoleEmploiClient
     /**
      * @param string $method
      * @param string $endpoint
+     * @param array|null $body
      * @return mixed
      */
-    public function base(string $method, string $endpoint): mixed
+    public function base(string $method, string $endpoint, array $body = null): mixed
     {
         $headers = [
-            'Authorization' => 'Bearer ' . $this->token
+            'Authorization' => 'Bearer ' . $this->token,
+            "Content-Type" => "application/json; charset=utf8"
         ];
-        $guzzle_request = new Request($method, 'https://api.pole-emploi.io/'. $this->realm .'/' . $endpoint, $headers);
+        $guzzle_request = new Request($method, 'https://api.pole-emploi.io/'. $this->realm .'/' . $endpoint, $headers, json_encode($body));
         $res = $this->client->sendAsync($guzzle_request)->wait();
 
         return json_decode($res->getBody());
@@ -45,7 +45,7 @@ class PoleEmploiClient
     /**
      * @return array|mixed
      */
-    public function authToken(): mixed
+    private function authToken(): mixed
     {
         $headers = [
             'Content-Type' => 'application/x-www-form-urlencoded',
