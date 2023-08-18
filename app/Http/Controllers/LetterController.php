@@ -9,7 +9,6 @@ use App\Http\Requests\Letter\StoreLetterRequest;
 use App\Models\Appellation;
 use App\Models\Letter;
 use App\Models\User;
-use App\PoleEmploi\PoleEmploi;
 use Barryvdh\DomPDF\Facade\PDF;
 use GuzzleHttp\Client;
 use Illuminate\Http\RedirectResponse;
@@ -18,7 +17,7 @@ use Illuminate\Http\Response;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\View\View;
-use App\PoleEmploi\PoleEmploiClient;
+use Ogrre\Laravel\PoleEmploi\PoleEmploiFacade as PoleEmploi;
 
 class LetterController extends Controller
 {
@@ -350,17 +349,17 @@ class LetterController extends Controller
     }
 
 
-    public function test(PoleEmploiClient $poleEmploiClient)
+    public function test()
     {
 //        return (new PoleEmploi($poleEmploiClient))->ficheMetiers();
 
-        return (new PoleEmploi($poleEmploiClient))->appellationMetier([
-            "uuidInference" =>  "354c6efc-3a9a-4cc6-aab2-b35e3dfa07ad",
-
-    "bonnePrediction" =>  false,
-
-    "codeAppellation" =>  "18210"
-        ], true);
+//        return PoleEmploi::appellationMetier([
+//            "uuidInference" =>  "354c6efc-3a9a-4cc6-aab2-b35e3dfa07ad",
+//
+//    "bonnePrediction" =>  false,
+//
+//    "codeAppellation" =>  $appellation->code
+//        ], false);
 
 
 //        return $poleEmploiClient->base('GET', 'rome-metiers/v1/metiers/appellation/' . 10277);

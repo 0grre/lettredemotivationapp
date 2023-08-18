@@ -4,9 +4,10 @@
         <div class="md:flex md:justify-between">
             <div class="mb-6 md:mb-0">
                 <a href="/" class="flex items-center">
-                    <x-logo.light class="mr-3 h-8 dark:hidden"/>
-                    <x-logo.dark class="mr-3 h-8 hidden dark:block"/>
-                    <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white hidden sm:block">Super Lettre de Motivation</span>
+                <span class="capitalize self-center text-2xl font-semibold whitespace-nowrap dark:text-white">
+                    lettre de motivation
+                    <span class="normal-case bg-primary-100 text-primary-800 px-1.5 py-0.5 rounded">.app</span>
+                </span>
                 </a>
             </div>
             <div class="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">

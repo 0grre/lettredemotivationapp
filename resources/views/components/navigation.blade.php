@@ -1,11 +1,12 @@
 <header>
     <nav class="w-full fixed z-70">
-        <div class="flex flex-wrap justify-between items-center mx-24 mt-6 p-6 rounded-3xl shadow-lg bg-white border border-gray-100 dark:border-gray-600 xl:p-8 dark:bg-gray-800 dark:text-white">
-            <a href="/" class="flex items-center">
-                <span class="capitalize self-center text-2xl font-semibold whitespace-nowrap dark:text-white">
+        <div class="flex flex-wrap justify-between items-center mx-6 sm:mx-12 lg:mx-24 mt-6 p-6 rounded-3xl shadow-lg bg-white/95 border border-gray-100 dark:border-gray-600 xl:p-8 dark:bg-gray-800 dark:text-white">
+            <a href="/" class="items-center self-center text-2xl font-semibold whitespace-nowrap dark:text-white flex flex-row">
+                <h1 class="hidden sm:flex capitalize items-center font-extrabold dark:text-white">
                     lettre de motivation
-                    <span class="normal-case bg-primary-100 text-primary-800 px-1.5 py-0.5 rounded">.app</span>
-                </span>
+                    <span class="flex normal-case bg-primary-100 text-primary-800 ml-1 px-1.5 py-0.5 rounded">.app</span>
+                </h1>
+                <span class="flex sm:hidden normal-case bg-primary-100 text-primary-800 ml-1 px-1.5 py-0.5 rounded">.app</span>
             </a>
             <div class="flex items-center lg:order-2">
                 @auth
