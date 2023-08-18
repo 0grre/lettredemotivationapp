@@ -36,7 +36,7 @@
                        <x-logo.dark class="mr-3 h-8 m:h-9 hidden dark:block"/>
                        <x-logo.light class="mr-3 h-8 dark:hidden"/>
                    </div>
-                    <span class="hidden lg:flex self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Super lettre de motivation</span>
+                    <span class="hidden lg:flex self-center text-2xl font-semibold whitespace-nowrap dark:text-white">lettre de motivation<mark class="px-2 text-white bg-blue-600 rounded dark:bg-blue-500">APP</mark></span>
                 </a>
                 <form action="#" method="GET" class="hidden md:block md:pl-2">
                     <label for="topbar-search" class="sr-only">Search</label>

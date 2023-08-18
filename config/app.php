@@ -161,6 +161,7 @@ return [
          */
         Laravel\Socialite\SocialiteServiceProvider::class,
         Ogrre\ChatGPT\ChatServiceProvider::class,
+        Ogrre\Laravel\PoleEmploi\PoleEmploiServiceProvider::class,
 
         /*
          * Application Service Providers...

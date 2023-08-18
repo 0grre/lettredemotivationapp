@@ -31,7 +31,8 @@ module.exports = {
         colors: {
             //primary: colors.violet,
             primary: colors.indigo,
-            emerald: colors.emerald
+            emerald: colors.emerald,
+            sky: colors.sky,
         }
     },
 

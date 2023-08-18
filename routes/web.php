@@ -54,6 +54,20 @@ Route::middleware(['auth'])->group(function () {
 /** Authenticated and Verified */
 Route::middleware(['auth', 'verified'])->group(function () {
 
+    Route::get('/product-checkout', function () {
+        return Auth::user()->checkout('price_1NfmN6IJlOw6AxbUNgtmQuhs', [
+            'success_url' => route('checkout-success').'?session_id={CHECKOUT_SESSION_ID}',
+            'cancel_url' => route('checkout-cancel'),
+        ]);
+});
+
+    Route::get('/checkout-success', function (Request $request) {
+        $checkoutSession = Auth::user()->stripe()->checkout->sessions->retrieve($request->get('session_id'));
+
+        return view('dashboard', ['checkoutSession' => $checkoutSession]);
+    })->name('checkout-success');
+
+
     Route::get('/letters', [LetterController::class, 'index'])->name('letters.index');
     Route::get('/archives', [LetterController::class, 'archives'])->name('letters.archives');
     Route::get('/letters/{letter}', [LetterController::class, 'show'])->name('letters.show');
