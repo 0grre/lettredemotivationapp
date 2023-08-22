@@ -1,8 +1,8 @@
-<div class="hidden lg:flex justify-center items-center">
-    <img class="w-full mt-4" src="{{ asset('assets/undraw/undraw_sync_files_re_ws4c.svg') }}" alt="dashboard image">
+<div class="hidden lg:flex justify-center pt-6 mx-6 lg:mx-12">
+    <img class="mt-6" src="{{ asset('assets/undraw/undraw_sync_files_re_ws4c.svg') }}" alt="dashboard image">
 </div>
 
-<div class="max-w-xl mx-auto">
+<div class="max-w-xl mx-6 lg:mx-12">
     <ol class="mb-6 flex items-center w-full text-sm font-medium text-center text-gray-500 dark:text-gray-400 sm:text-base">
         <li class="flex md:w-full items-center after:content-[''] after:w-full after:h-1 after:border-b after:border-gray-200 after:border-1 after:hidden sm:after:inline-block after:mx-6 xl:after:mx-10 dark:after:border-gray-700">
         <span class="flex items-center after:content-['/'] sm:after:hidden after:mx-2 after:text-gray-200 dark:after:text-gray-500">
@@ -17,13 +17,13 @@
         </span>
         </li>
         <li class="flex items-center text-primary-600 dark:text-primary-500">
-        <span class="flex items-center after:content-['/'] sm:after:hidden after:mx-2 after:text-gray-200 dark:after:text-gray-500">
+        <span class="flex items-center after:content-['/'] sm:after:hidden after:mx-3 after:text-gray-200 dark:after:text-gray-500">
             <svg aria-hidden="true" class="w-4 h-4 mr-2 sm:w-5 sm:h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
             Nom <span class="hidden sm:inline-flex sm:ml-2">Prénom</span>
         </span>
         </li>
     </ol>
-    <h2 class="mb-4 text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white">Nous voilà à la dernière étape.</h2>
+    <h2 class="mb-6 text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white">Nous voilà à la dernière étape.</h2>
     <p class="mb-6 font-light text-gray-500 md:text-lg dark:text-gray-400">Il nous faut évidement les classiques informations de base</p>
 
     <form onsubmit="loading()" method="post" action="{{ route('letters.create.step.name.post') }}" class="mt-6 space-y-6">
@@ -48,7 +48,7 @@
         <button type="submit"
                 class="inline-flex items-center px-5 py-2.5 mt-8 text-sm font-medium text-center text-white bg-primary-700 rounded-lg focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-primary-800">
             {{ __('Tout est prêt, Let\'s go!') }}
-            <svg class="ml-2 -mr-1 w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+            <svg class="ml-3 -mr-1 w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                 <path fill-rule="evenodd"
                       d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
                       clip-rule="evenodd"></path>

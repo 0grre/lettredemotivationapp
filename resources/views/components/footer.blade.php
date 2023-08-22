@@ -1,13 +1,13 @@
-<footer class="p-4 bg-white sm:p-6 dark:bg-gray-800">
-    <div class="mx-auto max-w-screen-xl">
-        @if(request()->routeIs('home'))
+<footer class="p-6 bg-white dark:bg-gray-800 w-full border-t border-gray-100 dark:border-gray-600">
+    <div class="mx-3 sm:mx-6 lg:mx-12">
+{{--        @if(request()->routeIs('home'))--}}
         <div class="md:flex md:justify-between">
             <div class="mb-6 md:mb-0">
                 <a href="/" class="flex items-center">
-                <span class="capitalize self-center text-2xl font-semibold whitespace-nowrap dark:text-white">
-                    lettre de motivation
-                    <span class="normal-case bg-primary-100 text-primary-800 px-1.5 py-0.5 rounded">.app</span>
-                </span>
+                    <h1 class="hidden sm:flex capitalize items-center font-extrabold dark:text-white">
+                        lettre de motivation
+                        <span class="flex normal-case bg-primary-100 text-primary-800 ml-1 px-1.5 py-0.5 rounded">.app</span>
+                    </h1>
                 </a>
             </div>
             <div class="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">
@@ -47,7 +47,7 @@
             </div>
         </div>
         <hr class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
-        @endif
+{{--        @endif--}}
         <div class="sm:flex sm:items-center sm:justify-between">
             <span class="text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2023 <a href="https://github.com/0grre" target="_blank" class="hover:underline">0grre</a>. All Rights Reserved.
             </span>

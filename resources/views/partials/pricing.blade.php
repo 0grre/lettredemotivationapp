@@ -2,13 +2,13 @@
     <div class="background-hero mx-3 sm:mx-6 lg:mx-12 rounded-3xl h-full w-full border border-gray-100 dark:border-gray-600">
         <div class="py-8 px-4 mx-auto sm:py-16 lg:px-6">
             <div class="mx-auto max-w-screen-md text-center mb-8 lg:mb-12">
-                <h2 class="mb-4 text-2xl sm:text-4xl tracking-tight font-extrabold text-white">Ici pas d'abonnement, payez
+                <h2 class="mb-4 text-2xl lg:text-5xl tracking-tight font-extrabold text-white">Ici pas d'abonnement, payez
                     uniquement ce dont vous avez besoin.</h2>
             </div>
             <div class="space-y-8 lg:grid lg:grid-cols-2 lg:space-y-0 gap-2">
                 <!-- Pricing Card -->
                 <div
-                    class="mx-auto col-span-1 flex flex-col p-6 max-w-md text-center text-gray-900 bg-white rounded-lg border border-gray-100 shadow dark:border-gray-600 xl:p-8 dark:bg-gray-800 dark:text-white">
+                    class="mx-auto lg:ml-auto lg:mr-3 xl:mr-6 flex flex-col p-6 max-w-md text-center text-gray-900 bg-white rounded-lg border border-gray-100 shadow dark:border-gray-600 xl:p-8 dark:bg-gray-800 dark:text-white">
                     <h3 class="mb-4 text-2xl font-semibold">⚡️ Recharge de 25 crédits.</h3>
                     <p class="font-light text-gray-500 sm:text-lg dark:text-gray-400">Soit 0,2075€ la lettre.</p>
                     <div class="flex justify-center items-baseline my-8">
@@ -74,7 +74,7 @@
                 </div>
                 <!-- Pricing Card -->
                 <div
-                    class="mx-auto col-span-1 flex flex-col p-6 max-w-md text-center text-gray-900 bg-white rounded-lg border border-gray-100 shadow dark:border-gray-600 xl:p-8 dark:bg-gray-800 dark:text-white">
+                    class="mx-auto lg:mr-auto lg:ml-3 xl:ml-6 flex flex-col p-6 max-w-md text-center text-gray-900 bg-white rounded-lg border border-gray-100 shadow dark:border-gray-600 xl:p-8 dark:bg-gray-800 dark:text-white">
                     <h3 class="mb-4 text-2xl font-semibold">⚡️ Recharge de 100 crédits.</h3>
                     <p class="font-light text-gray-500 sm:text-lg dark:text-gray-400">Soit 0,1498€ la lettre.</p>
                     <div class="flex justify-center items-baseline my-8">

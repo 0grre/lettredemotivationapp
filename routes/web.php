@@ -1,10 +1,8 @@
 <?php
 
-use App\Http\Controllers\LetterController;
-use App\Http\Controllers\PageController;
-use App\Http\Controllers\ProfileController;
-use App\Models\Appellation;
-use Illuminate\Support\Carbon;
+use App\Http\Controllers\General\LetterController;
+use App\Http\Controllers\General\PageController;
+use App\Http\Controllers\General\ProfileController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -75,12 +73,13 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/letters/regenerate/{letter}', [LetterController::class, 'regenerate'])->name('letters.regenerate');
     Route::get('/letters/increase/{letter}', [LetterController::class, 'increase'])->name('letters.increase');
     Route::get('/letters/reduce/{letter}', [LetterController::class, 'reduce'])->name('letters.reduce');
-
+    Route::get('/letters/restore/{letter}', [LetterController::class, 'restore'])->name('letters.restore');
 
     Route::get('/create/letters', [LetterController::class, 'create'])->name('letters.create');
     Route::post('/letters', [LetterController::class, 'store'])->name('letters.create.post');
     Route::patch('/letters/{letter}', [LetterController::class, 'update']);
-    Route::delete('/letters/{letter}', [LetterController::class, 'delete'])->name('letters.delete');
+    Route::delete('/letters/archive/{letter}', [LetterController::class, 'archive'])->name('letters.archive');
+    Route::delete('/letters/delete/{letter}', [LetterController::class, 'delete'])->name('letters.delete');
 });
 
 Route::get('/test', [LetterController::class, 'test']);

@@ -16,6 +16,7 @@
         "laravel/sanctum": "^3.2",
         "laravel/socialite": "^5.6",
         "laravel/tinker": "^2.8",
+        "livewire/livewire": "^2.12",
         "milwad/laravel-validate": "^1.7",
         "ogrre/laravel-chatgpt": "1.0.4",
         "ogrre/laravel-pole-emploi": "^0.0.2",

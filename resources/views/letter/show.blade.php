@@ -1,6 +1,6 @@
 <x-authenticated-layout>
-        <div class="flex justify-between px-2 md:px-4 mx-auto max-w-screen-xl">
-            <article class="mx-auto w-full max-w-2xl format format-sm sm:format-base lg:format-lg format-blue bg-white p-6 md:p-8 lg:p-12 rounded-lg shadow-xl">
+        <div class="flex justify-between px-3 md:px-6 mx-auto max-w-screen-xl">
+            <article class="mx-auto w-full max-w-screen-md format format-sm sm:format-base lg:format-lg format-blue bg-white p-6 md:p-8 lg:p-12 rounded-lg shadow-xl">
                 <header class="mb-6 lg:mb-6 not-format">
                     <h1 class="mb-12 text-xl font-extrabold leading-tight text-gray-900 text-center">{{ $letter->title }}</h1>
                 </header>
@@ -10,7 +10,7 @@
 
         <div data-dial-init class="fixed right-6 bottom-6 group">
             <div id="speed-dial-menu-square" class="flex-col items-center hidden mb-4 space-y-2">
-                <a href="{{ route('letters.download', $id) }}" data-tooltip-target="tooltip-share" data-tooltip-placement="left" class="flex justify-center items-center w-[52px] h-[52px] text-gray-500 hover:text-gray-900 bg-white rounded-lg border border-gray-200 dark:border-gray-600 shadow-sm dark:hover:text-white dark:text-gray-400 hover:bg-gray-50 dark:bg-gray-700 dark:hover:bg-gray-600 focus:ring-4 focus:ring-gray-300 focus:outline-none dark:focus:ring-gray-400">
+                <a href="{{ route('letters.download', $letter->id) }}" data-tooltip-target="tooltip-share" data-tooltip-placement="left" class="flex justify-center items-center w-[52px] h-[52px] text-gray-500 hover:text-gray-900 bg-white rounded-lg border border-gray-200 dark:border-gray-600 shadow-sm dark:hover:text-white dark:text-gray-400 hover:bg-gray-50 dark:bg-gray-700 dark:hover:bg-gray-600 focus:ring-4 focus:ring-gray-300 focus:outline-none dark:focus:ring-gray-400">
                     <svg class="w-6 h-6"
                         fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"
                         xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
@@ -36,7 +36,7 @@
                     Reformuler
                     <div class="tooltip-arrow" data-popper-arrow></div>
                 </div>
-                <a onclick="loading()" href="{{ route('letters.increase', $id) }}" data-tooltip-target="tooltip-download" data-tooltip-placement="left" class="flex justify-center items-center w-[52px] h-[52px] text-gray-500 hover:text-gray-900 bg-white rounded-lg border border-gray-200 dark:border-gray-600 shadow-sm dark:hover:text-white dark:text-gray-400 hover:bg-gray-50 dark:bg-gray-700 dark:hover:bg-gray-600 focus:ring-4 focus:ring-gray-300 focus:outline-none dark:focus:ring-gray-400">
+                <a onclick="loading()" href="{{ route('letters.increase', $letter->id) }}" data-tooltip-target="tooltip-download" data-tooltip-placement="left" class="flex justify-center items-center w-[52px] h-[52px] text-gray-500 hover:text-gray-900 bg-white rounded-lg border border-gray-200 dark:border-gray-600 shadow-sm dark:hover:text-white dark:text-gray-400 hover:bg-gray-50 dark:bg-gray-700 dark:hover:bg-gray-600 focus:ring-4 focus:ring-gray-300 focus:outline-none dark:focus:ring-gray-400">
                     <svg class="w-6 h-6"
                         fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"
                         xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
@@ -48,7 +48,7 @@
                     Allonger
                     <div class="tooltip-arrow" data-popper-arrow></div>
                 </div>
-                <a onclick="loading()" href="{{ route('letters.reduce', $id) }}" data-tooltip-target="tooltip-copy" data-tooltip-placement="left" class="flex justify-center items-center w-[52px] h-[52px] text-gray-500 hover:text-gray-900 bg-white rounded-lg border border-gray-200 dark:border-gray-600 dark:hover:text-white shadow-sm dark:text-gray-400 hover:bg-gray-50 dark:bg-gray-700 dark:hover:bg-gray-600 focus:ring-4 focus:ring-gray-300 focus:outline-none dark:focus:ring-gray-400">
+                <a onclick="loading()" href="{{ route('letters.reduce', $letter->id) }}" data-tooltip-target="tooltip-copy" data-tooltip-placement="left" class="flex justify-center items-center w-[52px] h-[52px] text-gray-500 hover:text-gray-900 bg-white rounded-lg border border-gray-200 dark:border-gray-600 dark:hover:text-white shadow-sm dark:text-gray-400 hover:bg-gray-50 dark:bg-gray-700 dark:hover:bg-gray-600 focus:ring-4 focus:ring-gray-300 focus:outline-none dark:focus:ring-gray-400">
                     <svg class="w-6 h-6"
                         fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"
                         xmlns="http://www.w3.org/2000/svg" aria-hidden="true">

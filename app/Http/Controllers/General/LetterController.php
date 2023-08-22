@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\General;
 
+use App\Http\Controllers\Controller;
 use App\Http\Requests\FormLetter\NameFormLetterRequest;
 use App\Http\Requests\FormLetter\JobFormLetterRequest;
 use App\Http\Requests\FormLetter\CompanyFormLetterRequest;
@@ -193,21 +194,24 @@ class LetterController extends Controller
     public function archives(): View
     {
         return view('letter.archives', [
-            'letters' => Auth::user()->letters()->where('archived_at', !null)->get(),
+            'letters' => Auth::user()->letters()->whereNotNull('archived_at')->get(),
         ]);
     }
 
     /**
      * @param StoreLetterRequest $request
-     * @return View
      */
-    public function store(StoreLetterRequest $request): View
+    public function store(StoreLetterRequest $request)
     {
         $request->validated();
 
-        // start pôle emploi
-
         $appellation = Appellation::where('libelle', $request->appellation)->first();
+
+        if(!$appellation){
+            return redirect()->back()->withErrors(['error', "Le métier entré n'existe pas"]);
+        }
+
+        // start pôle emploi
 
         $client = new Client();
         $headers = [
@@ -255,8 +259,7 @@ class LetterController extends Controller
         $letter->save();
 
         return view('letter.show', [
-            'letter' => $letter,
-            'old_letters' => []
+//            'letter' => $letter,
         ]);
     }
 
@@ -266,11 +269,8 @@ class LetterController extends Controller
      */
     public function show(Letter $letter): View
     {
-        $old_letters = $letter->chats->last()->messages()->where('role', 'assistant')->get();
-
         return view('letter.show', [
             'letter' => $letter,
-            'old_letters' => sizeof($old_letters) > 1 ? $old_letters : []
         ]);
     }
 
@@ -280,7 +280,7 @@ class LetterController extends Controller
      */
     public function download(Letter $letter)
     {
-        $title = $letter->title ? $letter->title : $letter->company . " " . $letter->appellation->libelle;
+        $title = $letter->title ? ucfirst($letter->title) : ucfirst( $letter->company) . " - " . $letter->appellation->libelle;
 
         return Pdf::loadView('letter.pdf', ['letter' => $letter])->download($title . '.pdf');
     }
@@ -334,7 +334,18 @@ class LetterController extends Controller
     {
         $letter->archived_at = Carbon::now();
 
-        return redirect()->route('dashboard');
+        return redirect()->route('letters.index');
+    }
+
+    /**
+     * @param Letter $letter
+     * @return RedirectResponse
+     */
+    public function restore(Letter $letter)
+    {
+        $letter->archived_at = null;
+
+        return redirect()->back();
     }
 
     /**
@@ -367,4 +378,3 @@ class LetterController extends Controller
 //        return $poleEmploiClient->base('GET', 'explorateurmetiers/v1/explorateurmetiers?libelle='. 'com' .'&nombre='. '5' .'&type=' . 'metier');
     }
 }
-

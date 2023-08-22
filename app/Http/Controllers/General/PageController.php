@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\General;
 
+use App\Http\Controllers\Controller;
 use App\Models\Conversation;
 use App\Models\User;
 use Illuminate\Http\Client\Request;
@@ -65,22 +66,5 @@ class PageController extends Controller
         return view('dashboard', [
             "letters" => Auth::user()->letters
         ]);
-    }
-
-    /**
-     * @param Request $request
-     * @param User $user
-     * @return void
-     */
-    private static function saveSessionLetter(Request $request, User $user){
-
-        $letter = $request->session()->get('letter');
-        $user->letters()->save($letter);
-        $conversation = Conversation::create([
-            "user_id" => $user->id,
-            "letter_id" => $letter->id
-        ]);
-        $message = $request->session()->get('message');
-        $conversation->messages()->save($message);
     }
 }

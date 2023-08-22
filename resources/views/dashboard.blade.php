@@ -1,15 +1,4 @@
 <x-authenticated-layout>
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-4 p-4 pt-20">
-        @foreach($letters as $letter)
-            <div class="max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-                <a href="{{'letters/' . $letter->id}}">
-                    <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{{ $letter->appellation->libelle }}</h5>
-                </a>
-                <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Candidature chez {{ $letter->company }} dans la ville de {{ $letter->localization }}</p>
-                <span class="text-sm text-gray-500 dark:text-gray-300">{{ $letter->updated_at }}</span>
-            </div>
-        @endforeach
-    </div>
     <div
         class="border-2 border-dashed rounded-lg border-gray-300 dark:border-gray-600 h-96 mb-4"
     ></div>
