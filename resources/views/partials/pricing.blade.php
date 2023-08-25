@@ -133,7 +133,7 @@
                             <span>Données <span class="font-semibold">sécurisées</span> et <span class="font-semibold">confidentielles.</span></span>
                         </li>
                     </ul>
-                    <a href="https://buy.stripe.com/test_5kA3cT0iR8pPdygeUV"
+                    <a href=/checkout-product/price_1NfmN6IJlOw6AxbUNgtmQuhs"
                        class="text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:ring-primary-200 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:text-white  dark:focus:ring-primary-900">
                         Sélectionner
                     </a>

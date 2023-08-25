@@ -45,7 +45,7 @@ class GoogleAuthController extends Controller
             return redirect()->intended('dashboard');
 
         } catch (Exception $e) {
-            dd($e);
+            return redirect()->back()->withErrors($e);
         }
     }
 }

@@ -3,6 +3,7 @@
 use App\Http\Controllers\General\LetterController;
 use App\Http\Controllers\General\PageController;
 use App\Http\Controllers\General\ProfileController;
+use App\Http\Controllers\Stripe\CheckoutController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -52,19 +53,9 @@ Route::middleware(['auth'])->group(function () {
 /** Authenticated and Verified */
 Route::middleware(['auth', 'verified'])->group(function () {
 
-    Route::get('/product-checkout', function () {
-        return Auth::user()->checkout('price_1NfmN6IJlOw6AxbUNgtmQuhs', [
-            'success_url' => route('checkout-success').'?session_id={CHECKOUT_SESSION_ID}',
-            'cancel_url' => route('checkout-cancel'),
-        ]);
-});
-
-    Route::get('/checkout-success', function (Request $request) {
-        $checkoutSession = Auth::user()->stripe()->checkout->sessions->retrieve($request->get('session_id'));
-
-        return view('dashboard', ['checkoutSession' => $checkoutSession]);
-    })->name('checkout-success');
-
+    Route::get('/checkout-product/{id}', [CheckoutController::class, 'product'])->name('checkout.product');;
+    Route::get('/checkout-success', [CheckoutController::class, 'success'])->name('checkout.success');
+    Route::get('/checkout-cancel', [CheckoutController::class, 'cancel'])->name('checkout.cancel');
 
     Route::get('/letters', [LetterController::class, 'index'])->name('letters.index');
     Route::get('/archives', [LetterController::class, 'archives'])->name('letters.archives');

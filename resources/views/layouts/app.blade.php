@@ -11,12 +11,7 @@
 
     <title>Super Lettre de motivation - Exemple de lettre de motivation</title>
 
-    <link rel="icon"
-          href="{{ asset('assets/super.png') }}"
-          id="light-scheme-icon">
-    <link rel="icon"
-          href="{{ asset('assets/_super.png') }}"
-          id="dark-scheme-icon">
+    <link rel="icon" href="{{ asset('assets/app.ico') }}">
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net">
