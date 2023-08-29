@@ -27,6 +27,7 @@ class PageController extends Controller
     {
         return view('faq');
     }
+
     /**
      * @return View
      */
@@ -34,6 +35,15 @@ class PageController extends Controller
     {
         return view('pricing');
     }
+
+    /**
+     * @return View
+     */
+    public function credits(): View
+    {
+        return view('credits');
+    }
+
     /**
      * @return View
      */

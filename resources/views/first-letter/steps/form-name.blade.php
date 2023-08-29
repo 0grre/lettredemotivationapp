@@ -1,4 +1,4 @@
-<div class="hidden lg:flex justify-center pt-6 mx-6 lg:mx-12">
+<div class="hidden lg:flex justify-center pt-6 mt-0 mb-auto lg:mx-12">
     <img class="mt-6" src="{{ asset('assets/undraw/undraw_sync_files_re_ws4c.svg') }}" alt="dashboard image">
 </div>
 

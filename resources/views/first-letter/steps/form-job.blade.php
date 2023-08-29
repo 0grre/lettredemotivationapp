@@ -1,7 +1,6 @@
-<div class="hidden lg:flex justify-center pt-6 mx-6 lg:mx-12">
-    <img class="mt-6" src="{{ asset('assets/undraw/undraw_career_progress_ivdb.svg') }}" alt="career progress image">
+<div class="hidden lg:flex justify-center pt-6 mt-0 mb-auto lg:mx-12">
+    <img src="{{ asset('assets/undraw/undraw_career_progress_ivdb.svg') }}" alt="career progress image">
 </div>
-
 <div class="max-w-xl mx-6 lg:mx-12">
     <ol class="mb-6 flex items-center w-full text-sm font-medium text-center text-gray-500 dark:text-gray-400 sm:text-base">
         <li class="flex md:w-full items-center text-primary-600 dark:text-primary-500 sm:after:content-[''] after:w-full after:h-1 after:border-b after:border-gray-200 after:border-1 after:hidden sm:after:inline-block after:mx-6 xl:after:mx-10 dark:after:border-gray-700">

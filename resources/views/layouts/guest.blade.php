@@ -1,6 +1,6 @@
 <x-app-layout>
     <x-navigation/>
-    @if(request()->routeIs('home') or request()->routeIs('login') or request()->routeIs('register'))
+    @if(request()->routeIs('home') or request()->routeIs('login') or request()->routeIs('register') or request()->routeIs('pricing'))
         <main class="flex flex-col justify-between min-h-screen bg-white dark:bg-gray-900">
             {{ $slot }}
             <x-footer/>

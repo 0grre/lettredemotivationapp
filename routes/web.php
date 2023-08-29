@@ -53,6 +53,8 @@ Route::middleware(['auth'])->group(function () {
 /** Authenticated and Verified */
 Route::middleware(['auth', 'verified'])->group(function () {
 
+    Route::get('/credits', [PageController::class, 'credits'])->name('credits');
+
     Route::get('/checkout-product/{id}', [CheckoutController::class, 'product'])->name('checkout.product');;
     Route::get('/checkout-success', [CheckoutController::class, 'success'])->name('checkout.success');
     Route::get('/checkout-cancel', [CheckoutController::class, 'cancel'])->name('checkout.cancel');
