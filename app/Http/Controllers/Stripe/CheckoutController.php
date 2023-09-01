@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Stripe;
 
 use App\Http\Controllers\Controller;
+use App\Models\Account;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\View\View;
@@ -32,10 +33,18 @@ class CheckoutController extends Controller
         $user = Auth::user();
         $checkoutSession = $user->stripe()->checkout->sessions->retrieve($request->get('session_id'));
 
-        $user->account += $request->get('credit_amount');
-        $user->save();
+        if(!$user->account) {
+            $account = new Account();
+            $user->account()->save($account);
+        }
+        $old_amount = $user->account->amount;
 
-        return view('dashboard', ['checkoutSession' => $checkoutSession]);
+        $user->account->amount =  $old_amount + $request->get('credit_amount');
+        $user->account->save();
+
+        return view('dashboard', [
+            "amount" => Auth::user()->account->amount
+        ]);
     }
 
     /**

@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('letters', function (Blueprint $table) {
             $table->id();
-            $table->string('title', 50)->nullable();
+            $table->string('title', 255)->nullable();
             $table->text('text')->nullable();
             $table->string('company', 50);
             $table->string('contract_type', 25);

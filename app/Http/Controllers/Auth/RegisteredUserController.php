@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\Account;
 use App\Models\Letter;
 use App\Models\User;
 use App\Providers\RouteServiceProvider;
@@ -43,6 +44,9 @@ class RegisteredUserController extends Controller
             'email' => $request->email,
             'password' => Hash::make($request->password),
         ]);
+
+        $account = new Account();
+        $user->account()->save($account);
 
         if ($request->session()->get('letter')) {
             Letter::saveLetter($request, $user);

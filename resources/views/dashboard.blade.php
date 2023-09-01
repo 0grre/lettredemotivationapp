@@ -1,70 +1,56 @@
 <x-authenticated-layout>
-    @if(!empty($checkoutSession))
-        @dump($checkoutSession)
-    @endif
-    <div
-        class="border-2 border-dashed rounded-lg border-gray-300 dark:border-gray-600 h-96 mb-4"
-    ></div>
-    <div class="grid grid-cols-2 gap-4 mb-4">
-        <div
-            class="border-2 border-dashed rounded-lg border-gray-300 dark:border-gray-600 h-48 md:h-72"
-        ></div>
-        <div
-            class="border-2 border-dashed rounded-lg border-gray-300 dark:border-gray-600 h-48 md:h-72"
-        ></div>
-        <div
-            class="border-2 border-dashed rounded-lg border-gray-300 dark:border-gray-600 h-48 md:h-72"
-        ></div>
-        <div
-            class="border-2 border-dashed rounded-lg border-gray-300 dark:border-gray-600 h-48 md:h-72"
-        ></div>
-    </div>
-    <div
-        class="border-2 border-dashed rounded-lg border-gray-300 dark:border-gray-600 h-96 mb-4"
-    ></div>
-    <div class="grid grid-cols-2 gap-4">
-        <div
-            class="border-2 border-dashed rounded-lg border-gray-300 dark:border-gray-600 h-48 md:h-72"
-        ></div>
-        <div
-            class="border-2 border-dashed rounded-lg border-gray-300 dark:border-gray-600 h-48 md:h-72"
-        ></div>
-        <div
-            class="border-2 border-dashed rounded-lg border-gray-300 dark:border-gray-600 h-48 md:h-72"
-        ></div>
-        <div
-            class="border-2 border-dashed rounded-lg border-gray-300 dark:border-gray-600 h-48 md:h-72"
-        ></div>
+    <div class="grid grid-cols-3 gap-4 mb-4">
+        <article class="flex items-center gap-4 rounded-lg border border-gray-100 bg-white p-6">
+          <span class="rounded-full bg-blue-100 p-3 text-blue-600">
+            <svg xmlns="http://www.w3.org/2000/svg"
+                class="h-8 w-8"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z"/>
+            </svg>
+          </span>
+            <div>
+                <p class="text-2xl font-medium text-gray-900">{{ $amount }}</p>
+
+                <p class="text-sm text-gray-500">Crédits restants</p>
+            </div>
+        </article>
+
+        <article class="flex items-center gap-4 rounded-lg border border-gray-100 bg-white p-6">
+          <span class="rounded-full bg-blue-100 p-3 text-blue-600">
+            <svg xmlns="http://www.w3.org/2000/svg"
+                 class="h-8 w-8"
+                 fill="none"
+                 viewBox="0 0 24 24"
+                 stroke="currentColor"
+                 stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z"/>
+            </svg>
+          </span>
+            <div>
+                <p class="text-2xl font-medium text-gray-900">{{ $amount * 2 }}</p>
+
+                <p class="text-sm text-gray-500">Génération de lettre</p>
+            </div>
+        </article>
+        <article class="flex items-center gap-4 rounded-lg border border-gray-100 bg-white p-6">
+          <span class="rounded-full bg-blue-100 p-3 text-blue-600">
+            <svg xmlns="http://www.w3.org/2000/svg"
+                 class="h-8 w-8"
+                 fill="none"
+                 viewBox="0 0 24 24"
+                 stroke="currentColor"
+                 stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z"/>
+            </svg>
+          </span>
+            <div>
+                <p class="text-2xl font-medium text-gray-900">{{ $amount }}</p>
+
+                <p class="text-sm text-gray-500">Modifications possibles</p>
+            </div>
+        </article>
     </div>
 </x-authenticated-layout>
-
-{{--<x-app-layout>--}}
-{{--    <section class="bg-white dark:bg-gray-900">--}}
-{{--        <div class="container px-6 py-10 mx-auto">--}}
-{{--            <h1 class="text-2xl font-semibold text-gray-800 lg:text-3xl dark:text-white">Mes lettres de motivation</h1>--}}
-{{--            <a href="{{ route('letters.create') }}">--}}
-{{--                <x-primary-button>--}}
-{{--                    Créer une nouvelle lettre--}}
-{{--                </x-primary-button>--}}
-{{--            </a>--}}
-{{--            <div class="grid grid-cols-1 gap-8 mt-8 md:mt-16 md:grid-cols-2">--}}
-{{--                @foreach($letters as $letter)--}}
-{{--                    <div class="lg:flex">--}}
-{{--                        <img class="object-cover w-full h-56 rounded-lg lg:w-64"--}}
-{{--                             src="https://images.unsplash.com/photo-1515378960530-7c0da6231fb1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"--}}
-{{--                             alt="">--}}
-
-{{--                        <div class="flex flex-col justify-between py-6 lg:mx-6">--}}
-{{--                            <a href="{{'letters/' . $letter->id}}"--}}
-{{--                               class="text-xl font-semibold text-gray-800 hover:underline dark:text-white ">--}}
-{{--                                {{ $letter->title }}--}}
-{{--                            </a>--}}
-
-{{--                            <span class="text-sm text-gray-500 dark:text-gray-300">{{ $letter->updated_at }}</span>--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
-{{--                @endforeach--}}
-{{--            </div>--}}
-{{--        </div>--}}
-{{--    </section>--}}
-{{--</x-app-layout>--}}

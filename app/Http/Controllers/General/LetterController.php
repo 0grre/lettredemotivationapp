@@ -12,6 +12,8 @@ use App\Models\Letter;
 use App\Models\User;
 use Barryvdh\DomPDF\Facade\PDF;
 use GuzzleHttp\Client;
+use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Contracts\View\Factory;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
@@ -200,8 +202,9 @@ class LetterController extends Controller
 
     /**
      * @param StoreLetterRequest $request
+     * @return mixed
      */
-    public function store(StoreLetterRequest $request)
+    public function store(StoreLetterRequest $request): mixed
     {
         $request->validated();
 
@@ -245,7 +248,7 @@ class LetterController extends Controller
         $letter->fill([
             "skills" => Appellation::getSkills($appellation_request->competencesCles),
             "appellation_id" => $appellation->id,
-            "title" => $letter->company . "_" . $appellation->libelle
+            "title" => ucfirst($letter->company) . " " . $appellation->libelle
         ]);
 
         $user->letters()->save($letter);
@@ -259,7 +262,7 @@ class LetterController extends Controller
         $letter->save();
 
         return view('letter.show', [
-//            'letter' => $letter,
+            'letter' => $letter,
         ]);
     }
 
@@ -333,8 +336,9 @@ class LetterController extends Controller
     public function archive(Letter $letter)
     {
         $letter->archived_at = Carbon::now();
+        $letter->save();
 
-        return redirect()->route('letters.index');
+        return redirect()->route('letters.archives');
     }
 
     /**
@@ -344,6 +348,7 @@ class LetterController extends Controller
     public function restore(Letter $letter)
     {
         $letter->archived_at = null;
+        $letter->save();
 
         return redirect()->back();
     }
@@ -356,7 +361,7 @@ class LetterController extends Controller
     {
         $letter->delete();
 
-        return redirect()->route('dashboard');
+        return redirect()->route('letters.archives');
     }
 
 

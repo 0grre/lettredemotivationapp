@@ -74,7 +74,7 @@ class PageController extends Controller
     public function dashboard(): View
     {
         return view('dashboard', [
-            "letters" => Auth::user()->letters
+            "amount" => Auth::user()->account->amount
         ]);
     }
 }
