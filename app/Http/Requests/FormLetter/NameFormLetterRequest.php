@@ -23,8 +23,8 @@ class NameFormLetterRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'firstname' => 'string|max:50',
-            'lastname' => 'string|max:50',
+            'firstname' => 'required|string|max:50',
+            'lastname' => 'required|string|max:50',
         ];
     }
 }

@@ -3,8 +3,7 @@
         <div class="p-4 sm:p-8 bg-white dark:bg-gray-800 shadow sm:rounded-lg">
             <div class="max-w-xl">
                 <h2 class="text-4xl font-extrabold dark:text-white">Merci de votre inscription !</h2>
-                <p class="my-4 text-lg text-gray-500 dark:text-gray-400">Avant de commencer, pourriez-vous vérifier
-                    votre adresse e-mail en cliquant sur le lien que nous venons de vous envoyer par e-mail ?</p>
+                <p class="my-4 text-lg text-gray-500 dark:text-gray-400">Avant de commencer, vérifiez votre adresse e-mail en cliquant sur le lien que vous venez de recevoir.</p>
                 <p class="mb-4 text-lg font-normal text-gray-500 dark:text-gray-400">Si vous n'avez pas reçu
                     l'e-mail, nous vous en enverrons volontiers un autre.</p>
                 <form method="post" action="{{ route('verification.send') }}">

@@ -90,9 +90,9 @@
                     </a>
                 </li>
                 <li>
-                    <a href="{{ route('credits') }}" class="flex items-center p-3 font-medium text-primary-700 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 group">
+                    <a href="{{ route('credits') }}" class="flex items-center p-3 font-medium  text-primary-700 dark:text-primary-400 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 group">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
-                             class="flex-shrink-0 w-6 h-6 text-primary-700 transition duration-75">
+                             class="flex-shrink-0 w-6 h-6 transition duration-75">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" />
                         </svg>
                         <span class="ml-3">Crédits</span>

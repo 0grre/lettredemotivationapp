@@ -19,7 +19,6 @@
             </button>
         </div>
     @endif
-
     @error('checkout_failed')
     <div id="alert-2"
          class="flex items-center p-4 mb-4 text-red-800 border border-red-300 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400 dark:border-red-800"
@@ -44,9 +43,8 @@
         </button>
     </div>
     @enderror
-
     <div class="grid grid-cols-3 gap-4 mb-4">
-        <article class="flex items-center gap-4 rounded-lg border border-gray-100 bg-white p-6">
+        <article class="flex items-center gap-4 rounded-lg border border-gray-100 bg-white p-6 shadow dark:border-gray-600 xl:p-8 dark:bg-gray-800">
           <span class="rounded-full bg-primary-100 p-3 text-primary-600">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                  stroke="currentColor" class="h-8 w-8">
@@ -55,12 +53,12 @@
             </svg>
           </span>
             <div>
-                <p class="text-2xl font-medium text-gray-900">{{ $balance }}</p>
+                <p class="text-2xl font-medium text-gray-900 dark:text-white">{{ $balance }}</p>
                 <p class="text-sm text-gray-500">Crédits restants</p>
             </div>
         </article>
 
-        <article class="flex items-center gap-4 rounded-lg border border-gray-100 bg-white p-6">
+        <article class="flex items-center gap-4 rounded-lg border border-gray-100 bg-white p-6 shadow dark:border-gray-600 xl:p-8 dark:bg-gray-800">
           <span class="rounded-full bg-primary-100 p-3 text-primary-600">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
                  class="h-8 w-8">
@@ -68,18 +66,18 @@
             </svg>
           </span>
             <div>
-                <p class="text-2xl font-medium text-gray-900">{{ round($balance / 2, 0, PHP_ROUND_HALF_DOWN) }}</p>
+                <p class="text-2xl font-medium text-gray-900 dark:text-white">{{ round($balance / 2, 0, PHP_ROUND_HALF_DOWN) }}</p>
                 <p class="text-sm text-gray-500">Génération de lettre</p>
             </div>
         </article>
-        <article class="flex items-center gap-4 rounded-lg border border-gray-100 bg-white p-6">
+        <article class="flex items-center gap-4 rounded-lg border border-gray-100 bg-white p-6 shadow dark:border-gray-600 xl:p-8 dark:bg-gray-800">
           <span class="rounded-full bg-primary-100 p-3 text-primary-600">
             <svg class="h-8 w-8" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182m0-4.991v4.99"></path>
             </svg>
           </span>
             <div>
-                <p class="text-2xl font-medium text-gray-900">{{ $balance }}</p>
+                <p class="text-2xl font-medium text-gray-900 dark:text-white">{{ $balance }}</p>
                 <p class="text-sm text-gray-500">Modifications possibles</p>
             </div>
         </article>

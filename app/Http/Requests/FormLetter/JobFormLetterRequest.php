@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests\FormLetter;
 
+use App\Rules\AppellationRule;
 use Illuminate\Contracts\Validation\ValidationRule;
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -23,9 +24,9 @@ class JobFormLetterRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'appellation' => 'string|max:250',
-            'contract_type' => 'string|max:25',
-            'experience' => 'integer|max:4',
+            'appellation' => ['required', 'string', 'max:250', new AppellationRule()],
+            'contract_type' => 'required|string|max:25',
+            'experience' => 'required|integer|max:4',
         ];
     }
 }

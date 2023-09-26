@@ -23,7 +23,7 @@ class CompanyFormLetterRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'company' => 'string|max:50',
+            'company' => 'required|string|max:50',
             'localization' => 'nullable|string|max:50',
         ];
     }

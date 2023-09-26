@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests\Letter;
 
+use App\Rules\AppellationRule;
 use Illuminate\Contracts\Validation\ValidationRule;
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -23,9 +24,10 @@ class StoreLetterRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'appellation' => 'string|max:250',
-            'experience' => 'integer|max:4',
-            'company' => 'string|max:50',
+            'appellation' => ['required', 'string', 'max:250', new AppellationRule()],
+            'contract_type' => 'required|string|max:50',
+            'experience' => 'required|integer|max:4',
+            'company' => 'required|string|max:50',
             'localization' => 'nullable|string|max:50',
         ];
     }
