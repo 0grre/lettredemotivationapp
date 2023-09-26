@@ -7,7 +7,7 @@
                     <h1 class="mb-4 text-3xl font-extrabold leading-tight text-gray-900 lg:mb-6 lg:text-4xl dark:text-white">
                         Politique de confidentialité</h1>
                 </header>
-                <p>Le site web superlettredemotivation.com est détenu par super lettre de motivation, qui est un
+                <p>Le site web lettredemotivation.app est détenu par lettre de motivation, qui est un
                     contrôleur de données de vos données personnelles.</p>
                 <p>
                     Nous avons adopté cette politique de confidentialité, qui détermine la manière dont nous traitons
@@ -16,7 +16,7 @@
                     qui fournit également les raisons pour
                     lesquelles nous devons collecter certaines données personnelles vous concernant. Par conséquent,
                     vous devez lire cette politique de confidentialité avant d'utiliser le site web de
-                    superlettredemotivation.com.
+                    lettredemotivation.app.
                 </p>
                 <p>
                     Nous prenons soin de vos données personnelles et nous nous engageons à en garantir la
@@ -25,7 +25,7 @@
 
                 <h3>Les informations personnelles que nous collectons :</h3>
                 <p>
-                    Lorsque vous visitez le superlettredemotivation.com, nous recueillons automatiquement certaines
+                    Lorsque vous visitez le lettredemotivation.app, nous recueillons automatiquement certaines
                     informations sur votre appareil, notamment des informations sur votre navigateur web, votre adresse
                     IP, votre fuseau horaire et certains des cookies installés sur votre appareil. En outre, lorsque
                     vous naviguez sur le site, nous recueillons des informations sur les pages web ou les produits

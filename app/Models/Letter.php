@@ -67,19 +67,22 @@ class Letter extends Model
         foreach (json_decode($this->skills) as $skill) {
             $string_skills .= " " . $skill . ";";
         }
+        $email = " - Adresse email: " . $user->email ?? "prenom.nom@gmail.com";
+        $localization = " - Localisation: " . $this->localization ?? "Paris";
 
         return "Rédige moi une lettre de motivation professionnelle et pertinente de " . $words . " mots maximum en te basant sur les informations suivantes:
               - Prénom, Nom: " . $user->name .
+            $email .
             " - Poste: " . $this->appellation->libelle .
             " - Type de contrat: " . $this->contract_type .
             " - Compétences: " . $string_skills .
             " - Entreprise: " . $this->company .
-            " - Localisation: " . $this->localization .
+            $localization .
             " - Expérience: " . $this->experience . " ans
             En ce qui concerne l'entête tu ne mettras que mon nom et prénom indenté comme une lettre de motivation,
             tu indiquera dans l'objet de la lettre le type de contrat et le poste visé,
             tu laisseras un espace supplémentaire et en dessous tu ajouteras la date d'aujourd'hui qui est "
-            . Carbon::now()->addDay()->locale('fr')->isoFormat('dddd D MMMM YYYY');
+            . Carbon::now()->locale('fr')->isoFormat('dddd D MMMM YYYY');
         }
 
     /**

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Stripe;
 
 use App\Http\Controllers\Controller;
 use App\Models\Account;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\View\View;
@@ -26,9 +27,9 @@ class CheckoutController extends Controller
 
     /**
      * @param Request $request
-     * @return View
+     * @return RedirectResponse
      */
-    public function success(Request $request): View
+    public function success(Request $request)
     {
         $user = Auth::user();
         $checkoutSession = $user->stripe()->checkout->sessions->retrieve($request->get('session_id'));
@@ -37,23 +38,19 @@ class CheckoutController extends Controller
             $account = new Account();
             $user->account()->save($account);
         }
-        $old_amount = $user->account->amount;
 
-        $user->account->amount =  $old_amount + $request->get('credit_amount');
-        $user->account->save();
+        $amount = $request->get('credit_amount');
 
-        return view('dashboard', [
-            "amount" => Auth::user()->account->amount
-        ]);
+        $user->fundAccountBalance($amount);
+
+        return redirect()->route('dashboard')->with('success', "Félicitations ! Ton compte vient d'être créditer de ". $amount . " crédits.");
     }
 
     /**
-     * @param Request $request
-     * @return View
+     * @return RedirectResponse
      */
-    public function cancel(Request $request): View
+    public function cancel(): RedirectResponse
     {
-//        $checkoutSession = Auth::user()->stripe()->checkout->sessions->retrieve($request->get('session_id'));
-        return view('welcome');
+        return redirect()->route('dashboard')->withErrors(["checkout_failed" => "une erreur s'est produite lors du paiement"]);
     }
 }

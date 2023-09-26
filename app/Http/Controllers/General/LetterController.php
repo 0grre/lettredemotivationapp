@@ -105,7 +105,7 @@ class LetterController extends Controller
         $letter = $request->session()->get('letter');
         $letter->fill($request->all());
         $letter->fill([
-            "title" => $letter->company . "_" . $letter->appellation->libelle
+            "title" => ucfirst($letter->company) . " " . $letter->appellation->libelle
         ]);
         $request->session()->put('letter', $letter);
 
@@ -196,7 +196,7 @@ class LetterController extends Controller
     public function archives(): View
     {
         return view('letter.archives', [
-            'letters' => Auth::user()->letters()->whereNotNull('archived_at')->get(),
+            'letters' => Auth::user()->letters()->whereNotNull('archived_at')->paginate(10),
         ]);
     }
 
@@ -206,11 +206,15 @@ class LetterController extends Controller
      */
     public function store(StoreLetterRequest $request): mixed
     {
+        if (!Auth::user()->debitAccountBalance(2)) {
+            return back()->withErrors(["insufficient_amount" => "Montant de crédit insuffisant pour cette action"]);
+        }
+
         $request->validated();
 
         $appellation = Appellation::where('libelle', $request->appellation)->first();
 
-        if(!$appellation){
+        if (!$appellation) {
             return redirect()->back()->withErrors(['error', "Le métier entré n'existe pas"]);
         }
 
@@ -283,7 +287,7 @@ class LetterController extends Controller
      */
     public function download(Letter $letter)
     {
-        $title = $letter->title ? ucfirst($letter->title) : ucfirst( $letter->company) . " - " . $letter->appellation->libelle;
+        $title = $letter->title ? ucfirst($letter->title) : ucfirst($letter->company) . " - " . $letter->appellation->libelle;
 
         return Pdf::loadView('letter.pdf', ['letter' => $letter])->download($title . '.pdf');
     }
@@ -295,6 +299,10 @@ class LetterController extends Controller
      */
     public function regenerate(Letter $letter)
     {
+        if (!Auth::user()->debitAccountBalance(1)) {
+            return back()->withErrors(["insufficient_amount" => "Montant de crédit insuffisant pour cette action"]);
+        }
+
         $prompt = "En te basant sur les mêmes informations, reformule et améliore la précédente lettre en étant moins générique";
 
         $letter->regenerate($prompt);
@@ -309,6 +317,10 @@ class LetterController extends Controller
      */
     public function increase(Letter $letter)
     {
+        if (!Auth::user()->debitAccountBalance(1)) {
+            return back()->withErrors(["insufficient_amount" => "Montant de crédit insuffisant pour cette action"]);
+        }
+
         $prompt = "En te basant sur les mêmes informations, reformule et améliore la précédente lettre en ajoutant un paragraphe";
 
         $letter->regenerate($prompt);
@@ -322,6 +334,10 @@ class LetterController extends Controller
      */
     public function reduce(Letter $letter)
     {
+        if (!Auth::user()->debitAccountBalance(1)) {
+            return back()->withErrors(["insufficient_amount" => "Montant de crédit insuffisant pour cette action"]);
+        }
+
         $prompt = "En te basant sur les mêmes informations, reformule et améliore la précédente lettre en retirant un paragraphe";
 
         $letter->regenerate($prompt);
@@ -362,24 +378,5 @@ class LetterController extends Controller
         $letter->delete();
 
         return redirect()->route('letters.archives');
-    }
-
-
-    public function test()
-    {
-//        return (new PoleEmploi($poleEmploiClient))->ficheMetiers();
-
-//        return PoleEmploi::appellationMetier([
-//            "uuidInference" =>  "354c6efc-3a9a-4cc6-aab2-b35e3dfa07ad",
-//
-//    "bonnePrediction" =>  false,
-//
-//    "codeAppellation" =>  $appellation->code
-//        ], false);
-
-
-//        return $poleEmploiClient->base('GET', 'rome-metiers/v1/metiers/appellation/' . 10277);
-//        return $poleEmploiClient->base('GET', 'rome-fiches-metiers/v1/fiches-rome/fiche-metier/' . 'A1301' . '?champs=code,groupesSavoirs');
-//        return $poleEmploiClient->base('GET', 'explorateurmetiers/v1/explorateurmetiers?libelle='. 'com' .'&nombre='. '5' .'&type=' . 'metier');
     }
 }

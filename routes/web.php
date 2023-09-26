@@ -4,6 +4,7 @@ use App\Http\Controllers\General\LetterController;
 use App\Http\Controllers\General\PageController;
 use App\Http\Controllers\General\ProfileController;
 use App\Http\Controllers\Stripe\CheckoutController;
+use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -75,6 +76,11 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::delete('/letters/delete/{letter}', [LetterController::class, 'delete'])->name('letters.delete');
 });
 
-Route::get('/test', [LetterController::class, 'test']);
+Route::get('/test', function(){
+    Auth::user()->account->balance += 5;
+    Auth::user()->account->save();
+
+    return Auth::user()->account->balance;
+});
 
 require __DIR__ . '/auth.php';

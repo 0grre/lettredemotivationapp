@@ -3,15 +3,11 @@
 namespace App\Http\Controllers\General;
 
 use App\Http\Controllers\Controller;
-use App\Models\Conversation;
-use App\Models\User;
-use Illuminate\Http\Client\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\View\View;
 
 class PageController extends Controller
 {
-
     /**
      * @return View
      */
@@ -74,7 +70,7 @@ class PageController extends Controller
     public function dashboard(): View
     {
         return view('dashboard', [
-            "amount" => Auth::user()->account->amount
+            "balance" => Auth::user()->account->balance
         ]);
     }
 }

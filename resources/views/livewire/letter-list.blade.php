@@ -1,5 +1,4 @@
 <section class="max-w-7xl mx-auto space-y-6 sm:px-6 lg:px-12">
-    @if(sizeof($letters) > 0)
     <div class="p-6 sm:p-8 bg-white dark:bg-gray-800 shadow rounded-3xl">
         <div class="max-w-xl">
             <h2 class="mb-6 text-xl font-bold text-gray-900 dark:text-white">Liste des lettres</h2>
@@ -23,6 +22,7 @@
             </form>
         </div>
     </div>
+    @if(sizeof($letters) > 0)
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 pt-6">
         @foreach($letters as $letter)
             <div class="mx-auto flex flex-col justify-between max-w-sm h-72 p-6 bg-white border border-gray-200 rounded-lg shadow dark:border-gray-700">

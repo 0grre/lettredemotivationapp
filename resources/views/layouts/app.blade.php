@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>Super Lettre de motivation - Exemple de lettre de motivation</title>
+    <title>Lettre de motivation - Exemple de lettre de motivation</title>
 
     <link rel="icon" href="{{ asset('assets/app.ico') }}">
 
@@ -18,7 +18,7 @@
     <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet"/>
 
     <meta name="author" content="0grre"/>
-    <meta name="description" content="Super Lettre de motivation, le générateur de lettre de motivation ou d'exemple de lettre de motivation. Générez des lettres de motivation professionnelles
+    <meta name="description" content="Lettre de motivation, le générateur de lettre de motivation ou d'exemple de lettre de motivation. Générez des lettres de motivation professionnelles
     ou des exemple de lettre de motivation en quelques clics grâce à notre IA alimentée avec les données de Pôle Emploi."/>
     <meta name="keywords" content="
     lettre de motivation,

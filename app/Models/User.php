@@ -62,4 +62,36 @@ class User extends Authenticatable implements MustVerifyEmail
     {
         return $this->hasOne(Account::class);
     }
+
+    /**
+     * @param $amount
+     * @return bool
+     */
+    public function checkAccountBalance($amount): bool
+    {
+        return $this->account->balance >= $amount;
+    }
+
+    /**
+     * @param $amount
+     * @return boolean
+     */
+    public function debitAccountBalance($amount): bool
+    {
+        if (!$this->checkAccountBalance($amount)) {
+            return false;
+        }
+        $this->account->balance -= $amount;
+        return $this->account->save();
+    }
+
+    /**
+     * @param $amount
+     * @return boolean
+     */
+    public function fundAccountBalance($amount): bool
+    {
+        $this->account->balance += $amount;
+        return $this->account->save();
+    }
 }

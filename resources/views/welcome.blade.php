@@ -1,4 +1,4 @@
-<x-guest-layout>
+<x-auth-layout>
     {{-- Hero --}}
     @include("partials.hero")
     {{-- End Hero --}}
@@ -20,4 +20,4 @@
     {{-- End Features --}}
 
     @include("partials.pricing")
-</x-guest-layout>
+</x-auth-layout>

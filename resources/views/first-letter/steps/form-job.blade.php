@@ -32,7 +32,8 @@
         @method('post')
         <div class="grid sm:grid-cols-2 gap-6">
             <div class="sm:col-span-2">
-                <label for="localization" class="block mb-3 text-sm font-medium text-gray-900 dark:text-white">
+                <label for="localization"
+                       class="block mb-3 text-sm font-medium text-gray-900 dark:text-white">
                     Le poste
                 </label>
                 <appellation-list :appellations="{{ $appellations }}"></appellation-list>

@@ -24,7 +24,7 @@ class LetterFactory extends Factory
             'localization' => fake()->city(),
             'experience' => fake()->randomDigitNotNull(),
             'skills' => json_encode(fake()->text()),
-            'user_id' => 1,
+            'user_id' => 4,
             'appellation_id' => fake()->randomDigitNotNull()
         ];
     }

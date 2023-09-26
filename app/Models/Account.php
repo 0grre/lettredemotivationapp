@@ -12,6 +12,6 @@ class Account extends Model
      * @var array<int, string>
      */
     protected $fillable = [
-        'amount',
+        'balance',
     ];
 }

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\Account;
 use App\Models\User;
 use Exception;
 use Illuminate\Http\RedirectResponse;
@@ -37,15 +38,17 @@ class GoogleAuthController extends Controller
                 $newUser = User::updateOrCreate(['email' => $user->email],[
                     'name' => $user->name,
                     'google_id'=> $user->id,
-                    'password' => encrypt(env('GOOGLE_PASSWORD'))
+                    'password' => encrypt(config('services.google.password'))
                 ]);
+
+                $account = new Account();
+                $user->account()->save($account);
 
                 Auth::login($newUser);
             }
             return redirect()->intended('dashboard');
 
         } catch (Exception $e) {
-            dd($e->getMessage());
             return redirect()->back()->withErrors($e->getMessage());
         }
     }

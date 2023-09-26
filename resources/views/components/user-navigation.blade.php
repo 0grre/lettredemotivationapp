@@ -13,8 +13,19 @@
             <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z" />
         </svg>
     </button>
+    <!-- Credits -->
+    <a href="{{ route('credits') }}" type="button" data-dropdown-toggle="notification-dropdown"
+            class="p-2 text-gray-500 rounded-lg hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-700">
+        <span class="text-lg font-medium inline-flex items-center px-2.5 py-0.5 rounded border border-gray-500 hover:border-gray-900 dark:hover:border-white">
+            {{ Auth::user()->account->balance }}
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+                 class="w-3.5 h-3.5 ml-1">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" />
+            </svg>
+        </span>
+    </a>
     <!-- Profile -->
-    <button type="button" class="flex mx-3 text-sm bg-gray-800 rounded-full md:mr-0"
+    <button type="button" class="flex mx-3 text-sm bg-gray-800 rounded-full md:mr-0 hover:bg-gray-100"
         id="user-menu-button"
         aria-expanded="false"
         data-dropdown-toggle="dropdown">

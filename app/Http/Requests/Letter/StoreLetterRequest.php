@@ -26,7 +26,7 @@ class StoreLetterRequest extends FormRequest
             'appellation' => 'string|max:250',
             'experience' => 'integer|max:4',
             'company' => 'string|max:50',
-            'localization' => 'string|max:50',
+            'localization' => 'nullable|string|max:50',
         ];
     }
 }
