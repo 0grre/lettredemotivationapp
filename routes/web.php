@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\General\ContactController;
 use App\Http\Controllers\General\LetterController;
 use App\Http\Controllers\General\PageController;
 use App\Http\Controllers\General\ProfileController;
@@ -26,6 +27,8 @@ Route::get('/pricing', [PageController::class, 'pricing'])->name('pricing');
 Route::get('/contact', [PageController::class, 'contact'])->name('contact');
 Route::get('/terms', [PageController::class, 'terms'])->name('terms');
 Route::get('/privacy', [PageController::class, 'privacy'])->name('privacy');
+
+Route::post('/contact', [ContactController::class, 'send'])->name('contact.send');
 
 /** Guest */
 Route::middleware('guest')->group(function () {

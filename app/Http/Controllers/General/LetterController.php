@@ -215,7 +215,7 @@ class LetterController extends Controller
         $appellation = Appellation::where('libelle', $request->appellation)->first();
 
         if (!$appellation) {
-            return redirect()->back()->withErrors(['error', "Le métier entré n'existe pas"]);
+            return back()->withErrors(['error', "Le métier entré n'existe pas"]);
         }
 
         // start pôle emploi
