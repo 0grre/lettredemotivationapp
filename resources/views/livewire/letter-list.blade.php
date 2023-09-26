@@ -48,7 +48,7 @@
                 <p class="mb-6 text-2xl font-normal text-gray-500 lg:text-xl dark:text-gray-400">
                     Aucunes lettres à afficher.
                 </p>
-                <a href="{{ route('letters.create') }}" class="mx-auto text-center text-primary-600x hover:underline font-medium text-xl inline-flex items-center">
+                <a href="{{ route('letters.create') }}" class="mx-auto text-center text-primary-600 hover:underline font-medium text-xl inline-flex items-center">
                     Pour en créer une, c'est par ici
                     <svg class="w-3.5 h-3.5 ml-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
                         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>

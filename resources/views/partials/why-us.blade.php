@@ -42,7 +42,7 @@
                 </div>
             </div>
             <div class="flex flex-col p-6 mx-auto max-w-lg text-center text-gray-900 bg-white rounded-lg border border-gray-100 shadow dark:border-gray-600 xl:p-8 dark:bg-gray-800 dark:text-white reveal third">
-                <img class="p-12" src="{{ asset('assets/undraw/undraw_wall_post_re_y78d.svg') }}" alt="wall_post_re image">
+                <img class="p-12" src="{{ asset('assets/undraw/undraw_online_resume_re_ru7s.svg') }}" alt="wall_post_re image">
                 <div class="p-5">
                     <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
                         Reformulez, Augmentez, Réduisez pour un impact maximal !

@@ -18,7 +18,7 @@
         </button>
     </div>
     @enderror
-    
+
     <x-app>
         <div class="max-w-7xl mx-auto space-y-6 sm:px-6 lg:px-8">
             <div class="p-6 sm:p-12 bg-white rounded-3xl border border-gray-100 dark:bg-gray-800 dark:border-gray-600">
@@ -94,7 +94,7 @@
                             </div>
                         </div>
                         <button type="submit"
-                                class="inline-flex items-center px-5 py-2.5 mt-4 sm:mt-6 text-sm font-medium text-center text-white bg-primary-700 rounded-lg hover:bg-primary-800">
+                                class="inline-flex items-center px-5 py-2.5 mt-4 sm:mt-6 text-sm font-medium text-center text-white bg-primary-600 rounded-lg hover:bg-primary-800">
                             {{ __('Tout est prêt, Let\'s go !') }}
                         </button>
                     </form>

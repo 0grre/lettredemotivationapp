@@ -1,5 +1,5 @@
 <div class="hidden lg:flex justify-center pt-6 mt-0 mb-auto lg:mx-12">
-    <img class="mt-6" src="{{ asset('assets/undraw/undraw_sync_files_re_ws4c.svg') }}" alt="dashboard image">
+    <img class="mt-6" src="{{ asset('assets/undraw/undraw_wall_post_re_y78d.svg') }}" alt="dashboard image">
 </div>
 
 <div class="max-w-xl mx-6 lg:mx-12">
@@ -46,7 +46,7 @@
             <x-error field="lastname" class="text-sm text-red-600 dark:text-red-400 space-y-1 mt-2"/>
         </div>
         <button type="submit"
-                class="inline-flex items-center px-5 py-2.5 mt-8 text-sm font-medium text-center text-white bg-primary-700 rounded-lg focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-primary-800">
+                class="inline-flex items-center px-5 py-2.5 mt-8 text-sm font-medium text-center text-white bg-primary-600 rounded-lg focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-primary-800">
             {{ __('Tout est prêt, Let\'s go!') }}
             <svg class="ml-3 -mr-1 w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                 <path fill-rule="evenodd"

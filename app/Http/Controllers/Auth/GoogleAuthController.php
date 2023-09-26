@@ -42,7 +42,7 @@ class GoogleAuthController extends Controller
                 ]);
 
                 $account = new Account();
-                $user->account()->save($account);
+                $newUser->account()->save($account);
 
                 Auth::login($newUser);
             }
