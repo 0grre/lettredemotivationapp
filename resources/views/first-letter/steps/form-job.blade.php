@@ -25,7 +25,7 @@
         Dans un premier temps.
     </h2>
     <p class="mb-6 font-light text-gray-500 md:text-lg dark:text-gray-400">
-        Indique nous le job de tes rêves (ou pas) auquel tu veux postuler, le type de contrat et le nombre d'années d'expériences.
+        Indiquez nous le job de vos rêves (ou pas) auquel vous voulez postuler, le type de contrat et le nombre d'années d'expériences.
     </p>
     <form method="post" action="{{ route('letters.create.step.job.post') }}">
         @csrf
@@ -59,7 +59,7 @@
                     Ton expérience
                 </label>
                 <select id="experience" required name="experience" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white" required>
-                    <option disabled selected>On a besoin de connaître tes années d'expériences</option>
+                    <option disabled selected>On a besoin de connaître vos années d'expériences</option>
                     <option value="0">C'est ma première fois</option>
                     <option value="1">1 an ou moins</option>
                     <option value="2">2 ans</option>

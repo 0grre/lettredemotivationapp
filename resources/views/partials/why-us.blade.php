@@ -36,7 +36,7 @@
                     </a>
                     <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
                         Nous nous engageons à protéger votre vie privée. Vos données sont cryptées et nous ne vendons
-                        jamais vos informations personnelles. Faites confiance à notre plateforme pour une expérience \
+                        jamais vos informations personnelles. Faites confiance à notre plateforme pour une expérience
                         sécurisée et sereine.
                     </p>
                 </div>

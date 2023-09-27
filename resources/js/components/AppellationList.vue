@@ -4,7 +4,7 @@
         type="text"
         id="search"
         name="appellation"
-        placeholder="Cherche ton métier par mots clefs"
+        placeholder="Cherchez et sélectionnez un métier"
         v-model="searchTerm"
         autofocus
         required>

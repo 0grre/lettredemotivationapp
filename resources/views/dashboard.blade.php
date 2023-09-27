@@ -81,5 +81,27 @@
                 <p class="text-sm text-gray-500">Modifications possibles</p>
             </div>
         </article>
+
+        <div class="gap-4 rounded-lg border border-gray-100 bg-white shadow dark:border-gray-600 xl:p-8 dark:bg-gray-800">
+            <a href="{{ route('letters.index') }}">
+                <img class="p-12" src="{{ asset('assets/undraw/undraw_subscribe_vspl.svg') }}" alt="product image" />
+
+            <div class="px-3 pb-3">
+                    <h5 class="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">Nombre de lettres de motivations</h5>
+                <div class="flex items-center justify-between pt-3">
+                    <span class="text-3xl font-bold text-gray-900 dark:text-white">{{ sizeof(Auth::user()->letters) }}
+                        <span class="text-sm text-gray-500">
+                            @if( sizeof(Auth::user()->letters) > 1)
+                            Lettres générées
+                            @else
+                            Lettre générée
+                            @endif
+                        </span>
+                    </span>
+                </div>
+            </div>
+            </a>
+        </div>
+
     </div>
 </x-authenticated-layout>

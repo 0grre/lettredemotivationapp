@@ -47,7 +47,7 @@
             <label for="company" class="block mb-3 text-sm font-medium text-gray-900 dark:text-white">La société</label>
             <input type="text" name="company" id="company"
                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                   placeholder="Dis nous le nom de la boîte que tu veux rejoindre"
+                   placeholder="Précisez le nom de la société que vous voulez rejoindre"
                    autocomplete="organization"
                    required/>
             <x-error field="company" class="text-sm text-red-600 dark:text-red-400 space-y-1 mt-2"/>
@@ -58,7 +58,7 @@
             </label>
             <input type="text" name="localization" id="localization"
                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                   placeholder="(optionnel) Tu peux ajouter la ville de la société"
+                   placeholder="(optionnel) Vous pouvez ajouter la ville de la société"
                    autocomplete="street-address">
             <x-error field="localization" class="text-sm text-red-600 dark:text-red-400 space-y-1 mt-3"/>
         </div>

@@ -20,12 +20,12 @@
                             Remplir le formulaire en sélectionnant le métier provenant des données de Pôle Emploi.</h2>
                         <ul class="max-w-md space-y-1 text-gray-500 list-disc list-inside dark:text-gray-400">
                             <li>
-                                Sélectionnez Fournissez vos informations personnelles et professionnelles dans notre
-                                formulaire en ligne.
-                            </li>
-                            <li>
                                 Sélectionnez le métier ou le secteur d'emploi spécifique à partir des données
                                 officielles de Pôle Emploi.
+                            </li>
+                            <li>
+                                Sélectionnez vos informations personnelles et professionnelles dans notre
+                                formulaire en ligne.
                             </li>
                         </ul>
 
@@ -53,7 +53,7 @@
                                 📑
                             </span>
                         <h2 class="mb-2 text-lg font-semibold text-gray-900 dark:text-white">
-                            Télécharger en PDF ou copier le texte pour l'utiliser dans Word ou LibreOffice.
+                            Télécharger en PDF ou copier le texte pour l'utiliser dans Word ou LibreOffice par exemple.
                         </h2>
                         <ul class="max-w-md space-y-1 text-gray-500 list-disc list-inside dark:text-gray-400">
                             <li>

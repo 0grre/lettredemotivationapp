@@ -8,15 +8,15 @@
         @method('put')
         <div class="grid gap-4 mb-4 sm:grid-cols-2 sm:gap-6 sm:mb-5">
             <div class="sm:col-span-2">
-                <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Prénom et Nom</label>
+                <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Votre prénom et nom</label>
                 <input id="name" name="name" type="text" value="{{  old('name', $user->name) }}"
                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white focus:ring-primary-600 focus:border-primary-600"
-                       placeholder="Votre prénom et nom" autofocus autocomplete="name">
+                       placeholder="Jean dupont ..." autofocus autocomplete="name">
                 <x-error field="name" class="mt-2 text-sm text-red-600 dark:text-red-500"/>
             </div>
             <div class="sm:col-span-2">
-                <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Email</label>
-                <input id="email" name="email" type="email" value="{{  old('email', $user->email) }}" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white focus:ring-primary-600 focus:border-primary-600" placeholder="Votre adresse email" required>
+                <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Votre email</label>
+                <input id="email" name="email" type="email" value="{{  old('email', $user->email) }}" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white focus:ring-primary-600 focus:border-primary-600" placeholder="jean.dupont@gmail.com ..." required>
                 <x-error field="email" class="mt-2 text-sm text-red-600 dark:text-red-500"/>
                 @if ($user instanceof \Illuminate\Contracts\Auth\MustVerifyEmail && ! $user->hasVerifiedEmail())
                     <div>
