@@ -18,8 +18,8 @@
         "laravel/tinker": "^2.8",
         "livewire/livewire": "^2.12",
         "milwad/laravel-validate": "^1.7",
-        "ogrre/laravel-chatgpt": "1.0.4",
-        "ogrre/laravel-pole-emploi": "^0.0.2",
+        "ogrre/laravel-chatgpt": "1.0.5",
+        "ogrre/laravel-pole-emploi": "1.0.0",
         "openai-php/client": "^0.6.2",
         "ext-json": "*"
     },

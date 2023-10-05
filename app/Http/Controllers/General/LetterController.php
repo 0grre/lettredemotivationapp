@@ -10,15 +10,13 @@ use App\Http\Requests\Letter\StoreLetterRequest;
 use App\Models\Appellation;
 use App\Models\Letter;
 use App\Models\User;
-//use Barryvdh\DomPDF\Facade\PDF;
 use Barryvdh\DomPDF\Facade\Pdf as PDF;
-use GuzzleHttp\Client;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\View\View;
+use Illuminate\Contracts\View\View;
 use Ogrre\Laravel\PoleEmploi\PoleEmploiFacade as PoleEmploi;
 
 class LetterController extends Controller
@@ -44,27 +42,7 @@ class LetterController extends Controller
 
         $appellation = Appellation::where('libelle', $request->appellation)->first();
 
-        $client = new Client();
-        $headers = [
-            'Content-Type' => 'application/x-www-form-urlencoded',
-        ];
-        $options = [
-            'form_params' => [
-                'grant_type' => 'client_credentials',
-                'client_id' => env('POLE_EMPLOI_CLIENT_ID'),
-                'client_secret' => env('POLE_EMPLOI_CLIENT_SECRET'),
-                'scope' => env('POLE_EMPLOI_SCOPE'),
-            ]];
-        $guzzle_request = new \GuzzleHttp\Psr7\Request('POST', 'https://entreprise.pole-emploi.fr/connexion/oauth2/access_token?realm=/partenaire', $headers);
-        $res = $client->sendAsync($guzzle_request, $options)->wait();
-        $token = json_decode($res->getBody())->access_token;
-
-        $headers = [
-            'Authorization' => 'Bearer ' . $token
-        ];
-        $guzzle_request = new \GuzzleHttp\Psr7\Request('GET', 'https://api.pole-emploi.io/partenaire/rome-metiers/v1/metiers/appellation/' . $appellation->code, $headers);
-        $res = $client->sendAsync($guzzle_request)->wait();
-        $appellation_request = json_decode($res->getBody());
+        $appellation_request = PoleEmploi::metiers()->appellation($appellation->code);
 
         if (empty($request->session()->get('letter'))) {
             $letter = new Letter();
@@ -205,10 +183,6 @@ class LetterController extends Controller
      */
     public function store(StoreLetterRequest $request): mixed
     {
-        if (!Auth::user()->debitAccountBalance(2)) {
-            return back()->withErrors(["insufficient_amount" => "Montant de crédit insuffisant pour cette action"]);
-        }
-
         $request->validated();
 
         $appellation = Appellation::where('libelle', $request->appellation)->first();
@@ -217,31 +191,7 @@ class LetterController extends Controller
             return back()->withErrors(['error', "Le métier entré n'existe pas"]);
         }
 
-        // start pôle emploi
-
-        $client = new Client();
-        $headers = [
-            'Content-Type' => 'application/x-www-form-urlencoded',
-        ];
-        $options = [
-            'form_params' => [
-                'grant_type' => 'client_credentials',
-                'client_id' => env('POLE_EMPLOI_CLIENT_ID'),
-                'client_secret' => env('POLE_EMPLOI_CLIENT_SECRET'),
-                'scope' => env('POLE_EMPLOI_SCOPE'),
-            ]];
-        $guzzle_request = new \GuzzleHttp\Psr7\Request('POST', 'https://entreprise.pole-emploi.fr/connexion/oauth2/access_token?realm=/partenaire', $headers);
-        $res = $client->sendAsync($guzzle_request, $options)->wait();
-        $token = json_decode($res->getBody())->access_token;
-
-        $headers = [
-            'Authorization' => 'Bearer ' . $token
-        ];
-        $guzzle_request = new \GuzzleHttp\Psr7\Request('GET', 'https://api.pole-emploi.io/partenaire/rome-metiers/v1/metiers/appellation/' . $appellation->code, $headers);
-        $res = $client->sendAsync($guzzle_request)->wait();
-        $appellation_request = json_decode($res->getBody());
-
-        // end pôle emploi
+        $appellation_request = PoleEmploi::metiers()->appellation($appellation->code);
 
         $letter = new Letter();
         $letter->fill($request->all());
@@ -263,6 +213,13 @@ class LetterController extends Controller
 
         $letter->text = $chat['messages']->last()->content;
         $letter->save();
+
+        if (!Letter::find($letter->id)) {
+            return back()->withErrors(["insufficient_amount" => "Une erreur est survenue, veuillez réssayer plus tard."]);
+        }
+        if (!Auth::user()->debitAccountBalance(2)) {
+            return back()->withErrors(["insufficient_amount" => "Montant de crédit insuffisant pour cette action"]);
+        }
 
         return view('letter.show', [
             'letter' => $letter,
