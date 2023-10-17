@@ -21,7 +21,10 @@ class ContactController extends Controller
         try {
             Mail::to(config('mail.from.receiver'))->send(new Contact($request));
         } catch (\Exception $e) {
-            return back()->withErrors(['error_mail' => "une erreur s'est produite, veuillez réssayer plus tard."]);
+            $message = $e->getCode() == 550
+                ? "votre adresse email n'est pas valide (boîte aux lettres introuvable)."
+                : "une erreur s'est produite, veuillez réssayer plus tard.";
+            return back()->withErrors(['error_mail' => $message]);
         }
 
         return redirect()->back()->with('success', 'Votre message à été envoyé avec succès, nous vous répondons au plus vite ');
