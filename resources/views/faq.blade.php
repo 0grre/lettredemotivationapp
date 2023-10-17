@@ -20,7 +20,7 @@
                         <h3 class="flex items-center mb-4 text-lg font-medium text-gray-900 dark:text-white">
                             💰 Quels sont les tarifs proposés pour votre service ?
                         </h3>
-                        <p class="text-gray-500 dark:text-gray-400">Nous proposons <a href="{{ route('pricing') }}" class="font-medium underline text-primary-600 dark:text-primary-500 hover:no-underline">trois tarifs</a> : gratuit, milieu de gamme et ultra premium. Chacun offre des fonctionnalités spécifiques adaptées à différents besoins et budgets. Vous pouvez consulter notre page Tarifs pour plus de détails.</p>
+                        <p class="text-gray-500 dark:text-gray-400">Nous proposons deux types de recharges : une de 25 crédits et uen autre de 100 crédits. Vous aurez accès aux mêmes fonctionnalités à chaque fois, seul le montant de crédits, et donc de génération de lettre varie. Vous pouvez consulter notre page <a href="{{ route('pricing') }}" class="font-medium underline text-primary-600 dark:text-primary-500 hover:no-underline">tarifs</a> pour plus de détails.</p>
                     </div>
                     <div class="mb-10 grid-rows-1">
                         <h3 class="flex items-center mb-4 text-lg font-medium text-gray-900 dark:text-white">
@@ -42,14 +42,14 @@
                         <h3 class="flex items-center mb-4 text-lg font-medium text-gray-900 dark:text-white">
                            🔐 Est-ce que mes données sont sécurisées ?
                         </h3>
-                        <p class="text-gray-500 dark:text-gray-400">Absolument ! Nous prenons la sécurité des données très au sérieux. Toutes les informations que vous fournissez sont cryptées et nous ne collectons ni ne revendons aucune donnée personnelle. Votre confidentialité est notre priorité.</p>
+                        <p class="text-gray-500 dark:text-gray-400">Tout à fait ! Nous prenons la sécurité des données très au sérieux. Toutes les informations que vous fournissez sont cryptées et nous ne collectons ni ne revendons aucune donnée personnelle. Votre confidentialité est notre priorité.</p>
                     </div>
 
                     <div class="mb-10 grid-rows-1">
                         <h3 class="flex items-center mb-4 text-lg font-medium text-gray-900 dark:text-white">
                            🐀 Est-ce que je peux essayer votre service gratuitement avant de m'engager ?
                         </h3>
-                        <p class="text-gray-500 dark:text-gray-400">Absolument ! Nous offrons une version gratuite de notre service qui vous permet de découvrir et de tester nos fonctionnalités de base. Vous pouvez passer à un plan payant pour accéder à des fonctionnalités avancées et des avantages supplémentaires.</p>
+                        <p class="text-gray-500 dark:text-gray-400">Absolument ! Nous offrons une lettre en utilisant ce <a href="{{ route('letters.create.step.job') }}" class="font-medium underline text-primary-600 dark:text-primary-500 hover:no-underline">lien</a> qui vous permet de découvrir et de tester nos fonctionnalités de base. Vous pouvez recharger par la suite votre compte pour en générer de nouvelles ou les modifier.</p>
                     </div>
                     <div class="mb-10 grid-rows-1">
                         <h3 class="flex items-center mb-4 text-lg font-medium text-gray-900 dark:text-white">
