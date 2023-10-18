@@ -16,7 +16,7 @@ class AppellationRule implements ValidationRule
      */
     public function validate(string $attribute, mixed $value, Closure $fail): void
     {
-        if (!Appellation::where('libelle', $value)->exists()) {
+        if (!Appellation::where('libelle', $value)->first()) {
             $fail("L'appellation métier n'existe pas dans notre base de donnée.");
         }
     }

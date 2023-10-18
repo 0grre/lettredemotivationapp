@@ -37,7 +37,7 @@
                     Le poste
                 </label>
                 <appellation-list :appellations="{{ $appellations }}"></appellation-list>
-                <x-error field="job" class="text-sm text-red-600 dark:text-red-400 space-y-1 mt-3"/>
+                <x-error field="appellation" class="text-sm text-red-600 dark:text-red-400 space-y-1 mt-3"/>
             </div>
             <div class="sm:col-span-2">
                 <label for="contract_type" class="block mb-3 text-sm font-medium text-gray-900 dark:text-white">

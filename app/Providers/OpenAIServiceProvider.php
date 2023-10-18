@@ -13,7 +13,7 @@ class OpenAIServiceProvider extends ServiceProvider
     public function register(): void
     {
         $this->app->singleton(OpenAI::class, function () {
-            return OpenAI::client(env('OPENAI_API_KEY'));
+            return OpenAI::client(config('openai.api_key'));
 
         });
     }

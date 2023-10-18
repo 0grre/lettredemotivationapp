@@ -53,7 +53,7 @@ class LetterController extends Controller
         $letter->fill([
             "experience" => $request->experience,
             "contract_type" => $request->contract_type,
-            "skills" => Appellation::getSkills($appellation_request->competencesCles),
+            "skills" => Appellation::getSkills($appellation_request["competencesCles"]),
             "appellation_id" => $appellation->id
         ]);
         $request->session()->put('letter', $letter);
@@ -199,7 +199,7 @@ class LetterController extends Controller
         $user = Auth::user();
 
         $letter->fill([
-            "skills" => Appellation::getSkills($appellation_request->competencesCles),
+            "skills" => Appellation::getSkills($appellation_request["competencesCles"]),
             "appellation_id" => $appellation->id,
             "title" => ucfirst($letter->company) . " " . $appellation->libelle
         ]);
