@@ -6,14 +6,14 @@
                 <span class="text-emerald-300">
                         lettres de motivation
                 </span>
-                professionnelles en quelques clics grâce à notre IA.
+                Professionnelles en quelques clics grâce à notre IA.
             </h1>
             <div class="flex flex-col mt-3 mb-6 space-y-4 sm:flex-row sm:space-y-0 sm:space-x-4">
                 <a href="{{ route('letters.create.step.job') }}"
                    class="inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-white rounded-lg bg-primary-600 hover:bg-primary-700">
                     Je teste ! 👉
                 </a>
-                <a href="{{ route('login') }}"
+                <a href="{{ route('register') }}"
                    class="bg-white inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-gray-900 rounded-lg border border-gray-300 hover:bg-gray-100">
                     S'inscrire gratuitement 🎉
                 </a>
