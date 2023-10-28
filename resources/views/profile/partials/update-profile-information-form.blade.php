@@ -3,9 +3,9 @@
     <form id="send-verification" method="post" action="{{ route('verification.send') }}">
         @csrf
     </form>
-    <form method="post" action="{{ route('password.update') }}">
+    <form method="post" action="{{ route('profile.update') }}">
         @csrf
-        @method('put')
+        @method('patch')
         <div class="grid gap-4 mb-4 sm:grid-cols-2 sm:gap-6 sm:mb-5">
             <div class="sm:col-span-2">
                 <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Votre prénom et nom</label>
