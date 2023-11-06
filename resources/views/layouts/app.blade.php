@@ -59,8 +59,8 @@
         <div class="mx-auto max-w-screen-sm text-center p-12 rounded-lg border border-gray-100 bg-white shadow dark:border-gray-600 dark:bg-gray-800">
             <p class="mb-4 text-3xl tracking-tight font-bold text-gray-900 md:text-4xl dark:text-white">Génération
                 de la lettre</p>
-            <p class="mb-4 text-lg font-light text-gray-500 dark:text-gray-400">Ne t'inquiète pas l'IA est en train
-                de rédiger ta lettre de motivation, soit patient ça ne devrait pas être trop long. </p>
+            <p class="mb-4 text-lg font-light text-gray-500 dark:text-gray-400">Ne vous inquiètez pas l'IA est en train
+                de rédiger votre lettre de motivation, soyez patient ça ne devrait pas être trop long.</p>
             <div role="status">
                 <svg aria-hidden="true"
                      class="inline w-10 h-10 mr-2 text-gray-200 animate-spin dark:text-gray-600 fill-primary-600"
