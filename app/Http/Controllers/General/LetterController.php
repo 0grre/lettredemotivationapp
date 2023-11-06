@@ -57,6 +57,7 @@ class LetterController extends Controller
             "appellation_id" => $appellation->id
         ]);
         $request->session()->put('letter', $letter);
+        $request->session()->save();
 
         return redirect()->route('letters.create.step.company');
     }
@@ -85,6 +86,7 @@ class LetterController extends Controller
             "title" => ucfirst($letter->company) . " " . $letter->appellation->libelle
         ]);
         $request->session()->put('letter', $letter);
+        $request->session()->save();
 
         return redirect()->route('letters.create.step.name');
     }
@@ -118,6 +120,7 @@ class LetterController extends Controller
 
         $request->session()->forget('letter');
         $request->session()->put('user', $user);
+        $request->session()->save();
 
         $prompt = $letter->newLetterPrompt($user, 300);
 
