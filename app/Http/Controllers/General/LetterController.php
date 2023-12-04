@@ -116,20 +116,19 @@ class LetterController extends Controller
             $user = $request->session()->get('user');
         }
         $user->fill(['name' => $request->firstname . " " . $request->lastname]);
-        $user->letters()->save($letter);
+        $letter->save();
 
-        $request->session()->forget('letter');
         $request->session()->put('user', $user);
-        $request->session()->save();
 
         $prompt = $letter->newLetterPrompt($user, 300);
-
         $new_chat = $letter->newChat();
         $chat = $new_chat->gpt($prompt);
 
         $letter->text = $chat['messages']->last()->content;
+        $letter->save();
 
         $request->session()->put('letter', $letter);
+        $request->session()->save();
 
         return redirect()->route('letter.created');
     }

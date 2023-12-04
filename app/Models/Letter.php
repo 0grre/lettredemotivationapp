@@ -43,19 +43,6 @@ class Letter extends Model
     }
 
     /**
-     * @param Request $request
-     * @param User $user
-     * @return void
-     */
-    public static function saveLetter(Request $request, User $user): void
-    {
-        $letter = $request->session()->get('letter');
-        $user->letters()->save($letter);
-
-        $request->session()->forget('letter');
-    }
-
-    /**
      * @param User $user
      * @param int $words
      * @return string

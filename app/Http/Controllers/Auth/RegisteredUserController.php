@@ -47,9 +47,11 @@ class RegisteredUserController extends Controller
 
         $account = new Account();
         $user->account()->save($account);
+        $letter = $request->session()->get('letter');
 
-        if ($request->session()->get('letter')) {
-            Letter::saveLetter($request, $user);
+        if ($letter) {
+            $user->letters()->save($letter);
+            $request->session()->forget('letter');
             $request->session()->forget('user');
         };
 
