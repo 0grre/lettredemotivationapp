@@ -23,7 +23,7 @@
         </button>
     </div>
     @enderror
-    <div class="lg-grid lg-grid-cols-3 gap-4 space-y-6 mb-4">
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-4">
         <article class="flex items-center gap-4 rounded-lg border border-gray-100 bg-white p-6 shadow dark:border-gray-600 xl:p-8 dark:bg-gray-800">
           <span class="rounded-full bg-primary-100 p-3 text-primary-600">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"

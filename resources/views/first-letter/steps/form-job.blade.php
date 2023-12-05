@@ -25,7 +25,7 @@
         Dans un premier temps.
     </h2>
     <p class="mb-6 font-light text-gray-500 md:text-lg dark:text-gray-400">
-        Indiquez nous le job de vos rêves (ou pas) auquel vous voulez postuler, le type de contrat et le nombre d'années d'expériences.
+        Indiquez-nous le job de vos rêves (ou pas) auquel vous voulez postuler, le type de contrat et le nombre d'années d'expériences.
     </p>
     <form method="post" action="{{ route('letters.create.step.job.post') }}">
         @csrf

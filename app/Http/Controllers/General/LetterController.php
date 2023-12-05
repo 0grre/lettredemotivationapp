@@ -57,7 +57,6 @@ class LetterController extends Controller
             "appellation_id" => $appellation->id
         ]);
         $request->session()->put('letter', $letter);
-        $request->session()->save();
 
         return redirect()->route('letters.create.step.company');
     }
@@ -81,12 +80,13 @@ class LetterController extends Controller
         $request->validated();
 
         $letter = $request->session()->get('letter');
-        $letter->fill($request->all());
+
         $letter->fill([
+            "company" => $request->company,
+            "localization" => $request->localization,
             "title" => ucfirst($letter->company) . " " . $letter->appellation->libelle
         ]);
         $request->session()->put('letter', $letter);
-        $request->session()->save();
 
         return redirect()->route('letters.create.step.name');
     }
@@ -128,7 +128,6 @@ class LetterController extends Controller
         $letter->save();
 
         $request->session()->put('letter', $letter);
-        $request->session()->save();
 
         return redirect()->route('letter.created');
     }
