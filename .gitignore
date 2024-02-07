@@ -18,10 +18,7 @@ yarn-error.log
 /.idea
 /.vscode
 /yarn.lock
-/composer.lock
-package-lock.json
 /.data/
 /log/
-/packages/
 /fly.toml
 /fly.toml.txt
