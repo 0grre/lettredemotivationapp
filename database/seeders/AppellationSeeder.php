@@ -41,7 +41,7 @@ class AppellationSeeder extends Seeder
         $appellations = collect(json_decode($res->getBody()));
 
         foreach($appellations as $appellation){
-            Appellation::create([
+            Appellation::firstOrCreate([
                 "code" => $appellation->code,
                 "libelle" => $appellation->libelle
             ]);
