@@ -233,6 +233,8 @@ class LetterController extends Controller
      */
     public function show(Letter $letter): View
     {
+        $this->authorize('view', $letter);
+
         return view('letter.show', [
             'letter' => $letter,
         ]);

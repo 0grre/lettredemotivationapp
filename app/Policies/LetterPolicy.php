@@ -21,8 +21,9 @@ class LetterPolicy
      */
     public function view(User $user, Letter $letter): bool
     {
-        //
+        return $user->id === $letter->user_id;
     }
+
 
     /**
      * Determine whether the user can create models.
