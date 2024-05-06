@@ -27,7 +27,7 @@ class AppellationSeeder extends Seeder
                 'client_secret' => env('POLE_EMPLOI_CLIENT_SECRET'),
                 'scope' => env('POLE_EMPLOI_SCOPE'),
             ]];
-        $request = new Request('POST', 'https://entreprise.pole-emploi.fr/connexion/oauth2/access_token?realm=/partenaire', $headers);
+        $request = new Request('POST', 'https://entreprise.francetravail.fr/connexion/oauth2/access_token?realm=/partenaire', $headers);
         $res = $client->sendAsync($request, $options)->wait();
         $token = json_decode($res->getBody())->access_token;
 
@@ -35,7 +35,7 @@ class AppellationSeeder extends Seeder
             'Authorization' => 'Bearer ' . $token,
         ];
 
-        $request = new Request('GET', 'https://api.pole-emploi.io/partenaire/rome-metiers/v1/metiers/appellation', $headers);
+        $request = new Request('GET', 'https://api.francetravail.io/partenaire/rome-metiers/v1/metiers/appellation', $headers);
         $res = $client->sendAsync($request)->wait();
 
         $appellations = collect(json_decode($res->getBody()));

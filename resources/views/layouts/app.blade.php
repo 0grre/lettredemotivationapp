@@ -20,17 +20,7 @@
     <meta name="author" content="0grre"/>
     <meta name="description" content="Générez des lettres de motivation professionnelles
     ou des exemple de lettre de motivation en quelques clics grâce à notre IA alimentée avec les données de Pôle Emploi."/>
-    <meta name="keywords" content="
-    lettre de motivation,
-    lettre de motivation exemple,
-    exemple lettre de motivation,
-    modèle lettre de motivation,
-    exemple de lettre de motivation,
-    lettre de motivation alternance,
-    lettre de motivation parcoursup,
-    lettre de motivation stage 3eme,
-    lettre de motivation candidature spontanée"
-    />
+    <meta name="keywords" content="exemple lettre de motivation"/>
 
     <!-- Analytics   -->
 
@@ -51,6 +41,7 @@
             spinner.classList.add('flex')
         }
     </script>
+    {!! ReCaptcha::htmlScriptTagJsApi() !!}
     <livewire:styles/>
 </head>
 <body class="antialiased bg-gray-100 dark:bg-gray-900">

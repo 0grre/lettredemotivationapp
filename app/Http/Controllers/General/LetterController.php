@@ -11,6 +11,7 @@ use App\Models\Appellation;
 use App\Models\Letter;
 use App\Models\User;
 use Barryvdh\DomPDF\Facade\Pdf as PDF;
+use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
@@ -230,6 +231,7 @@ class LetterController extends Controller
     /**
      * @param Letter $letter
      * @return View
+     * @throws AuthorizationException
      */
     public function show(Letter $letter): View
     {
@@ -244,7 +246,7 @@ class LetterController extends Controller
      * @param Letter $letter
      * @return Response
      */
-    public function download(Letter $letter)
+    public function download(Letter $letter): Response
     {
         $title = $letter->title ? ucfirst($letter->title) : ucfirst($letter->company) . " - " . $letter->appellation->libelle;
 
@@ -256,7 +258,7 @@ class LetterController extends Controller
      * @param Letter $letter
      * @return RedirectResponse
      */
-    public function regenerate(Letter $letter)
+    public function regenerate(Letter $letter): RedirectResponse
     {
         if (!Auth::user()->debitAccountBalance(1)) {
             return back()->withErrors(["insufficient_amount" => "Montant de crédit insuffisant pour cette action"]);
@@ -274,7 +276,7 @@ class LetterController extends Controller
      * @param Letter $letter
      * @return RedirectResponse
      */
-    public function increase(Letter $letter)
+    public function increase(Letter $letter): RedirectResponse
     {
         if (!Auth::user()->debitAccountBalance(1)) {
             return back()->withErrors(["insufficient_amount" => "Montant de crédit insuffisant pour cette action"]);
@@ -291,7 +293,7 @@ class LetterController extends Controller
      * @param Letter $letter
      * @return RedirectResponse
      */
-    public function reduce(Letter $letter)
+    public function reduce(Letter $letter): RedirectResponse
     {
         if (!Auth::user()->debitAccountBalance(1)) {
             return back()->withErrors(["insufficient_amount" => "Montant de crédit insuffisant pour cette action"]);
@@ -320,7 +322,7 @@ class LetterController extends Controller
      * @param Letter $letter
      * @return RedirectResponse
      */
-    public function restore(Letter $letter)
+    public function restore(Letter $letter): RedirectResponse
     {
         $letter->archived_at = null;
         $letter->save();
@@ -332,7 +334,7 @@ class LetterController extends Controller
      * @param Letter $letter
      * @return RedirectResponse
      */
-    public function delete(Letter $letter)
+    public function delete(Letter $letter): RedirectResponse
     {
         $letter->delete();
 
