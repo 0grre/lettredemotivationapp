@@ -50,6 +50,12 @@ console_command = 'php /var/www/html/artisan tinker'
   min_machines_running = 0
   processes = ['app']
 
+[processes]
+app = ""
+cron = "cron -f"
+worker = "php artisan queue:work --timeout=3600"
+
+
 [[vm]]
   cpu_kind = 'shared'
   cpus = 1
