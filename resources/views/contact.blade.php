@@ -11,6 +11,7 @@
             <form method="post" action="{{ route('contact.send') }}" class="mt-6 space-y-6">
                 @csrf
                 @method('post')
+                {!! RecaptchaV3::field('contact') !!}
                 <div class="sm:col-span-2">
                     <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Votre
                         nom</label>

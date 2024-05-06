@@ -23,12 +23,21 @@
     <meta name="keywords" content="exemple lettre de motivation"/>
 
     <!-- Analytics   -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-DDHL92DQPG"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-DDHL92DQPG');
+    </script>
+
+    <!-- ReCaptcha v3 -->
+    {!! RecaptchaV3::initJs() !!}
 
     <!-- Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
-
     <script>
-        // On page load or when changing themes, best to add inline in `head` to avoid FOUC
         if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
             document.documentElement.classList.add('dark');
         } else {
@@ -41,7 +50,8 @@
             spinner.classList.add('flex')
         }
     </script>
-    {!! ReCaptcha::htmlScriptTagJsApi() !!}
+
+    <!-- Livewire -->
     <livewire:styles/>
 </head>
 <body class="antialiased bg-gray-100 dark:bg-gray-900">

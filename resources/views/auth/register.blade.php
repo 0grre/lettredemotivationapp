@@ -8,6 +8,7 @@
                 <x-google.login/>
                 <form class="space-y-4 md:space-y-6" method="POST" action="{{ route('register') }}">
                     @csrf
+                    {!! RecaptchaV3::field('register') !!}
                     <div>
                         <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
                             Ton prénom et ton nom
