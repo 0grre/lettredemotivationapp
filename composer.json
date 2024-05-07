@@ -23,7 +23,8 @@
         "ogrre/laravel-chatgpt": "1.0.5",
         "ogrre/laravel-pole-emploi": "1.0.0",
         "openai-php/client": "^0.6.2",
-        "predis/predis": "^2.2"
+        "predis/predis": "^2.2",
+        "spatie/laravel-cookie-consent": "^3.3"
     },
     "require-dev": {
         "fakerphp/faker": "^1.9.1",

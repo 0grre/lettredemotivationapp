@@ -67,6 +67,14 @@ class PageController extends Controller
     /**
      * @return View
      */
+    public function cookie(): View
+    {
+        return view('cookie');
+    }
+
+    /**
+     * @return View
+     */
     public function dashboard(): View
     {
         return view('dashboard', [

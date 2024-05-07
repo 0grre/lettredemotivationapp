@@ -26,6 +26,7 @@ Route::get('/pricing', [PageController::class, 'pricing'])->name('pricing');
 Route::get('/contact', [PageController::class, 'contact'])->name('contact');
 Route::get('/terms', [PageController::class, 'terms'])->name('terms');
 Route::get('/privacy', [PageController::class, 'privacy'])->name('privacy');
+Route::get('/cookie', [PageController::class, 'cookie'])->name('cookie');
 
 Route::post('/contact', [ContactController::class, 'send'])->name('contact.send');
 

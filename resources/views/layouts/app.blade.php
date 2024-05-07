@@ -79,6 +79,7 @@
     </div>
 </div>
 {{ $slot }}
+@include('cookie-consent::index')
 <livewire:scripts/>
 </body>
 </html>
