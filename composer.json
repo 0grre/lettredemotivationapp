@@ -24,7 +24,8 @@
         "ogrre/laravel-pole-emploi": "1.0.0",
         "openai-php/client": "^0.6.2",
         "predis/predis": "^2.2",
-        "spatie/laravel-cookie-consent": "^3.3"
+        "spatie/laravel-cookie-consent": "^3.3",
+        "spatie/laravel-sitemap": "^7.2"
     },
     "require-dev": {
         "fakerphp/faker": "^1.9.1",
