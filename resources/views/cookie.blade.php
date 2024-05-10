@@ -7,10 +7,11 @@
         </div>
         <div
             class="mx-auto max-w-[40rem] prose-base prose text-slate-500 prose-h3:text-black prose-a:font-semibold prose-a:text-accent-300 hover:prose-a:text-black">
-            <p>
+
             <h2 class="my-4 text-2xl tracking-tight font-extrabold text-gray-900 dark:text-white">
                 À propos des cookies obligatoires
             </h2>
+            <p>
                 Cher utilisateur,
                 <br>
                 <br>
