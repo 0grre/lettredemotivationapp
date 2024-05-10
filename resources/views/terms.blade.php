@@ -46,7 +46,7 @@
                         <h2 class="my-4 text-2xl tracking-tight font-extrabold text-gray-900 dark:text-white">
                             Politique de Confidentialité
                         </h2>
-                        <p>Consultez notre <a href="[Insérer le lien vers votre politique de confidentialité]">Politique
+                        <p>Consultez notre <a href="{{ route('privacy') }}">Politique
                                 de Confidentialité</a> pour en savoir plus sur la manière dont nous collectons,
                             utilisons et protégeons vos données personnelles.</p>
                     </div>
