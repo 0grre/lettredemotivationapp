@@ -8,19 +8,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <meta name="csrf-token" content="{{ csrf_token() }}">
+    <meta name="author" content="lettredemotivation.app"/>
+    <meta name="robots" content="index, follow"/>
+    <meta name="keywords" content="lettre de motivation, générateur, modèle, exemple, gratuit, en ligne"/>
+    <x-seo::meta />
 
-    <title>Lettre de motivation - Exemple de lettre de motivation</title>
-
-    <link rel="icon" href="{{ asset('assets/app.ico') }}">
+    <link rel="icon" href="{{ asset('favicon.ico') }}">
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet"/>
 
-    <meta name="author" content="0grre"/>
-    <meta name="description" content="Générez des lettres de motivation professionnelles
-    ou des exemple de lettre de motivation en quelques clics grâce à notre IA alimentée avec les données de Pôle Emploi."/>
-    <meta name="keywords" content="exemple lettre de motivation"/>
 
     <!-- Analytics   -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-DDHL92DQPG"></script>

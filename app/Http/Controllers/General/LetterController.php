@@ -27,6 +27,10 @@ class LetterController extends Controller
      */
     public function createStepJob(): View
     {
+        seo()->title('Créer une lettre de motivation - LettreDeotivation.app')
+            ->description('Créer une lettre de motivation en ligne')
+            ->twitter();
+
         return view('first-letter.base-form', [
             'appellations' => Appellation::all(),
             'step' => 'job'
@@ -67,6 +71,10 @@ class LetterController extends Controller
      */
     public function createStepCompany(): View
     {
+        seo()->title('Créer une lettre de motivation - LettreDeotivation.app')
+            ->description('Créer une lettre de motivation en ligne')
+            ->twitter();
+
         return view('first-letter.base-form', [
             'step' => 'company'
         ]);
@@ -97,6 +105,10 @@ class LetterController extends Controller
      */
     public function createStepName(): View
     {
+        seo()->title('Créer une lettre de motivation - LettreDeotivation.app')
+            ->description('Créer une lettre de motivation en ligne')
+            ->twitter();
+
         return view('first-letter.base-form', [
             'step' => 'name'
         ]);
@@ -153,6 +165,10 @@ class LetterController extends Controller
      */
     public function create(): View
     {
+        seo()->title('Créer une lettre de motivation - LettreDeMotivation.app')
+            ->description('Créer une lettre de motivation en ligne')
+            ->twitter();
+
         return view('letter.store', [
             'appellations' => Appellation::all(),
             'step' => 'one'
@@ -164,6 +180,10 @@ class LetterController extends Controller
      */
     public function index(): View
     {
+        seo()->title('Mes lettres de motivation - LettreDeMotivation.app')
+            ->description('Liste de vos lettres de motivation')
+            ->twitter();
+
         return view('letter.index', [
             'letters' => Auth::user()->letters()->where('archived_at', null)->get(),
         ]);
@@ -174,6 +194,10 @@ class LetterController extends Controller
      */
     public function archives(): View
     {
+        seo()->title('Archives - LettreDeMotivation.app')
+            ->description('Liste de vos lettres de motivation archivées')
+            ->twitter();
+
         return view('letter.archives', [
             'letters' => Auth::user()->letters()->whereNotNull('archived_at')->paginate(10),
         ]);
@@ -235,6 +259,10 @@ class LetterController extends Controller
      */
     public function show(Letter $letter): View
     {
+        seo()->title('Lettre de motivation - LettreDeMotivation.app')
+            ->description('Détails de la lettre de motivation')
+            ->twitter();
+
         $this->authorize('view', $letter);
 
         return view('letter.show', [
