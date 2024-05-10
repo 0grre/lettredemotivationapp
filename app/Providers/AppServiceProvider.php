@@ -31,6 +31,7 @@ class AppServiceProvider extends ServiceProvider
                 default: 'Lettre De Motivation — Générateur de lettre de motivation en ligne',
                 modify: fn (string $title) => $title . ' | LettreDeMotivation.app'
             )
-            ->image(default: fn () => asset('bg.jpeg'));
+            ->twitterSite('@_0grre')
+            ->image(default: fn () => asset('bg.jpg'));
     }
 }

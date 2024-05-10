@@ -6,6 +6,7 @@ use App\Http\Controllers\General\PageController;
 use App\Http\Controllers\General\ProfileController;
 use App\Http\Controllers\Stripe\CheckoutController;
 use Illuminate\Support\Facades\Route;
+use Spatie\Sitemap\SitemapGenerator;
 
 /*
 |--------------------------------------------------------------------------
@@ -79,18 +80,8 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::delete('/letters/delete/{letter}', [LetterController::class, 'delete'])->name('letters.delete');
 });
 
-Route::get('/mailable', function () {
+Route::get('/test', function () {
 
-    $user = \App\Models\User::find(1);
-
-    return new App\Mail\ContactMail([
-        'name' => 'name',
-        'email' => 'email',
-        'subject' => 'subject',
-        'message' => 'message',
-    ]);
-
-//    return new App\Mail\ResetPasswordMail(\App\Models\User::find(1), '542994956730a4b0a8f6df28e4f2db97e19b01eea9def4f95b64c51b19e4a664');
 });
 
 require __DIR__ . '/auth.php';
