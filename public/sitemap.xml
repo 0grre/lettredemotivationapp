@@ -21,27 +21,17 @@
         <priority>0.8</priority>
             </url>
     <url>
-        <loc>https://lettredemotivation.app/faq</loc>
-            <changefreq>daily</changefreq>
-        <priority>0.8</priority>
-            </url>
-    <url>
         <loc>https://lettredemotivation.app/checkout-product/price_1Nmu1wAtWX7nivf0oBE0aEn0</loc>
             <changefreq>daily</changefreq>
         <priority>0.8</priority>
             </url>
     <url>
-        <loc>https://lettredemotivation.app/terms</loc>
+        <loc>https://lettredemotivation.app/faq</loc>
             <changefreq>daily</changefreq>
         <priority>0.8</priority>
             </url>
     <url>
         <loc>https://lettredemotivation.app/contact</loc>
-            <changefreq>daily</changefreq>
-        <priority>0.8</priority>
-            </url>
-    <url>
-        <loc>https://lettredemotivation.app/cookie</loc>
             <changefreq>daily</changefreq>
         <priority>0.8</priority>
             </url>
@@ -56,6 +46,16 @@
         <priority>0.8</priority>
             </url>
     <url>
+        <loc>https://lettredemotivation.app/terms</loc>
+            <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+            </url>
+    <url>
+        <loc>https://lettredemotivation.app/cookie</loc>
+            <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+            </url>
+    <url>
         <loc>https://lettredemotivation.app/forgot-password</loc>
             <changefreq>daily</changefreq>
         <priority>0.8</priority>
@@ -66,12 +66,12 @@
         <priority>0.8</priority>
             </url>
     <url>
-        <loc>https://lettredemotivation.app/pricing</loc>
+        <loc>https://lettredemotivation.app</loc>
             <changefreq>daily</changefreq>
         <priority>0.8</priority>
             </url>
     <url>
-        <loc>https://lettredemotivation.app</loc>
+        <loc>https://lettredemotivation.app/pricing</loc>
             <changefreq>daily</changefreq>
         <priority>0.8</priority>
             </url>

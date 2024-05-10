@@ -80,8 +80,12 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::delete('/letters/delete/{letter}', [LetterController::class, 'delete'])->name('letters.delete');
 });
 
-Route::get('/test', function () {
+Route::get('/sitemap-generation', function () {
 
+    SitemapGenerator::create(config('app.url'))
+        ->writeToFile(public_path('sitemap.xml'));
+
+    return 'Sitemap generated';
 });
 
 require __DIR__ . '/auth.php';
