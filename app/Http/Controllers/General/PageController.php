@@ -13,7 +13,7 @@ class PageController extends Controller
      */
     public function home(): View
     {
-        seo()->title('Exemple de lettre de motivation - LettreDeMotivation.app')
+        seo()->title('Exemple de lettre de motivation')
             ->description('Générateur de lettre de motivation en ligne')
             ->withUrl()
             ->twitter();
@@ -26,7 +26,7 @@ class PageController extends Controller
      */
     public function faq(): View
     {
-        seo()->title('FAQ - LettreDeMotivation.app')
+        seo()->title('FAQ')
             ->description('Foire aux questions sur la lettre de motivation')
             ->withUrl()
             ->twitter();
@@ -39,7 +39,7 @@ class PageController extends Controller
      */
     public function pricing(): View
     {
-        seo()->title('Tarifs - LettreDeMotivation.app')
+        seo()->title('Tarifs')
             ->description('Tarifs de la génération de lettre de motivation')
             ->withUrl()
             ->twitter();
@@ -52,7 +52,7 @@ class PageController extends Controller
      */
     public function credits(): View
     {
-        seo()->title('Crédits - LettreDeMotivation.app')
+        seo()->title('Crédits')
             ->description('Acheter des crédits pour générer des lettres de motivation')
             ->withUrl()
             ->twitter();
@@ -65,7 +65,7 @@ class PageController extends Controller
      */
     public function contact(): View
     {
-        seo()->title('Contact - LettreDeMotivation.app')
+        seo()->title('Contact')
             ->description('Contacter le support de LettreDeMotivation.app')
             ->withUrl()
             ->twitter();
@@ -78,7 +78,7 @@ class PageController extends Controller
      */
     public function terms(): View
     {
-        seo()->title('Conditions générales - LettreDeMotivation.app')
+        seo()->title('Conditions générales')
             ->description('Conditions générales d\'utilisation de LettreDeMotivation.app')
             ->twitter();
 
@@ -90,7 +90,7 @@ class PageController extends Controller
      */
     public function privacy(): View
     {
-        seo()->title('Politique de confidentialité - LettreDeMotivation.app')
+        seo()->title('Politique de confidentialité')
             ->description('Politique de confidentialité de LettreDeMotivation.app')
             ->withUrl()
             ->twitter();
@@ -103,7 +103,7 @@ class PageController extends Controller
      */
     public function cookie(): View
     {
-        seo()->title('Cookies - LettreDeMotivation.app')
+        seo()->title('Cookies')
             ->description('Politique de cookies de LettreDeMotivation.app')
             ->withUrl()
             ->twitter();
@@ -116,7 +116,7 @@ class PageController extends Controller
      */
     public function dashboard(): View
     {
-        seo()->title('Tableau de bord - LettreDeMotivation.app')
+        seo()->title('Tableau de bord')
             ->description('Tableau de bord de LettreDeMotivation.app')
             ->withUrl()
             ->twitter();

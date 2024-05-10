@@ -25,5 +25,12 @@ class AppServiceProvider extends ServiceProvider
         RateLimiter::for('global', function (Request $request) {
             return Limit::perMinute(100);
         });
+
+        seo()->site('Exemple de lettre de motivation — LettreDeMotivation.app')
+            ->title(
+                default: 'Lettre De Motivation — Générateur de lettre de motivation en ligne',
+                modify: fn (string $title) => $title . ' | LettreDeMotivation.app'
+            )
+            ->image(default: fn () => asset('bg.jpeg'));
     }
 }

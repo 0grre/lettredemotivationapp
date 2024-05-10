@@ -17,7 +17,7 @@ class ProfileController extends Controller
      */
     public function edit(Request $request): View
     {
-        seo()->title('Profil - LettreDeMotivation.app')
+        seo()->title('Profil')
             ->description('Modifier votre profil')
             ->twitter();
 
