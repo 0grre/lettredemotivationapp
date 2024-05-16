@@ -18,10 +18,6 @@ use Spatie\Sitemap\SitemapGenerator;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-/** Redirect */
-Route::get('/lettredemotivation.fly.dev', function () {
-    return redirect('https://lettredemotivation.app');
-});
 
 /** Public */
 Route::get('/', [PageController::class, 'home'])->name('home');
